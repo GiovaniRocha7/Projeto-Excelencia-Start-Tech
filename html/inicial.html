@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExcelêncIA - Dashboard</title>
+    <link rel="stylesheet" href="../css/inicial.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="/js/inicial.js" defer></script>
+
+    <!-- -------------- FONTE PRINCIPAL ---------------->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <!-- -------------- FIM FONTE PRINCIPAL ---------------->
+
+    <!-- ................ FONTE LEXEND ....................  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <!-- ................ FONTE LEXEND ....................  -->
+
+
+    <!-- ....................... FONTE COMFORTAA .....................  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <!-- ....................... FONTE COMFORTAA .....................  -->
+
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <img src="../assets/tema escuro/logo-excelencia.PNG" alt="Logo ExcelêncIA" class="logo">
+    </div>
+
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#" class="nav-link">Dashboard</a>
+        <a href="#" class="nav-link">Relatórios</a>
+        <a href="#" class="nav-link">Histórico</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="theme-toggle">
+          <input type="checkbox" id="toggle">
+          <label for="toggle" class="toggle">
+            <svg class="icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            <svg class="icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </label>
+        </div>
+
+        <div class="perfil-dropdown">
+          <button class="perfil-btn">
+            <img src="../assets/tema escuro/perfil.png" alt="Foto Perfil" class="avatar">
+            <span class="nome-usuario">Dani</span>
+            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </button>
+
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">
+              <span>Meu Perfil</span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <span>Configurações</span>
+            </a>
+            <hr>
+            <a href="#" class="dropdown-item text-red">
+              <span>Sair</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <h1>Bem-vindo de volta!</h1>
+      <p>Escolha uma opção para começar</p>
+    </section>
+
+    <section class="opcoes">
+      <div class="card conversa">
+        <div class="card-content">
+          <h2>Nova Conversa</h2>
+          <p>Converse por texto com a IA</p>
+          <button>Começar →</button>
+        </div>
+        <div class="card-icon">💬</div>
+      </div>
+
+      <div class="card simulacao">
+        <div class="card-content">
+          <h2>Simulação em Voz</h2>
+          <p>Pratique entrevistas com áudio</p>
+          <button>Iniciar →</button>
+        </div>
+        <div class="card-icon">🎙️</div>
+      </div>
+    </section>
+
+    <section class="historico">
+      <h3>Atividades Recentes</h3>
+      <div class="atividades">
+        <div class="atividade">
+          <span class="tipo">Conversa</span>
+          <p>Entrevista para Desenvolvedor Frontend</p>
+          <span class="data">Hoje, 14:30</span>
+        </div>
+        <div class="atividade">
+          <span class="tipo">Simulação</span>
+          <p>Entrevista em Inglês - Nível Intermediário</p>
+          <span class="data">Ontem, 16:45</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>

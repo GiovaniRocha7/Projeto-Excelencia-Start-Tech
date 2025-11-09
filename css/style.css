@@ -791,10 +791,10 @@ button:hover {
 /* ............................. PLANOS ..............................  */
 
         .container-planos {
-            max-width: 1400px;
-            margin: 0 auto;
             padding: 50px;
             padding-bottom: 100px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .cabecalho {
@@ -994,17 +994,20 @@ button:hover {
 
 
 
+/* ........................ RODAPÉ .......................  */
 
-/* ............................... RODAPÉ ..............................  */
         .conteudo-principal {
             flex: 1;
         }
 
         .rodape {
-            background-color: #021123;
+            background-color: #02142b;
             color: #fff;
             padding: 60px 0 30px;
-            border-top: 1px solid #1a1a1a;
+            width: 100%;
+            margin: 0;
+            box-sizing: border-box;
+            margin-top: auto;
         }
 
         .largura-maxima {
@@ -1045,7 +1048,7 @@ button:hover {
         }
 
         .lista-links a:hover {
-            color: #d97706;
+            color: var(--cor-secundaria);
         }
 
         .secao-inferior {
@@ -1104,11 +1107,15 @@ button:hover {
 
         @media (max-width: 768px) {
             .rodape {
-                padding: 40px 0 20px;
+                padding: 40px 0 0;
+                width: 100%;
+                margin: 0;
             }
 
             .largura-maxima {
                 padding: 0 20px;
+                width: 100%;
+                box-sizing: border-box;
             }
 
             .grade-colunas {
@@ -1120,6 +1127,11 @@ button:hover {
                 flex-direction: column;
                 text-align: center;
             }
-        }
-/* ............................... RODAPÉ ..............................  */
 
+            .redes-sociais {
+                justify-content: center;
+                padding-bottom: 30px;
+            }
+        }
+
+/* ........................ RODAPÉ .......................  */
