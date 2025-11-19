@@ -9,7 +9,7 @@
 
 :root {
     --cor-principal: #011936;
-    --cor-secundaria: #A9DBB8;
+    --cor-secundaria: #7701B7;
     --cor-terciaria: #E2E2E2;
 }
 
@@ -95,7 +95,7 @@ header {
 
 #planoslink:hover {
     background-color: var(--cor-secundaria);
-    color: var(--cor-principal);
+    color: whitesmoke;
     border: 1px solid var(--cor-secundaria);
     transition: 0.6s;
 }
@@ -112,7 +112,7 @@ button {
 
 button:hover {
     background-color: var(--cor-secundaria);
-    color: var(--cor-principal);
+    color: whitesmoke;
     transition: 0.6s;
 }
 
@@ -790,200 +790,155 @@ button:hover {
 
 /* ............................. PLANOS ..............................  */
 
-        .container-planos {
-            padding: 50px;
-            padding-bottom: 100px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+.container-planos {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
 
-        .cabecalho {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+    color: white;
+}
 
-        .cabecalho h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
 
-        .cabecalho p {
-            font-size: 20px;
-            color: #a0a0a0;
-        }
+.header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
 
-        .grade-planos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
+.plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: stretch;
+}
 
-        .cartao-plano {
-            background: rgba(30, 30, 30, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
+.plan {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    
+}
 
-        .cartao-plano:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
+.plan:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 3px solid var(--cor-secundaria);      
+}
 
-        .cartao-plano.destaque {
-            background: rgba(50, 50, 50, 0.8);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            position: relative;
-        }
+.plan.featured {
+    border: 3px solid var(--cor-secundaria);
+    transform: scale(1.05);
+}
 
-        .cartao-plano.destaque::before {
-            content: 'POPULAR';
-            position: absolute;
-            top: -12px;
-            right: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 6px 20px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
+.plan.featured:hover {
+    transform: scale(1.05) translateY(-10px);   
+}
 
-        .icone-plano {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.plan-badge {
+    background: linear-gradient(135deg, #7701B7 0%, #212278 100%);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 20px;
+}
 
-        .icone-arvore {
-            width: 40px;
-            height: 40px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-        }
+.plan-name {
+    font-size: 1.8em;
+    color: whitesmoke;
+    margin-bottom: 15px;
+    font-weight: bold;
+    
+}
 
-        .nome-plano {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
+.plan-price {
+    font-size: 3em;
+    color: whitesmoke;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
-        .descricao-plano {
-            color: #a0a0a0;
-            font-size: 16px;
-            margin-bottom: 24px;
-        }
+.plan-price span {
+    font-size: 0.4em;
+    color: #666;
+    font-weight: normal;
+}
 
-        .preco-plano {
-            margin-bottom: 8px;
-        }
+.plan-description {
+    color: whitesmoke;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
 
-        .valor-preco {
-            font-size: 48px;
-            font-weight: 700;
-        }
+.plan-features {
+    list-style: none;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
 
-        .detalhes-preco {
-            color: #808080;
-            font-size: 14px;
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
+.plan-features li {
+    padding: 12px 0;
+    color: #555;
+    border-bottom: 1px solid #eee;
+    color: whitesmoke;
+}
 
-        .botao-acao {
-            width: 100%;
-            padding: 16px;
-            background: #ffffff;
-            color: #000000;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 32px;
-        }
+.plan-features li:before {
+    content: "✓";
+    color: var(--cor-secundaria);
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1.2em;
+    
+}
 
-        .botao-acao:hover {
-            background: #e0e0e0;
-            transform: scale(1.02);
-        }
+.plan-button {
+    background: linear-gradient(135deg, #7701B7 0%, #212278 100%);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    width: 100%;
+}
 
-        .secao-recursos {
-            margin-top: 32px;
-        }
+.plan-button:hover {
+    opacity: 0.9;
+}
 
-        .titulo-recursos {
-            font-size: 14px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+.plan.featured .plan-button {
+    background: linear-gradient(135deg, #7701B7 0%, #212278 100%);
+}
 
-        .lista-recursos {
-            list-style: none;
-        }
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
 
-        .item-recurso {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 16px;
-            font-size: 15px;
-            line-height: 1.6;
-            color: #d0d0d0;
-        }
+    .plan.featured {
+        transform: scale(1);
+    }
 
-        .item-recurso::before {
-            content: '✓';
-            color: #667eea;
-            font-weight: 700;
-            margin-right: 12px;
-            flex-shrink: 0;
-        }
-
-        .recurso-especial {
-            color: #667eea;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            margin-top: 24px;
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .recurso-especial::before {
-            content: '⚡';
-            margin-right: 8px;
-        }
-
-        @media (max-width: 768px) {
-            .grade-planos {
-                grid-template-columns: 1fr;
-            }
-
-            .cabecalho h1 {
-                font-size: 36px;
-            }
-
-            .cartao-plano {
-                padding: 30px;
-            }
-        }
+    .plan.featured:hover {
+        transform: translateY(-10px);
+    }
+}
 
 
 /* ............................. PLANOS ..............................  */
@@ -996,143 +951,143 @@ button:hover {
 
 /* ........................ RODAPÉ .......................  */
 
-        .conteudo-principal {
-            flex: 1;
-        }
+.conteudo-principal {
+    flex: 1;
+}
 
-        .rodape {
-            background-color: #02142b;
-            color: #fff;
-            padding: 60px 0 30px;
-            width: 100%;
-            margin: 0;
-            box-sizing: border-box;
-            margin-top: auto;
-        }
+.rodape {
+    background-color: #02142b;
+    color: #fff;
+    padding: 60px 0 30px;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    margin-top: auto;
+}
 
-        .largura-maxima {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
+.largura-maxima {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
 
-        .grade-colunas {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
-        }
+.grade-colunas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 50px;
+    margin-bottom: 50px;
+}
 
-        .coluna-rodape h3 {
-            font-size: 14px;
-            font-weight: 500;
-            color: #999;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+.coluna-rodape h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
-        .lista-links {
-            list-style: none;
-        }
+.lista-links {
+    list-style: none;
+}
 
-        .lista-links li {
-            margin-bottom: 12px;
-        }
+.lista-links li {
+    margin-bottom: 12px;
+}
 
-        .lista-links a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.2s ease;
-        }
+.lista-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
 
-        .lista-links a:hover {
-            color: var(--cor-secundaria);
-        }
+.lista-links a:hover {
+    color: var(--cor-secundaria);
+}
 
-        .secao-inferior {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 30px;
-            border-top: 1px solid #1a1a1a;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+.secao-inferior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid #1a1a1a;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 
-        .logo-marca {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+.logo-marca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-        .logo-icone img {
-            width: 150px;
-            height: auto;
-        }
+.logo-icone img {
+    width: 150px;
+    height: auto;
+}
 
-        .logo-texto {
-            font-size: 20px;
-            font-weight: 600;
-        }
+.logo-texto {
+    font-size: 20px;
+    font-weight: 600;
+}
 
-        .texto-copyright {
-            color: #666;
-            font-size: 14px;
-        }
+.texto-copyright {
+    color: #666;
+    font-size: 14px;
+}
 
-        .redes-sociais {
-            display: flex;
-            gap: 15px;
-        }
+.redes-sociais {
+    display: flex;
+    gap: 15px;
+}
 
-        .icone-social {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
+.icone-social {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
 
-        .icone-social:hover {
-            background-color: var(--cor-secundaria);
-            transform: translateY(-2px);
-        }
+.icone-social:hover {
+    background-color: var(--cor-secundaria);
+    transform: translateY(-2px);
+}
 
-        @media (max-width: 768px) {
-            .rodape {
-                padding: 40px 0 0;
-                width: 100%;
-                margin: 0;
-            }
+@media (max-width: 768px) {
+    .rodape {
+        padding: 40px 0 0;
+        width: 100%;
+        margin: 0;
+    }
 
-            .largura-maxima {
-                padding: 0 20px;
-                width: 100%;
-                box-sizing: border-box;
-            }
+    .largura-maxima {
+        padding: 0 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
 
-            .grade-colunas {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-            }
+    .grade-colunas {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
 
-            .secao-inferior {
-                flex-direction: column;
-                text-align: center;
-            }
+    .secao-inferior {
+        flex-direction: column;
+        text-align: center;
+    }
 
-            .redes-sociais {
-                justify-content: center;
-                padding-bottom: 30px;
-            }
-        }
+    .redes-sociais {
+        justify-content: center;
+        padding-bottom: 30px;
+    }
+}
 
 /* ........................ RODAPÉ .......................  */
 
@@ -1141,19 +1096,19 @@ button:hover {
 
 
 
- /* .................... MODAL LOGIN.................... */
- .janela_escura {
-    position: fixed; 
+/* .................... MODAL LOGIN.................... */
+.janela_escura {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); 
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
-    display: flex;           
-    justify-content: center; 
-    align-items: center;     
-    opacity: 0;             
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
@@ -1167,14 +1122,15 @@ button:hover {
 .modal {
     background-color: rgba(17, 24, 39, 1);
     width: 90%;
-
-    max-width: 450px; 
+    max-width: 450px;
     padding: 1.5rem;
     border-radius: 1rem;
     color: rgba(243, 244, 246, 1);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    position: relative; /* Para o botão fechar absoluto funcionar dentro dele */
-    display: none; /* Escondido por padrão, JS mostra o correto */
+    position: relative;
+    /* Para o botão fechar absoluto funcionar dentro dele */
+    display: none;
+    /* Escondido por padrão, JS mostra o correto */
 }
 
 /* Animação de entrada do modal */
@@ -1183,8 +1139,15 @@ button:hover {
 }
 
 @keyframes slideIn {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .fechar {
@@ -1209,7 +1172,7 @@ button:hover {
     color: white;
 }
 
-.modal > p {
+.modal>p {
     text-align: center;
     color: #dee3eb;
     margin-bottom: 2rem;
@@ -1218,7 +1181,7 @@ button:hover {
 
 .input-group {
     margin-bottom: 1rem;
-    text-align: left; 
+    text-align: left;
 }
 
 .input-group label {
@@ -1232,7 +1195,7 @@ button:hover {
     width: 100%;
     border-radius: 0.5rem;
     border: 1px solid rgba(55, 65, 81, 1);
-    background-color: rgba(31, 41, 55, 0.5); 
+    background-color: rgba(31, 41, 55, 0.5);
     padding: 0.75rem 1rem;
     color: white;
     font-size: 1rem;
@@ -1251,13 +1214,15 @@ button:hover {
     margin-top: 8px;
 }
 
-.forgot a, .signup a {
+.forgot a,
+.signup a {
     color: var(--cor-secundaria);
     font-size: 0.98rem;
     text-decoration: none;
 }
 
-.forgot a:hover, .signup a:hover {
+.forgot a:hover,
+.signup a:hover {
     text-decoration: underline;
 }
 
@@ -1266,7 +1231,7 @@ button:hover {
     background-color: var(--cor-secundaria);
     padding: 0.75rem;
     text-align: center;
-    color: var(--cor-principal);
+    color: whitesmoke;
     border: none;
     border-radius: 0.5rem;
     font-weight: 700;
@@ -1276,7 +1241,7 @@ button:hover {
 }
 
 .sign:hover {
-    background-color: #98c9a6; 
+    background-color: var(--cor-secundaria);
     transform: translateY(-2px);
 }
 
@@ -1332,4 +1297,5 @@ button:hover {
     font-size: 1rem;
     cursor: pointer;
 }
+
 /* ................ MODAL DE LOGIN FIM .................  */
