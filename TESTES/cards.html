@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil - ExcelencIA</title>
+    <link rel="stylesheet" href="cards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header>
+        <a href="../index.html" class="logo"><img src="../assets/tema escuro/logo-excelencia.PNG" alt="Logo excelencia"></a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Dashboard</a></li>
+                <li><a href="../html/sobre.html">Relatórios</a></li>
+                <li><a href="../index.html#about">Contato</a></li>
+
+                <!-- USER MENU COMPONENT -->
+                <li class="user-menu">
+                    <button id="userAvatarBtn" class="user-avatar-btn" aria-haspopup="true" aria-expanded="false">
+                        <span class="user-avatar" aria-hidden="true">AB</span>
+                        <span class="user-name">Ana Beatriz</span>
+                        <span class="user-arrow" aria-hidden="true">▾</span>
+                    </button>
+
+                    <div id="userDropdown" class="user-dropdown" role="menu" aria-hidden="true">
+                        <a href="#" class="dropdown-item" role="menuitem" id="menuPerfil">Meu Perfil</a>
+                        <a href="#" class="dropdown-item" role="menuitem" id="menuConfiguracoes">Configurações</a>
+                        <button class="dropdown-item sign-out" role="menuitem" id="menuSair">Sair</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container-perfil">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Editar Perfil</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#informacoes" class="nav-item active" data-section="informacoes">
+                    <i class="fas fa-user"></i> Informações Pessoais
+                </a>
+                <a href="#contato" class="nav-item" data-section="contato">
+                    <i class="fas fa-phone"></i> Contato
+                </a>
+                <a href="#endereco" class="nav-item" data-section="endereco">
+                    <i class="fas fa-map-marker-alt"></i> Endereço
+                </a>
+                <a href="#objetivo" class="nav-item" data-section="objetivo">
+                    <i class="fas fa-bullseye"></i> Objetivo Profissional
+                </a>
+                <a href="#formacao" class="nav-item" data-section="formacao">
+                    <i class="fas fa-graduation-cap"></i> Formação Acadêmica
+                </a>
+                <a href="#profissional" class="nav-item" data-section="profissional">
+                    <i class="fas fa-briefcase"></i> Perfil Profissional
+                </a>
+                <a href="#habilidades" class="nav-item" data-section="habilidades">
+                    <i class="fas fa-star"></i> Habilidades e Competências
+                </a>
+                <a href="#idiomas" class="nav-item" data-section="idiomas">
+                    <i class="fas fa-globe"></i> Idiomas
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="logout">
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <form id="formPerfil" class="form-perfil">
+                <!-- HEADER COM FOTO -->
+                <section class="profile-header">
+                    <div class="profile-photo-section">
+                        <div class="profile-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <button type="button" class="btn-change-photo">
+                            <i class="fas fa-camera"></i> Alterar Foto
+                        </button>
+                    </div>
+                </section>
+
+                <!-- 1. INFORMAÇÕES PESSOAIS -->
+                <section id="informacoes" class="form-section active">
+                    <h2 class="section-title">
+                        <i class="fas fa-user-circle"></i> Informações Pessoais
+                    </h2>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="nomeCompleto">Nome Completo *</label>
+                            <input type="text" id="nomeCompleto" placeholder="Digite seu nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dataNascimento">Data de Nascimento *</label>
+                            <input type="date" id="dataNascimento" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpf">CPF *</label>
+                            <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14">
+                        </div>
+                        <div class="form-group">
+                            <label for="genero">Gênero</label>
+                            <select id="genero">
+                                <option value="">Selecione</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="feminino">Feminino</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="estadoCivil">Estado Civil</label>
+                            <select id="estadoCivil">
+                                <option value="">Selecione</option>
+                                <option value="solteiro">Solteiro(a)</option>
+                                <option value="casado">Casado(a)</option>
+                                <option value="divorciado">Divorciado(a)</option>
+                                <option value="viuvo">Viúvo(a)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pcd">PCD - Pessoa com Deficiência</label>
+                            <select id="pcd">
+                                <option value="nao">Não</option>
+                                <option value="sim">Sim</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. CONTATO -->
+                <section id="contato" class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-envelope"></i> Contato
+                    </h2>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" placeholder="seu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone/Celular *</label>
+                            <input type="tel" id="telefone" placeholder="(00) 00000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn</label>
+                            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/seu-perfil">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. ENDEREÇO -->
+                <section id="endereco" class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-map-marker-alt"></i> Endereço
+                    </h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="cep">CEP</label>
+                            <input type="text" id="cep" placeholder="00000-000" maxlength="9">
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado *</label>
+                            <select id="estado" required>
+                                <option value="">Selecione</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="DF">Distrito Federal</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cidade">Cidade *</label>
+                            <input type="text" id="cidade" placeholder="Sua cidade" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" id="bairro" placeholder="Seu bairro">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="endereco">Endereço Completo</label>
+                            <input type="text" id="endereco" placeholder="Rua, número, complemento">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. OBJETIVO PROFISSIONAL -->
+                <section id="objetivo" class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-bullseye"></i> Objetivo Profissional
+                    </h2>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="resumoProfissional">Resumo Profissional</label>
+                            <textarea id="resumoProfissional" rows="5" placeholder="Descreva seus objetivos profissionais e experiências relevantes..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="areaInteresse">Área de Interesse *</label>
+                            <select id="areaInteresse" required>
+                                <option value="">Selecione</option>
+                                <option value="ti">Tecnologia da Informação</option>
+                                <option value="administrativo">Administrativo</option>
+                                <option value="vendas">Vendas</option>
+                                <option value="financeiro">Financeiro</option>
+                                <option value="rh">Recursos Humanos</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="producao">Produção</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cargoDesejado">Cargo Desejado</label>
+                            <input type="text" id="cargoDesejado" placeholder="Digite o cargo que você deseja">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. FORMAÇÃO ACADÊMICA -->
+                <section id="formacao" class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-graduation-cap"></i> Formação Acadêmica
+                    </h2>
+                    <div id="formacaoList" class="academic-list">
+                        <div class="academic-card">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Nível de Escolaridade</label>
+                                    <select>
+                                        <option value="">Selecione</option>
+                                        <option value="ensino-medio">Ensino Médio</option>
+                                        <option value="superior">Superior</option>
+                                        <option value="pos-graduacao">Pós-graduação</option>
+                                        <option value="mestrado">Mestrado</option>
+                                        <option value="doutorado">Doutorado</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Situação</label>
+                                    <select>
+                                        <option value="">Selecione</option>
+                                        <option value="cursando">Cursando</option>
+                                        <option value="completo">Completo</option>
+                                        <option value="trancado">Trancado</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Instituição</label>
+                                    <input type="text" placeholder="Nome da instituição">
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Curso</label>
+                                    <input type="text" placeholder="Nome do curso">
+                                </div>
+                                <div class="form-group">
+                                    <label>Ano de Início</label>
+                                    <input type="number" placeholder="2020" min="1980" max="2100">
+                                </div>
+                                <div class="form-group">
+                                    <label>Ano de Conclusão</label>
+                                    <input type="number" placeholder="2024" min="1980" max="2100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add" onclick="adicionarFormacao()">
+                        <i class="fas fa-plus"></i> Adicionar Formação
+                    </button>
+                </section>
+
+                <!-- 6. PERFIL PROFISSIONAL -->
+                <section id="profissional" class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-briefcase"></i> Perfil Profissional
+                    </h2>
+                    <div id="experienciaList" class="experience-list">
+                        <div class="experience-card">
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label>Área de Atuação (Empresa)</label>
+                                    <input type="text" placeholder="Nome da empresa">
+                                </div>
+                                <div class="form-group">
+                                    <label>Cargo Atual</label>
+                                    <input type="text" placeholder="Seu cargo">
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Descrição das Atividades</label>
+                                    <textarea rows="4" placeholder="Descreva suas principais atividades e responsabilidades..."></textarea>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Objetivo Profissional</label>
+                                    <textarea rows="4" placeholder="Descreva seus objetivos nesta área..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add" onclick="adicionarExperiencia()">
+                        <i class="fas fa-plus"></i> Adicionar Experiência
+                    </button>
+                </section>
+
+                <!-- 7. HABILIDADES E COMPETÊNCIAS -->
+                <section id="habilidades" class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-star"></i> Habilidades e Competências
+                    </h2>
+                    <div class="skills-input-group">
+                        <input type="text" id="novaHabilidade" placeholder="Ex: JavaScript, Comunicação, Liderança...">
+                        <button type="button" class="btn-add-skill" onclick="adicionarHabilidade()">
+                            <i class="fas fa-plus"></i> Adicionar
+                        </button>
+                    </div>
+                    <div id="habilidadesList" class="skills-list">
+                        <!-- Habilidades adicionadas aqui -->
+                    </div>
+                </section>
+
+                <!-- 8. IDIOMAS -->
+                <section id="idiomas" class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-globe"></i> Idiomas
+                    </h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="ingles">Inglês</label>
+                            <select id="ingles">
+                                <option value="nao-falo">Não falo</option>
+                                <option value="basico">Básico</option>
+                                <option value="intermediario">Intermediário</option>
+                                <option value="avancado">Avançado</option>
+                                <option value="fluente">Fluente</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="espanhol">Espanhol</label>
+                            <select id="espanhol">
+                                <option value="nao-falo">Não falo</option>
+                                <option value="basico">Básico</option>
+                                <option value="intermediario">Intermediário</option>
+                                <option value="avancado">Avançado</option>
+                                <option value="fluente">Fluente</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- BOTÕES -->
+                <div class="form-buttons">
+                    <button type="reset" class="btn btn-secondary">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Salvar Perfil
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="cards.js"></script>
+</body>
+</html>

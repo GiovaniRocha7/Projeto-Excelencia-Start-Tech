@@ -222,7 +222,8 @@ svg {
     font-size: 48px;
     margin-bottom: 16px;
     color: var(--cor-principal);
-    margin-right: 50px; /* Isso parece incorreto se o ícone está centralizado */
+    margin-right: 50px;
+    /* Isso parece incorreto se o ícone está centralizado */
 }
 
 .img-mvv {
@@ -232,7 +233,8 @@ svg {
 }
 
 .mvv h3 {
-    font-size: 1.8rem; /* Reduzido de 2.8rem para um tamanho mais padrão */
+    font-size: 1.8rem;
+    /* Reduzido de 2.8rem para um tamanho mais padrão */
     color: #1a2c26;
     margin-bottom: 18px;
     font-weight: bold;
@@ -536,7 +538,8 @@ footer::before {
 }
 
 .footer-links a:hover {
-    color: var(--cor-secundaria); /* Usando a cor secundária */
+    color: var(--cor-secundaria);
+    /* Usando a cor secundária */
     transform: translateX(10px);
 }
 
@@ -576,7 +579,8 @@ footer::before {
 }
 
 .contact-item:hover {
-    color: var(--cor-secundaria); /* Usando a cor secundária */
+    color: var(--cor-secundaria);
+    /* Usando a cor secundária */
 }
 
 .social-icons {
@@ -603,7 +607,8 @@ footer::before {
 }
 
 .social-icon:hover {
-    background: linear-gradient(135deg, var(--cor-secundaria), #764ba2); /* Adaptado para cor secundária */
+    background: linear-gradient(135deg, var(--cor-secundaria), #764ba2);
+    /* Adaptado para cor secundária */
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(26, 26, 27, 0.3);
 }
@@ -629,676 +634,348 @@ footer::before {
     }
 }
 
-/* =============== fim RODAPÉ =============== */
-
-
-
-.frase {
-    text-align: center;
-    padding: 100px 150px 50px 150px;
-    color: var(--cor-principal);
-}
-
-.frase p {
-    padding-top: 20px;
-    font-size: 20px;
-}
-
-svg {
-    display: block;
-}
-
-#mvv {
-    padding: 30px 40px 40px 40px;
-    background-color: var(--cor-principal);
-}
-
-/* =============== MVV =============== */
-#mvv h1 {
-    color: whitesmoke;
-    text-align: center;
-    font-weight: 500;
-    font-size: 50px;
-    padding: 10px 20px 40px 20px;
-}
-
-.mvv-container {
-    background-color: var(--cor-principal);
-    font-family: 'Montserrat', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 48px;
-    margin: 0px auto;
-    max-width: 1200px;
-    width: 100%;
-}
-
-.mvv {
-    flex: 1 1 0;
-    background: #fff;
-    border-radius: 16px;
-    padding: 32px 24px 24px 24px;
-    box-shadow: 0 2px 16px 0 rgba(76, 26, 153, 0.07);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    min-width: 220px;
-}
-
-.mvv .mvv-icon {
-    width: 40px;
-    font-size: 48px;
-    margin-bottom: 16px;
-    color: var(--cor-principal);
-    margin-right: 50px; /* Isso parece incorreto se o ícone está centralizado */
-}
-
-.img-mvv {
-    width: 100px;
-    object-fit: contain;
-    margin-bottom: 16px;
-}
-
-.mvv h3 {
-    font-size: 1.8rem; /* Reduzido de 2.8rem para um tamanho mais padrão */
-    color: #1a2c26;
-    margin-bottom: 18px;
-    font-weight: bold;
-}
-
-.mvv p {
-    font-size: 1.15rem;
-    color: #222;
-    margin-bottom: 0;
-    line-height: 1.6;
-}
-
-.mvv ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.mvv ul li {
-    font-size: 1.1rem;
-    color: #222;
-    margin-bottom: 4px;
-}
-
-.mvv-divider {
-    width: 3px;
-    background: #1D5D50;
-    background: linear-gradient(90deg, rgba(29, 93, 80, 1) 0%, rgb(42, 167, 142) 50%);
-    border-radius: 2px;
-    margin: 0 18px;
-    min-height: 320px;
-    align-self: stretch;
-}
-
-@media (max-width: 900px) {
-    .mvv-container {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 32px;
-    }
-
-    .mvv-divider {
-        display: none;
-    }
-}
-
-/* Valores (MVV) - bolinha preta e alinhamento à esquerda */
-.mvv-list {
-    list-style-type: disc !important;
-    padding-left: 60px !important;
-    margin: 0;
-    text-align: left;
-    display: block;
-}
-
-.mvv-list li {
-    color: #222;
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-    display: list-item;
-}
-
-/* =============== fim MVV ===============  */
-
-
-/* ======================================= */
-/* 🧩 ESTILOS GERAIS DO SWIPER (CARROSSEL) */
-/* ======================================= */
-
-/* 1. CONTAINER PRINCIPAL (o que o JS usa: .swiper) */
+/* ================== Estilos do Carrossel "Nossa História" ================== */
 .nossa-historia {
-    text-align: center;
-    padding: 0px 150px 50px 150px;
-    font-size: 50px;
-    font-weight: 500;
-    color: var(--cor-principal);
-}
-
-.container.swiper {
     max-width: 1200px;
-    margin: 0 auto;
-    /* CORREÇÃO 1: Aumentar o padding lateral para dar espaço aos botões fora dos cards */
-    padding: 60px 80px; 
-    
-    /* CORREÇÃO 2: Permite que os botões posicionados absolutamente sejam visíveis */
-    overflow: visible; 
-    position: relative; 
-    z-index: 10; 
+    margin: 48px auto;
+    padding: 28px;
+    background: transparent;
 }
 
-/* 2. LISTA DE SLIDES (SWIPER WRAPPER) */
-.card-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* 3. SLIDE INDIVIDUAL (.swiper-slide) */
-.card-list .card-item.swiper-slide {
-    list-style: none;
-    height: auto;
-}
-
-/* 4. CARD LINK E ESTRUTURA */
-.card-list .card-item .card-link {
-    display: flex; 
-    flex-direction: column; 
-    height: 100%;
+.nossa-historia .title-row {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    user-select: none;
-    background: #fff;
-    padding: 18px;
+    margin-bottom: 18px;
+}
+
+.nossa-historia h2 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 22px;
+    margin: 0;
+    color: #011936;
+}
+
+.histo-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.histo-carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 8px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    flex: 1;
+}
+
+.histo-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.histo-card {
+    flex: 0 0 calc((100% - (20px * 3)) / 4);
+    background: #ffffff;
     border-radius: 12px;
-    text-decoration: none;
-    border: 2px solid transparent;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: 0.3s ease;
-}
-
-.card-list .card-item .card-link:hover{
-    border-color: #5372f0;
-    transform: translateY(-5px);
-}
-
-/* 5. IMAGEM, BADGE, TÍTULO e BOTÃO */
-.card-list .card-link .card-image{
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.card-list .card-link .badge{
-    color: blue;
-    margin: 10px 0 14px;
-    padding: 6px 14px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    background: #dde4ff;
-    width: fit-content;
-    border-radius: 50px;
-    align-self: flex-start;
-}
-
-.card-list .card-link .card-title{
-    font-size: 1.15rem;
-    color: #000;
-    font-weight: 600;
-    flex-grow: 1;
-    margin-bottom: 15px;
-}
-
-.card-list .card-link .card-button{
-    height: 40px;
-    width: 40px;
-    color: #5372f0;
-    border-radius: 50%;
-    margin-top: 10px;
-    background: none;
-    cursor: pointer;
-    transform: rotate(-45deg);
-    border: 2px solid #5372f0;
-    transition: 0.4s ease;
-    align-self: flex-start;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-}
-
-.card-list .card-link:hover .card-button{
-    color: #fff;
-    background: #5372f0;
-}
-
-/* 6. PAGINAÇÃO (BOLINHAS) */
-.container.swiper .swiper-pagination-bullet{
-    height: 10px;
-    width: 10px;
-    opacity: 0.7;
-    background: #5372f0;
-}
-
-.container.swiper .swiper-pagination-bullet-active{
-    opacity: 1;
-}
-
-/* 7. BOTÕES DE NAVEGAÇÃO (SETAS LATERAIS) */
-.container.swiper .swiper-slide-button{
-    color: var(--cor-principal);
-    background: #fff; /* Adicionei background branco para melhor visualização */
-    border-radius: 10%; 
-    width: 45px;
-    height: 45px;
-    top: 50%;
-    margin-top: -22px; 
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-    
-    /* CORREÇÃO CRUCIAL: 'absolute' para rolar com o conteúdo pai */
-    position: absolute; 
-    
-    z-index: 100; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.container.swiper .swiper-button-prev {
-    /* Posiciona 10px do lado esquerdo da área de padding */
-    left: 10px;
-}
-.container.swiper .swiper-button-next {
-    /* Posiciona 10px do lado direito da área de padding */
-    right: 10px;
-}
-
-
-/* 8. RESPONSIVIDADE */
-@media screen and (max-width: 1024px) {
-    .container.swiper {
-        /* Garante espaço nas telas menores */
-        padding: 40px 50px; 
-    }
-}
-
-@media screen and (max-width: 768px){
-    .container.swiper{
-        /* Remove o padding extra em telas muito pequenas, pois os botões serão ocultados */
-        padding: 20px 0;
-    }
-
-    .container.swiper .swiper-slide-button{
-        display: none; /* Oculta os botões em dispositivos móveis */
-    }
-
-    .card-list .card-link .card-title{
-        font-size: 1rem;
-    }
-}
-
-
-
-
-/* Estilos para a lista de cards (Grid) */
-.card-list {
-    width: 900px;
-    margin: 2rem auto;
-    /* ESSENCIAL: Ativar o Grid */
-    display: grid;
-    /* ESSENCIAL: Definir 3 colunas de largura igual */
-    grid-template-columns: repeat(3, 1fr); 
-}
-
-.equipe {
-    text-align: center;
-    padding: 50px 150px 80px 150px;
-    font-size: 40px;
-    font-weight: 500;
-    color: var(--cor-principal);
-}
-
-
-/* Estilos para o card individual */
-.card {
-    flex: 1 1 300px;
-    margin: 0px 20px 20px 20px;
-    background: #fff;
-    border-radius: 25px;
-    max-width: 300px;
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
+    overflow: hidden;
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-    position: relative;
-    /* Espaço para o avatar ficar acima */
-    padding: 100px 0 0 0; 
-    box-shadow: 0 0 60px -15px rgba(0, 0, 0, 0.25);
-    transition: transform 300ms ease;
+    min-width: 260px;
 }
 
-.colorband {
-    height: 2px;
-    background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
-}
-
-#card-1 .colorband {
-    background-image: linear-gradient(to right, #7701B7 0%, #b14fe6 100%);
-}
-
-#card-2 .colorband {
-    background-image: linear-gradient(to right, #7701B7 0%, #b14fe6 100%);
-}
-
-#card-3 .colorband {
-    background-image: linear-gradient(to right, #7701B7 0%, #b14fe6 100%);
-}
-
-.card h2 {
-    margin: 0;
-    padding: 1rem;
-    text-align: center;
-    font-weight: bold;
-}
-
-.card .title {
-    padding: 0 1rem 1rem;
-    font-size: 0.75em;
-    text-align: center;
-}
-
-.card .desc {
-    padding: 1rem 2rem;
-    font-size: 0.9em;
-}
-
-.card .actions {
-    transition: box-shadow 300ms ease;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    background-color: #fafafa;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-}
-
-.card:hover {
-    transform: scale(1.03);
-}
-
-.actions button {
+.histo-card img {
     width: 100%;
-    float: left;
-    background: transparent;
-    border: none;
-    padding: 1rem;
-    font-size: 1em;
-    transition: background 300ms ease, transform 300ms ease;
-    outline: none;
-    font-family: 'Lato', sans-serif;
-    cursor: pointer;
-}
-
-.actions button img {
-    /* Dimensões da imagem SVG/ícone */
-    width: 50%;
-    /* CORREÇÃO: Impede que o ícone intercepte o hover */
-    pointer-events: none; 
-}
-
-
-.actions button:hover {
-    transform: scale(1);
-    color: #fff;
-    border: none;
-    z-index: 100;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.1);
-}
-
-/* CORREÇÃO: Aplicação do Filtro (filter) para mudar a cor do ícone no hover (preto -> branco) */
-#card-1 .actions button:hover img,
-#card-2 .actions button:hover img,
-#card-3 .actions button:hover img {
-    /* Filtro para converter o ícone preto em branco */
-    filter: brightness(0) invert(1);
-    transition: filter 300ms ease;
-}
-
-
-#card-1 .actions button:hover {
-    background-image: linear-gradient(to right, #011936 0%, #0f3665 100%);
-    
-}
-
-#card-2 .actions button:hover {
-    background-image: linear-gradient(to right, #011936 0%, #0f3665 100%);
-}
-
-#card-3 .actions button:hover {
-    background-image: linear-gradient(to right, #011936 0%, #0f3665 100%);
-}
-
-.actions button:active {
-    transform: scale(0.9);
-}
-
-.actions button > span {
+    aspect-ratio: 16/10;
+    object-fit: cover;
     display: block;
 }
 
-/* AVATAR COM AS MODIFICAÇÕES */
-.avatar {
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    width: 150px;
-    height: 150px; 
-    transform: translateX(-50%);
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.1);
-    transition: transform 200ms ease;
-    overflow: hidden; 
+.histo-body {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
-.avatar:hover {
-    transform: translateX(-50%) scale(1.1);
+.histo-date {
+    font-weight: 700;
+    color: #011936;
+    margin: 0 0 8px 0;
+    font-size: 14px;
 }
 
-/* ESTILO PARA A IMAGEM DENTRO DO AVATAR */
-.avatar img {
-    width: 100%; 
-    height: 100%; 
-    /* Garante que a imagem preencha o círculo sem distorcer, cortando o excesso */
-    object-fit: cover; 
-    border-radius: 50%; 
-}
-
-.avatar svg {
-    width: 100%;
-}
-
-
-
-/* =============== RODAPÉ =============== */
-footer {
-    width: 100%;
-    background: linear-gradient(135deg, #0a1628 0%, #1a2744 100%);
-    padding: 60px 40px 30px;
-    position: relative;
+.histo-text {
+    margin: 0;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
     overflow: hidden;
 }
 
-footer::before {
-    content: '';
+.nav-small {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr;
-    gap: 60px;
-    align-items: start;
-}
-
-.footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.logo {
-    font-size: 32px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -1px;
-}
-
-.tagline {
-    font-size: 15px;
-    color: #a0aec0;
-    line-height: 1.6;
-    font-style: italic;
-}
-
-.footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.footer-links h3 {
-    color: #fff;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
-.footer-links a {
-    color: #cbd5e0;
-    text-decoration: none;
-    font-size: 15px;
-    transition: all 0.3s ease;
-    display: inline-block;
-    position: relative;
-    padding-left: 20px;
-}
-
-.footer-links a::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: var(--cor-secundaria);
-    transform: translateX(10px);
-}
-
-.footer-links a:hover::before {
-    opacity: 1;
-    left: 0;
-}
-
-.footer-contact {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.footer-contact h3 {
-    color: #fff;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.contact-item {
-    color: #cbd5e0;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: color 0.3s ease;
-}
-
-.contact-item:hover {
-    color: var(--cor-secundaria);
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-
-.social-icon {
-    width: 45px;
-    height: 45px;
-    border-radius: 12px;
-    background-color: whitesmoke;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    text-decoration: none;
-    font-size: 20px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    border: none;
+    flex-shrink: 0;
+    z-index: 10;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 16px rgba(2, 6, 23, 0.08);
+    padding: 0;
 }
 
-.social-icon:hover {
-    background: var(--cor-secundaria);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(26, 26, 27, 0.3);
+.nav-small:hover {
+    transform: scale(1.12);
+    box-shadow: 0 12px 28px rgba(2, 6, 23, 0.16);
+    background: #f0f4f8;
 }
 
-.footer-bottom {
-    max-width: 1200px;
-    margin: 40px auto 0;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-    color: #718096;
-    font-size: 14px;
+.nav-small:active {
+    transform: scale(0.96);
+    box-shadow: 0 2px 8px rgba(2, 6, 23, 0.1);
 }
 
-@media (max-width: 768px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
+.nav-left {
+    left: 0;
+    transform: translateX(-50%);
+}
+
+.nav-left:hover {
+    transform: translateX(-50%) scale(1.12);
+}
+
+.nav-left:active {
+    transform: translateX(-50%) scale(0.96);
+}
+
+.nav-right {
+    right: 0;
+    transform: translateX(50%);
+}
+
+.nav-right:hover {
+    transform: translateX(50%) scale(1.12);
+}
+
+.nav-right:active {
+    transform: translateX(50%) scale(0.96);
+}
+
+.nav-small svg {
+    width: 18px;
+    height: 18px;
+    color: #011936;
+    transition: color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.nav-small:hover svg {
+    color: #1d5d50;
+}
+
+/* breakpoints */
+@media (max-width:1100px) {
+    .histo-card {
+        flex: 0 0 calc((100% - (20px * 2)) / 3);
+    }
+}
+
+@media (max-width:820px) {
+    .histo-card {
+        flex: 0 0 calc((100% - (20px * 1)) / 2);
     }
 
-    footer {
-        padding: 40px 20px 20px;
+    .nav-small {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-small svg {
+        width: 16px;
+        height: 16px;
     }
 }
 
-/* =============== fim RODAPÉ =============== */
+@media (max-width:480px) {
+    .histo-card {
+        flex: 0 0 100%;
+    }
+
+    .nav-left {
+        left: 6px;
+        transform: translateX(0);
+    }
+
+    .nav-left:hover {
+        transform: scale(1.12);
+    }
+
+    .nav-left:active {
+        transform: scale(0.96);
+    }
+
+    .nav-right {
+        right: 6px;
+        transform: translateX(0);
+    }
+
+    .nav-right:hover {
+        transform: scale(1.12);
+    }
+
+    .nav-right:active {
+        transform: scale(0.96);
+    }
+
+    .nossa-historia {
+        padding: 18px;
+    }
+}
+
+/* ========== Conheça nossa Equipe ========== */
+.team-section {
+  max-width: 1200px;
+  margin: 48px auto;
+  padding: 24px;
+}
+.team-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 32px;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.team-card {
+  width: 100%;
+  max-width: 340px;
+  min-width: 0;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 16px rgba(80, 0, 80, 0.08);
+  padding: 32px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+.team-card:hover {
+  box-shadow: 0 8px 24px rgba(17, 4, 104, 0.16);
+}
+.profile-photo {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 18px;
+  border: 4px solid var(--cor-principal);
+  background: #eee;
+}
+.member-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.member-desc {
+  font-size: 1rem;
+  color: #020202;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.member-pronoun {
+  background: var(--cor-secundaria);
+  color: #f8f8f8;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 12px;
+  padding: 4px 16px;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+.linktree-btn {
+  margin-top: auto;
+  background: var(--cor-principal);
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 16px;
+  padding: 12px 36px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(80, 0, 80, 0.08);
+  transition: background 0.2s;
+  letter-spacing: 0.5px;
+}
+.linktree-btn:hover {
+  background: var(--cor-secundaria);
+}
+.team-grid-last-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  grid-column: 1 / -1;
+  margin-top: 32px;
+  justify-content: center;
+}
+.team-grid-last-row .team-card {
+  width: 100%;
+  max-width: 340px;
+  min-width: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 1200px) {
+  .team-card, .team-grid-last-row .team-card {
+    max-width: 300px;
+  }
+}
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-grid-last-row {
+    display: contents;
+  }
+  .team-card, .team-grid-last-row .team-card {
+    max-width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .team-section {
+    padding: 12px;
+  }
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-card, .team-grid-last-row .team-card {
+    max-width: 100%;
+  }
+}
+/* ========== Fim Conheça nossa Equipe ========== */
+
+/* ======================================================================== */

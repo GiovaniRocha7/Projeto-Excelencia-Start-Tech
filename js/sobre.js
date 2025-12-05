@@ -96,3 +96,50 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     })});
+
+
+    /* script local para controlar navegação do carrossel */
+(function(){
+	const carousel = document.getElementById('histoCarousel');
+	const prev = document.getElementById('hist-prev');
+	const next = document.getElementById('hist-next');
+
+	function getGap(){
+		const s = window.getComputedStyle(carousel);
+		return parseInt(s.gap || 20,10) || 20;
+	}
+	function step(){
+		const card = carousel.querySelector('.histo-card');
+		if(!card) return carousel.clientWidth * 0.9;
+		return Math.round(card.getBoundingClientRect().width + getGap());
+	}
+
+	function toNext(){
+		const max = carousel.scrollWidth - carousel.clientWidth;
+		const s = step();
+		if(carousel.scrollLeft >= max - 5) carousel.scrollTo({left:0, behavior:'smooth'});
+		else carousel.scrollBy({left:s, behavior:'smooth'});
+	}
+	function toPrev(){
+		const s = step();
+		if(carousel.scrollLeft <= 5) {
+			const end = carousel.scrollWidth - carousel.clientWidth;
+			carousel.scrollTo({left:end, behavior:'smooth'});
+		} else carousel.scrollBy({left:-s, behavior:'smooth'});
+	}
+
+	prev.addEventListener('click', toPrev);
+	next.addEventListener('click', toNext);
+
+	carousel.addEventListener('keydown', (e) => {
+		if(e.key === 'ArrowRight'){ e.preventDefault(); toNext(); }
+		if(e.key === 'ArrowLeft'){ e.preventDefault(); toPrev(); }
+	});
+
+	function updateNav(){
+		if(carousel.scrollWidth <= carousel.clientWidth + 2){ prev.style.display='none'; next.style.display='none'; }
+		else { prev.style.display=''; next.style.display=''; }
+	}
+	window.addEventListener('resize', updateNav);
+	window.addEventListener('load', updateNav);
+})();   
