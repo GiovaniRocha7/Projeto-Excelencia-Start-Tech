@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/tema escuro/excelencia texto ia.PNG">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
@@ -20,19 +21,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJ8g359HhF5sR+E/r5d8Wn8V4Wf6K38zXj+kG/H2P4+54O3M8z4G1X9G1wH1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
 
     <header>
-        <a href="#titulo-principal" class="logo"><img src="/assets/tema escuro/logo-excelencia.PNG"
-                alt="Logo excelencia"></a>
-        <nav>
+        <a href="/index.html" class="logo"><img src="/assets/tema escuro/logo-excelencia.PNG" alt="Logo excelencia"></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="navMenu">
             <ul class="nav-links">
                 <li><a href="/index.html">Início</a></li>
                 <li><a href="/html/sobre.html">Sobre</a></li>
                 <li><a href="/html/contato.html">Contato</a></li>
-                <li><a id="planoslink" class="botoes-maiores" href="#planos">PLANOS</a></li>
+                <li><a id="planoslink" class="botoes-maiores" href="/index.html#planos">PLANOS</a></li>
                 <li><button class="botoes-maiores" id="botaoentrar" onclick="abrirModal('login')">ENTRAR</button></li>
             </ul>
         </nav>
@@ -45,12 +51,85 @@
             <img src="/assets/tema escuro/pontilhado-horizontal.png" alt="" class="pontilhado-horizontal">
             <div class="textos">
                 <h1>SOBRE NÓS</h1>
-                <p>ExcelencIA é uma plataforma desenvolvida para ajudar pessoas a se prepararem para o mercado de trabalho com o poder da inteligência artificial. Simule entrevistas reais, receba feedbacks assertivos e conquiste autoconfiança para brilhar nas suas próximas entrevistas.</p>
+                <p>ExcelencIA é uma plataforma desenvolvida para ajudar pessoas a se prepararem para o mercado de
+                    trabalho com o poder da inteligência artificial. Simule entrevistas reais, receba feedbacks
+                    assertivos e conquiste autoconfiança para brilhar nas suas próximas entrevistas.</p>
             </div>
             <div class="imagemtexto">
                 <img src="/assets/tema escuro/time-corporativo.png" alt="">
             </div>
         </div>
+
+
+        <!-- ================= MODAIS (LOGIN E REGISTRO) ================= -->
+        <div class="janela_escura" id="overlay-modal">
+
+            <!-- MODAL DE LOGIN -->
+
+            <div class="modal" id="modal-login">
+                <div class="fechar" onclick="fecharModal()">✕</div>
+                <p class="title">Bem-vindo de volta!</p>
+                <p>Entre e continue sua jornada rumo à excelência.</p>
+                <form class="form" onsubmit="event.preventDefault(); alert('Login simulado!');">
+                    <div class="input-group">
+                        <label for="login-email">E-mail</label>
+                        <input type="email" id="login-email" required placeholder="seu@email.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password">Senha</label>
+                        <input type="password" id="login-password" required placeholder="********">
+                        <div class="forgot">
+                            <a href="#">Esqueceu a senha?</a>
+                        </div>
+                    </div>
+                    <button class="sign">Entrar</button>
+                </form>
+                <div class="social-message">
+                    <div class="line"></div>
+
+                    <div class="line"></div>
+                </div>
+
+                <div class="signup">
+                    <p>Não tem uma conta? <a onclick="abrirModal('cadastro')">Inscreva-se</a></p>
+                </div>
+            </div>
+
+            <!-- MODAL DE CADASTRO -->
+            <div class="modal" id="modal-cadastro">
+                <div class="fechar" onclick="fecharModal()">✕</div>
+                <p class="title">Crie sua conta</p>
+                <p>Comece agora sua preparação profissional.</p>
+                <form class="form" onsubmit="event.preventDefault(); alert('Cadastro simulado!');">
+                    <div class="input-group">
+                        <label for="cad-nome">Nome Completo</label>
+                        <input type="text" id="cad-nome" required placeholder="Seu nome">
+                    </div>
+                    <div class="input-group">
+                        <label for="cad-email">E-mail</label>
+                        <input type="email" id="cad-email" required placeholder="seu@email.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="cad-password">Senha</label>
+                        <input type="password" id="cad-password" required placeholder="Mínimo 6 caracteres">
+                    </div>
+                    <div class="input-group">
+                        <label for="cad-confirm-password">Confirmar Senha</label>
+                        <input type="password" id="cad-confirm-password" required placeholder="Repita a senha">
+                    </div>
+
+                    <button class="sign">Cadastrar</button>
+                </form>
+
+                <div class="signup" style="margin-top: 2rem;">
+                    <p>Já tem uma conta? <a onclick="abrirModal('login')">Entrar</a></p>
+                </div>
+            </div>
+
+        </div>
+
+
+
 
         <section class="frase">
             <h1>Uma Experiência Feita para Fortalecer o Usuário</h1>
@@ -122,7 +201,7 @@
     </svg>
 
 
-    
+
     <!-- CARROSSEL NOSSA HISTÓRIA - INÍCIO -->
 
     <section class="nossa-historia" aria-labelledby="historia-title">
@@ -142,52 +221,75 @@
             <div class="histo-carousel" id="histoCarousel" tabindex="0" role="list">
                 <!-- Exemplo de cards (substitua imagens/textos conforme necessário) -->
                 <article class="histo-card" role="listitem">
-                    <img src="https://images.unsplash.com/photo-1520975911640-5c3d1f0b3f46?q=80&w=1600&auto=format&fit=crop"
-                        alt="Fundadores conversando">
+                    <img src="/assets/tema escuro/problema.png" alt="Fundadores conversando">
                     <div class="histo-body">
-                        <p class="histo-date">Outubro 2007</p>
-                        <p class="histo-text">Fundação da empresa com os primeiros anfitriões e validação do conceito
-                            através de hospedagens reais.</p>
+                        <p class="histo-date">Junho - 2024</p>
+                        <p class="histo-text">O grupo percebeu a dificuldade das pessoas em entrevistas e decidiu criar
+                            uma ferramenta que unisse tecnologia e empatia.</p>
                     </div>
                 </article>
 
                 <article class="histo-card" role="listitem">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop"
-                        alt="Equipe no escritório">
+                    <img src="/assets/tema escuro/pesquisas.png" alt="Equipe no escritório">
                     <div class="histo-body">
-                        <p class="histo-date">Março 2008</p>
-                        <p class="histo-text">Lançamento oficial do serviço, primeiras reservas e cobertura da mídia
-                            especializada.</p>
+                        <p class="histo-date">Julho - 2024</p>
+                        <p class="histo-text">Pesquisas mostraram que a maior barreira era a falta de prática e
+                            confiança, reforçando a necessidade da plataforma.</p>
                     </div>
                 </article>
 
                 <article class="histo-card" role="listitem">
-                    <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1600&auto=format&fit=crop"
-                        alt="Página inicial antiga">
+                    <img src="/assets/tema escuro/organizar.png" alt="Página inicial antiga">
                     <div class="histo-body">
-                        <p class="histo-date">Agosto 2008</p>
-                        <p class="histo-text">Nova versão do site facilita buscas e reservas, impulsionando a adoção
-                            pelos usuários.</p>
-                    </div>
-                </article>
-
-                <article class="histo-card" role="listitem">
-                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1600&auto=format&fit=crop"
-                        alt="Pessoa usando smartphone">
-                    <div class="histo-body">
-                        <p class="histo-date">2010</p>
-                        <p class="histo-text">Expansão internacional e introdução de pagamentos seguros na plataforma.
+                        <p class="histo-date">Setembro - 2024</p>
+                        <p class="histo-text">Cada um assumiu seu papel com o objetivo de criar uma solução inovadora.
                         </p>
                     </div>
                 </article>
 
                 <article class="histo-card" role="listitem">
-                    <img src="https://images.unsplash.com/photo-1506702315536-dd8b83e2dcf9?q=80&w=1600&auto=format&fit=crop"
-                        alt="Equipe celebrando">
+                    <img src="/assets/tema escuro/design.png" alt="Pessoa usando smartphone">
                     <div class="histo-body">
-                        <p class="histo-date">2015</p>
-                        <p class="histo-text">Comunidade em crescimento e evolução de produtos focada na experiência do
-                            usuário.</p>
+                        <p class="histo-date">Janeiro - 2025</p>
+                        <p class="histo-text">O nome ExcelêncIA nasceu, e a equipe definiu uma identidade moderna,
+                            acessível e focada no usuário.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="histo-card" role="listitem">
+                    <img src="/assets/tema escuro/inteligenciaartificial.png" alt="Equipe celebrando">
+                    <div class="histo-body">
+                        <p class="histo-date">Julho - 2025</p>
+                        <p class="histo-text">O site evoluiu com front refinado, backend sólido, IA treinada, banco de
+                            dados estruturado e início do reconhecimento facial.</p>
+                    </div>
+                </article>
+
+                <article class="histo-card" role="listitem">
+                    <img src="/assets/tema escuro/versaotestada.png" alt="Equipe celebrando">
+                    <div class="histo-body">
+                        <p class="histo-date">Agosto - 2025</p>
+                        <p class="histo-text">A primeira versão foi testada, recebendo feedback positivo pela
+                            experiência realista de entrevista.</p>
+                    </div>
+                </article>
+
+                <article class="histo-card" role="listitem">
+                    <img src="/assets/tema escuro/paginaganhoufeedback.png" alt="Equipe celebrando">
+                    <div class="histo-body">
+                        <p class="histo-date">Outubro - 2025</p>
+                        <p class="histo-text">A plataforma ganhou feedbacks mais inteligentes, interface mais fluida e
+                            melhorias em API, IA e reconhecimento facial.</p>
+                    </div>
+                </article>
+
+                <article class="histo-card" role="listitem">
+                    <img src="/assets/tema escuro/lançamento.png" alt="Equipe celebrando">
+                    <div class="histo-body">
+                        <p class="histo-date">Novembro - 2025</p>
+                        <p class="histo-text">O ExcelêncIA foi lançado ao público, tornando-se uma ferramenta acessível
+                            e transformadora para quem busca se destacar em entrevistas.</p>
                     </div>
                 </article>
             </div>
@@ -252,62 +354,66 @@
 
     <!-- Seção Conheça nossa Equipe -->
     <section class="team-section">
-      <div class="team-title">Conheça nossa Equipe</div>
-      <div class="team-grid">
-        <!-- Card 1 -->
-        <div class="team-card">
-          <img src="/assets/tema escuro/fotodeperfil.png" alt="Foto de Dylan Levine" class="profile-photo">
-          <div class="member-name">Daniela Alves</div>
-          <div class="member-desc">Designer e Desenvolvedora Front-End</div>
-          <div class="member-pronoun">he/him</div>
-          <a href="https://linktr.ee/dylanlevine" target="_blank">
-            <button class="linktree-btn">LINKTREE</button>
-          </a>
+        <div class="team-title">Conheça nossa Equipe</div>
+        <div class="team-grid">
+            <!-- Card 1 -->
+            <div class="team-card">
+                <img src="/assets/tema escuro/fotodeperfil.png" alt="Foto de Dylan Levine" class="profile-photo">
+                <div class="member-name">Daniela Alves</div>
+                <div class="member-desc">Designer e Desenvolvedora Front-End</div>
+                <div class="member-pronoun">ela/dela</div>
+                <a href="https://linktr.ee/dylanlevine" target="_blank">
+                    <button class="linktree-btn">LINKTREE</button>
+                </a>
+            </div>
+            <!-- Card 2 -->
+            <div class="team-card">
+                <img src="/assets/tema escuro/fotodeperfil.png" alt="Foto de Sen Park" class="profile-photo">
+                <div class="member-name">Maria Fernanda</div>
+                <div class="member-desc">Design tutoring, Typography, Posters, Branding, Motion</div>
+                <div class="member-pronoun">ela/dela</div>
+                <a href="https://linktr.ee/senpark" target="_blank">
+                    <button class="linktree-btn">LINKTREE</button>
+                </a>
+            </div>
+            <!-- Card 3 -->
+            <div class="team-card">
+                <img src="/assets/tema escuro/fotodeperfil.png" alt="Foto de JungEun Jayla Park" class="profile-photo">
+                <div class="member-name">Tainá Leitão</div>
+                <div class="member-desc">Web Design, Branding, Typography, Posters, Generative Design</div>
+                <div class="member-pronoun">ela/dela<ela>
+                        <dela></dela>
+                        <ela>
+                            <dela></dela>
+                </div>
+                <a href="https://linktr.ee/jaylapark" target="_blank">
+                    <button class="linktree-btn">LINKTREE</button>
+                </a>
+            </div>
+            <!-- Última linha centralizada -->
+            <div class="team-grid-last-row">
+                <!-- Card 4 -->
+                <div class="team-card">
+                    <img src="/assets/tema escuro/fotodeperfil.png" alt="Foto de Maria Garsa" class="profile-photo">
+                    <div class="member-name">Ana Paula</div>
+                    <div class="member-desc">Illustration, Typography, Print Media, Posters</div>
+                    <div class="member-pronoun">ela/dela</div>
+                    <a href="https://linktr.ee/mariagarsa" target="_blank">
+                        <button class="linktree-btn">LINKTREE</button>
+                    </a>
+                </div>
+                <!-- Card 5 -->
+                <div class="team-card">
+                    <img src="/assets/tema escuro/fotodeperfil.png" alt="Foto de Naveen Hattis" class="profile-photo">
+                    <div class="member-name">Giovani Rocha</div>
+                    <div class="member-desc">Design Fellow</div>
+                    <div class="member-pronoun">ele/dele</div>
+                    <a href="https://linktr.ee/naveenhattis" target="_blank">
+                        <button class="linktree-btn">LINKTREE</button>
+                    </a>
+                </div>
+            </div>
         </div>
-        <!-- Card 2 -->
-        <div class="team-card">
-          <img src="/assets/tema escuro/fotodeperfil.png" alt="Foto de Sen Park" class="profile-photo">
-          <div class="member-name">Sen Park</div>
-          <div class="member-desc">Design tutoring, Typography, Posters, Branding, Motion</div>
-          <div class="member-pronoun">she/her</div>
-          <a href="https://linktr.ee/senpark" target="_blank">
-            <button class="linktree-btn">LINKTREE</button>
-          </a>
-        </div>
-        <!-- Card 3 -->
-        <div class="team-card">
-          <img src="/assets/tema escuro/fotodeperfil.png" alt="Foto de JungEun Jayla Park" class="profile-photo">
-          <div class="member-name">JungEun Jayla Park</div>
-          <div class="member-desc">Web Design, Branding, Typography, Posters, Generative Design</div>
-          <div class="member-pronoun">she/her</div>
-          <a href="https://linktr.ee/jaylapark" target="_blank">
-            <button class="linktree-btn">LINKTREE</button>
-          </a>
-        </div>
-        <!-- Última linha centralizada -->
-        <div class="team-grid-last-row">
-          <!-- Card 4 -->
-          <div class="team-card">
-            <img src="/assets/tema escuro/fotodeperfil.png" alt="Foto de Maria Garsa" class="profile-photo">
-            <div class="member-name">Maria Garsa</div>
-            <div class="member-desc">Illustration, Typography, Print Media, Posters</div>
-            <div class="member-pronoun">she/her</div>
-            <a href="https://linktr.ee/mariagarsa" target="_blank">
-              <button class="linktree-btn">LINKTREE</button>
-            </a>
-          </div>
-          <!-- Card 5 -->
-          <div class="team-card">
-            <img src="/assets/tema escuro/fotodeperfil.png" alt="Foto de Naveen Hattis" class="profile-photo">
-            <div class="member-name">Naveen Hattis</div>
-            <div class="member-desc">Design Fellow</div>
-            <div class="member-pronoun">he/him</div>
-            <a href="https://linktr.ee/naveenhattis" target="_blank">
-              <button class="linktree-btn">LINKTREE</button>
-            </a>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- ......................... RODAPÉ ......................  -->
@@ -365,6 +471,32 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script src="/js/script.js"></script>
+    <script>
+        // Menu hambúrguer
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-links a, .nav-links button').forEach(item => {
+            item.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 
 </html>

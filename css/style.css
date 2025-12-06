@@ -1394,4 +1394,80 @@ footer::before {
     }
 }
 
-/* end */
+/* Menu Hambúrguer - Estilos Responsivos */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media (max-width: 850px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    header nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: #011936;
+        padding: 80px 20px 20px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header nav.active {
+        right: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a,
+    .nav-links button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .botoes-maiores {
+        width: 100% !important;
+    }
+}

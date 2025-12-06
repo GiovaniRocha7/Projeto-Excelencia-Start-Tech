@@ -28,11 +28,9 @@ body {
     margin: 0;
 }
 
-
-/* .............. navbar ...................  */
+/* =============== NAVBAR =============== */
 .botoes-maiores {
     font-size: 18px;
-
 }
 
 li,
@@ -109,61 +107,408 @@ button:hover {
     transition: 0.6s;
 }
 
-/* .............. fim navbar ...................  */
+/* =============== FIM NAVBAR =============== */
 
+/* =============== MODAL LOGIN =============== */
+.janela_escura {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+}
+
+.janela_escura.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background-color: rgba(17, 24, 39, 1);
+    width: 90%;
+    max-width: 450px;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    color: rgba(243, 244, 246, 1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 10px 10px -5px rgba(0, 0, 0, .04);
+    position: relative;
+    display: none;
+}
+
+.janela_escura.ativo .modal {
+    animation: slideIn .3s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #9ca3af;
+    transition: color .2s;
+}
+
+.fechar:hover {
+    color: var(--cor-secundaria);
+}
+
+.modal .title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+    color: white;
+}
+
+.input-group label {
+    display: block;
+    color: rgb(229, 232, 238);
+    margin-bottom: 6px;
+    font-size: 1.01rem;
+}
+
+.input-group input {
+    width: 100%;
+    border-radius: .5rem;
+    border: 1px solid rgba(55, 65, 81, 1);
+    background-color: rgba(31, 41, 55, .5);
+    padding: .75rem 1rem;
+    color: white;
+    font-size: 1rem;
+    transition: border-color .2s, background-color .2s;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: var(--cor-secundaria);
+    background-color: rgba(31, 41, 55, 1);
+}
+
+.forgot {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+.forgot a,
+.signup a {
+    color: var(--cor-secundaria);
+    font-size: .98rem;
+    text-decoration: none;
+}
+
+.sign {
+    width: 100%;
+    background-color: var(--cor-secundaria);
+    padding: .75rem;
+    text-align: center;
+    color: whitesmoke;
+    border: none;
+    border-radius: .5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    transition: transform .2s, background-color .2s;
+}
+
+.sign:hover {
+    transform: translateY(-2px);
+}
+
+/* =============== FIM MODAL LOGIN =============== */
+
+/* =============== SEÇÃO APRESENTAÇÃO =============== */
+#apresentacao {
+    position: relative;
+    padding: 80px 80px;
+    overflow: hidden;
+    margin-top: 0px;
+}
 
 .apresentacao-inicial {
     position: relative;
     display: flex;
     flex-direction: row;
-    padding: 200px 0px 100px 150px;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
     color: var(--cor-principal);
 }
 
-.pontilhado-horizontal {
-    width: 500px;
+.pontilhados {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    top: 20px;
+    left: -50px;
+    width: 350px;
+    height: auto;
     z-index: 1;
+    opacity: 0.9;
+}
+
+.textos {
+    flex: 1;
+    min-width: 300px;
+    z-index: 2;
+}
+
+.textos h1 {
+    margin-top: 80px;
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.textos p {
+    padding-right: 30px;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 550px;
+    color: var(--cor-principal);
+}
+
+.imagemtexto {
+    margin-top: 80px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
 }
 
 .imagemtexto img {
     display: block;
     border-radius: 20px;
-    width: 450px;
-    position: relative;
-    z-index: 2;
-}
-
-.pontilhados {
-    width: 350px;
-    position: absolute;
-
-}
-
-.textos p {
-    font-size: 20px;
-    padding: 20px 40px 0px 0px;
-}
-
-.textos h1 {
-    padding-top: 10px;
-    font-weight: 500;
-}
-
-
-.apresentacao-inicial p {
+    width: 100%;
     max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
+.pontilhado-horizontal {
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 600px;
+    height: auto;
+    z-index: 0;
+    opacity: 0.8;
+}
 
+/* =============== SEÇÃO APRESENTAÇÃO - RESPONSIVO =============== */
+@media (max-width: 1200px) {
+    #apresentacao {
+        padding: 60px 40px;
+    
+    }
 
+    .apresentacao-inicial {
 
+    }
 
+    .textos h1 {
+        font-size: 40px;
+    }
 
+    .textos p {
+        font-size: 16px;
+        max-width: 100%;
+        padding-right: 30px;
+    }
 
+    .pontilhados {
+        width: 280px;
+        top: 20px;
+        left: -30px;
+    }
+
+    .pontilhado-horizontal {
+        width: 450px;
+        bottom: -80px;
+        right: -80px;
+    }
+}
+
+@media (max-width: 900px) {
+    #apresentacao {
+        padding: 50px 30px;
+       
+    }
+
+    .apresentacao-inicial {
+        flex-direction: column;
+    }
+
+    .textos {
+        text-align: center;
+    }
+
+    .textos h1 {
+        font-size: 32px;
+    }
+
+    .textos p {
+        font-size: 20px;
+        margin: 0 auto;
+    }
+
+    .imagemtexto img {
+        max-width: 600px;
+    }
+
+    .pontilhados {
+        width: 500px;
+        top: 10px;
+        left: -40px;
+    }
+
+    .pontilhado-horizontal {
+        width: 600px;
+        bottom: -60px;
+        right: -60px;
+    }
+}
+
+@media (max-width: 768px) {
+    #apresentacao {
+        padding: 40px 20px;
+        
+    }
+
+    .apresentacao-inicial {
+        padding-top: 20px;
+    }
+
+    .textos h1 {
+        font-size: 40px;
+        margin-bottom: 16px;
+    }
+
+    .textos p {
+        font-size: 20px;
+        max-width: 89%;
+    }
+
+    .imagemtexto img {
+        max-width: 80%;
+        min-height: 250px;
+    }
+
+    .pontilhados {
+        width: 350px;
+        top: 20px;
+        left: -30px;
+    }
+
+    .pontilhado-horizontal {
+        width: 500px;
+        bottom: -40px;
+        right: -50px;
+    }
+}
+
+@media (max-width: 600px) {
+    #apresentacao {
+        padding: 30px 16px;
+    }
+
+    .apresentacao-inicial {
+        padding-top: 20px;
+    }
+
+    .textos h1 {
+        font-size: 40px;
+        margin-bottom: 12px;
+    }
+
+    .textos p {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    .imagemtexto img {
+        max-width: 80%;
+        min-height: 200px;
+    }
+
+    .pontilhados {
+        width: 250px;
+        top: 30px;
+        left: -20px;
+    }
+
+    .pontilhado-horizontal {
+        width: 400px;
+        bottom: -30px;
+        right: -30px;
+    }
+}
+
+@media (max-width: 400px) {
+    #apresentacao {
+        padding: 20px 12px;
+
+    }
+
+    .apresentacao-inicial {
+
+        padding-top: 15px;
+    }
+
+    .textos h1 {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .textos p {
+        font-size: 17px;
+    }
+
+    .imagemtexto img {
+        max-width: 89%;
+        min-height: 180px;
+    }
+
+    .pontilhados {
+        width: 250px;
+        top: 40px;
+        left: -15px;
+    }
+
+    .pontilhado-horizontal {
+        width: 300px;
+        bottom: -20px;
+        right: -20px;
+    }
+}
+
+/* =============== FIM SEÇÃO APRESENTAÇÃO =============== */
+
+/* =============== SEÇÃO FRASE =============== */
 .frase {
+    margin-top: 100px;
     text-align: center;
     padding: 100px 150px 50px 150px;
     color: var(--cor-principal);
@@ -174,16 +519,82 @@ button:hover {
     font-size: 20px;
 }
 
-svg {
-    display: block;
+@media (max-width: 1200px) {
+    .frase {
+        padding: 80px 120px 40px 120px;
+    }
+
+    .frase p {
+        font-size: 18px;
+    }
 }
 
+@media (max-width: 900px) {
+    .frase {
+        padding: 60px 80px 30px 80px;
+    }
+
+    .frase h1 {
+        font-size: 28px;
+    }
+
+    .frase p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .frase {
+        padding: 50px 40px 25px 40px;
+    }
+
+    .frase h1 {
+        font-size: 24px;
+    }
+
+    .frase p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 600px) {
+    .frase {
+        padding: 40px 20px 20px 20px;
+    }
+
+    .frase h1 {
+        font-size: 20px;
+    }
+
+    .frase p {
+        font-size: 14px;
+        padding-top: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .frase {
+        padding: 30px 16px 15px 16px;
+    }
+
+    .frase h1 {
+        font-size: 18px;
+    }
+
+    .frase p {
+        font-size: 13px;
+    }
+}
+
+/* =============== FIM SEÇÃO FRASE =============== */
+
+/* =============== SEÇÃO MVV (MISSÃO, VISÃO, VALORES) =============== */
 #mvv {
     padding: 30px 40px 40px 40px;
     background-color: var(--cor-principal);
 }
 
-/* =============== MVV =============== */
 #mvv h1 {
     color: whitesmoke;
     text-align: center;
@@ -223,7 +634,6 @@ svg {
     margin-bottom: 16px;
     color: var(--cor-principal);
     margin-right: 50px;
-    /* Isso parece incorreto se o ícone está centralizado */
 }
 
 .img-mvv {
@@ -234,7 +644,6 @@ svg {
 
 .mvv h3 {
     font-size: 1.8rem;
-    /* Reduzido de 2.8rem para um tamanho mais padrão */
     color: #1a2c26;
     margin-bottom: 18px;
     font-weight: bold;
@@ -281,7 +690,6 @@ svg {
     }
 }
 
-/* Valores (MVV) - bolinha preta e alinhamento à esquerda */
 .mvv-list {
     list-style-type: disc !important;
     padding-left: 60px !important;
@@ -297,165 +705,7 @@ svg {
     display: list-item;
 }
 
-/* =============== fim MVV ===============  */
-
-/* =============== FONTS & RESET =============== */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    /* Core colors */
-    --cor-principal: #011936;
-    --cor-secundaria: #1d5d50;
-    --cor-terciaria: #E2E2E2;
-}
-
-/* =============== BASE =============== */
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-}
-
-
-/* .............. navbar ...................  */
-.botoes-maiores {
-    font-size: 18px;
-
-}
-
-li,
-a,
-button {
-    font-family: 'Josefin sans', sans-serif;
-    font-size: 23px;
-    color: white;
-    text-decoration: none;
-    font-weight: 350;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: var(--cor-principal);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    height: 80px;
-}
-
-.logo img {
-    height: 30px;
-    width: auto;
-}
-
-/* nav links */
-.nav-links li {
-    list-style: none;
-    display: inline-block;
-    padding: 0 14px;
-}
-
-.nav-links li a:hover {
-    color: var(--cor-secundaria);
-    transition: 0.3s;
-}
-
-/* CTA / Planos */
-#planoslink {
-    padding: 10px 20px;
-    font-weight: 400;
-    background-color: var(--cor-principal);
-    color: whitesmoke;
-    border: 1px solid whitesmoke;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-#planoslink:hover {
-    background-color: var(--cor-secundaria);
-    border: 1px solid var(--cor-secundaria);
-    transition: 0.6s;
-}
-
-/* generic buttons */
-button {
-    padding: 10px 20px;
-    background-color: whitesmoke;
-    color: var(--cor-principal);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: var(--cor-secundaria);
-    color: whitesmoke;
-    transition: 0.6s;
-}
-
-/* .............. fim navbar ...................  */
-
-
-.apresentacao-inicial {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    padding: 200px 0px 100px 150px;
-    color: var(--cor-principal);
-}
-
-.pontilhado-horizontal {
-    width: 500px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 1;
-}
-
-.imagemtexto img {
-    display: block;
-    border-radius: 20px;
-    width: 450px;
-    position: relative;
-    z-index: 2;
-}
-
-.pontilhados {
-    width: 350px;
-    position: absolute;
-
-}
-
-.textos p {
-    font-size: 20px;
-    padding: 20px 40px 0px 0px;
-}
-
-.textos h1 {
-    padding-top: 10px;
-    font-weight: 500;
-}
-
-
-.apresentacao-inicial p {
-    max-width: 500px;
-}
-
+/* =============== FIM SEÇÃO MVV =============== */
 
 /* =============== RODAPÉ =============== */
 footer {
@@ -539,7 +789,6 @@ footer::before {
 
 .footer-links a:hover {
     color: var(--cor-secundaria);
-    /* Usando a cor secundária */
     transform: translateX(10px);
 }
 
@@ -580,7 +829,6 @@ footer::before {
 
 .contact-item:hover {
     color: var(--cor-secundaria);
-    /* Usando a cor secundária */
 }
 
 .social-icons {
@@ -588,7 +836,6 @@ footer::before {
     gap: 15px;
     margin-top: 10px;
 }
-
 
 .social-icon {
     width: 45px;
@@ -608,7 +855,6 @@ footer::before {
 
 .social-icon:hover {
     background: linear-gradient(135deg, var(--cor-secundaria), #764ba2);
-    /* Adaptado para cor secundária */
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(26, 26, 27, 0.3);
 }
@@ -634,12 +880,13 @@ footer::before {
     }
 }
 
-/* ================== Estilos do Carrossel "Nossa História" ================== */
+/* =============== FIM RODAPÉ =============== */
+
+/* =============== SEÇÃO NOSSA HISTÓRIA (CARROSSEL) =============== */
 .nossa-historia {
     max-width: 1200px;
     margin: 48px auto;
     padding: 28px;
-    background: transparent;
 }
 
 .nossa-historia .title-row {
@@ -650,8 +897,8 @@ footer::before {
 }
 
 .nossa-historia h2 {
-    font-family: 'Lexend', sans-serif;
-    font-size: 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
     margin: 0;
     color: #011936;
 }
@@ -682,7 +929,7 @@ footer::before {
     flex: 0 0 calc((100% - (20px * 3)) / 4);
     background: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.18);
     overflow: hidden;
     scroll-snap-align: start;
     display: flex;
@@ -789,6 +1036,12 @@ footer::before {
     color: #1d5d50;
 }
 
+svg {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
 /* breakpoints */
 @media (max-width:1100px) {
     .histo-card {
@@ -848,12 +1101,16 @@ footer::before {
     }
 }
 
-/* ========== Conheça nossa Equipe ========== */
+/* =============== FIM SEÇÃO NOSSA HISTÓRIA =============== */
+
+/* =============== SEÇÃO CONHEÇA NOSSA EQUIPE =============== */
 .team-section {
   max-width: 1200px;
   margin: 48px auto;
   padding: 24px;
+  width: 100%;
 }
+
 .team-title {
   text-align: center;
   font-size: 2.2rem;
@@ -861,15 +1118,19 @@ footer::before {
   color: #000000;
   margin-bottom: 32px;
 }
+
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 32px;
+  width: 100%;
+  margin: 0 auto;
 }
+
 .team-card {
   width: 100%;
   max-width: 340px;
-  min-width: 0;
   background: #fff;
   border-radius: 24px;
   box-shadow: 0 4px 16px rgba(80, 0, 80, 0.08);
@@ -879,12 +1140,13 @@ footer::before {
   align-items: center;
   transition: box-shadow 0.2s;
   box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
+  flex: 0 0 calc(33.333% - 32px);
 }
+
 .team-card:hover {
   box-shadow: 0 8px 24px rgba(17, 4, 104, 0.16);
 }
+
 .profile-photo {
   width: 110px;
   height: 110px;
@@ -894,6 +1156,7 @@ footer::before {
   border: 4px solid var(--cor-principal);
   background: #eee;
 }
+
 .member-name {
   font-size: 1.25rem;
   font-weight: 600;
@@ -901,12 +1164,14 @@ footer::before {
   margin-bottom: 8px;
   text-align: center;
 }
+
 .member-desc {
   font-size: 1rem;
   color: #020202;
   margin-bottom: 14px;
   text-align: center;
 }
+
 .member-pronoun {
   background: var(--cor-secundaria);
   color: #f8f8f8;
@@ -917,6 +1182,7 @@ footer::before {
   margin-bottom: 24px;
   display: inline-block;
 }
+
 .linktree-btn {
   margin-top: auto;
   background: var(--cor-principal);
@@ -931,51 +1197,133 @@ footer::before {
   transition: background 0.2s;
   letter-spacing: 0.5px;
 }
+
 .linktree-btn:hover {
   background: var(--cor-secundaria);
 }
+
 .team-grid-last-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-  grid-column: 1 / -1;
-  margin-top: 32px;
-  justify-content: center;
+  display: contents;
 }
-.team-grid-last-row .team-card {
-  width: 100%;
-  max-width: 340px;
-  min-width: 0;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 @media (max-width: 1200px) {
-  .team-card, .team-grid-last-row .team-card {
+  .team-card {
+    flex: 0 0 calc(33.333% - 32px);
     max-width: 300px;
   }
 }
+
 @media (max-width: 900px) {
   .team-grid {
-    grid-template-columns: 1fr;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  .team-grid-last-row {
-    display: contents;
-  }
-  .team-card, .team-grid-last-row .team-card {
-    max-width: 100%;
+
+  .team-card {
+    flex: 0 0 340px;
+    max-width: 340px;
   }
 }
+
 @media (max-width: 600px) {
   .team-section {
     padding: 12px;
   }
+
   .team-grid {
-    grid-template-columns: 1fr;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  .team-card, .team-grid-last-row .team-card {
-    max-width: 100%;
+
+  .team-card {
+    width: 100%;
+    max-width: 340px;
+    flex: 0 0 100%;
+  }
+
+  .team-title {
+    font-size: 1.8rem;
   }
 }
-/* ========== Fim Conheça nossa Equipe ========== */
+
+/* =============== FIM SEÇÃO CONHEÇA NOSSA EQUIPE =============== */
 
 /* ======================================================================== */
+
+/* Menu Hambúrguer - Estilos Responsivos */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media (max-width: 850px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    header nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: #011936;
+        padding: 80px 20px 20px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header nav.active {
+        right: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a,
+    .nav-links button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .botoes-maiores {
+        width: 100% !important;
+    }
+}

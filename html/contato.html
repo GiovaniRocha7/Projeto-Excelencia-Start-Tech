@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExcelencIA - Contato</title>
     <link rel="stylesheet" href="/css/contato.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-        <!-- -------------- FONTE PRINCIPAL ---------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/tema escuro/excelencia texto ia.PNG">
+    <!-- -------------- FONTE PRINCIPAL ---------------->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,20 +34,25 @@
 
 
 </head>
+
 <body>
 
 
     <header>
 
-        <a href="#titulo-principal" class="logo"><img src="/assets/tema escuro/logo-excelencia.PNG"
-                alt="Logo excelencia"></a>
+        <a href="/index.html" class="logo"><img src="/assets/tema escuro/logo-excelencia.PNG" alt="Logo excelencia"></a>
 
-        <nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="navMenu">
             <ul class="nav-links">
                 <li><a href="/index.html">Início</a></li>
                 <li><a href="/html/sobre.html">Sobre</a></li>
                 <li><a href="/html/contato.html">Contato</a></li>
-                <li><a id="planoslink" class="botoes-maiores" href="#planos">PLANOS</a></li>
+                <li><a id="planoslink" class="botoes-maiores" href="/index.html#planos">PLANOS</a></li>
                 <li><button class="botoes-maiores" id="botaoentrar" onclick="abrirModal('login')">ENTRAR</button></li>
 
 
@@ -66,36 +73,36 @@
                 </div>
                 <h2>Nos envie uma mensagem!</h2>
             </div>
-            
+
             <form action="#" method="POST" class="contact-form">
                 <div class="form-group">
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" placeholder="Digite seu nome..." required>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="email">E-mail:</label>
                     <input type="email" id="email" name="email" placeholder="Digite seu e-mail..." required>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="assunto">Assunto:</label>
                     <input type="text" id="assunto" name="assunto" placeholder="Digite o assunto..." required>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="mensagem">Mensagem:</label>
                     <textarea id="mensagem" name="mensagem" rows="6" placeholder="Digite a mensagem..."></textarea>
                 </div>
-                
+
                 <button type="submit" class="submit-btn">ENVIAR MENSAGEM</button>
             </form>
-        </section> 
-        
+        </section>
+
         <section class="container-contato">
             <div class="bloco-contato">
                 <p class="intro-texto">Somos uma equipe 100% online. Escolha a melhor forma de entrar em contato:</p>
-                
+
                 <ul class="lista-contatos">
                     <li class="item-contato">
                         <div class="icone-box">
@@ -106,7 +113,7 @@
                             <span class="detalhe-contato">contato.excelencia.ai@gmail.com</span>
                         </div>
                     </li>
-        
+
                     <li class="item-contato">
                         <div class="icone-box">
                             <i class="fas fa-comment-dots"></i>
@@ -116,7 +123,7 @@
                             <span class="detalhe-contato">Disponível no site durante horário comercial</span>
                         </div>
                     </li>
-        
+
                     <li class="item-contato horario">
                         <div class="icone-box">
                             <i class="fas fa-clock"></i>
@@ -129,14 +136,15 @@
                 </ul>
             </div>
             <div class="rodape-contato">
-                <img src="/assets/tema escuro/logo-excelencia.PNG" alt="excelencIA - Inteligência que transforma" class="logo-rodape">
-            
+                <img src="/assets/tema escuro/logo-excelencia.PNG" alt="excelencIA - Inteligência que transforma"
+                    class="logo-rodape">
+
             </div>
         </section>
 
     </main>
 
-     <!-- ......................... RODAPÉ ......................  -->
+    <!-- ......................... RODAPÉ ......................  -->
     <footer>
         <div class="footer-container">
             <div class="footer-brand">
@@ -186,9 +194,33 @@
     </footer>
     <!-- ......................... RODAPÉ ......................  -->
 
+    <script>
+        // Menu hambúrguer
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
 
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
 
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-links a, .nav-links button').forEach(item => {
+            item.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
 
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
 
 </body>
+
 </html>
