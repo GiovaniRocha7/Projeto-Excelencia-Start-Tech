@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de Entrevista - Desenvolvedor (Voz)</title>
+    <link rel="stylesheet" href="chatvoz.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="chat-container">
+        <!-- OVERLAY -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img class="logo-excelencia" src="/assets/tema escuro/logo-excelencia.PNG" alt="ExcelencIA">
+                <button class="sidebar-close-btn" id="sidebarCloseBtn" title="Fechar menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <button class="back-home-btn" id="backHomeBtn" title="Voltar para página inicial">
+                <i class="fas fa-arrow-left"></i>
+                Voltar
+            </button>
+
+            <button class="new-chat-btn" id="newChatBtn">
+                <i class="fas fa-plus"></i>
+                Nova Conversa
+            </button>
+
+            <div class="chat-history" id="chatHistory">
+                <div class="chat-item active" data-chat-id="1">Entrevista de Desenvolvedor</div>
+                <div class="chat-item" data-chat-id="2">Dicas de apresentação</div>
+                <div class="chat-item" data-chat-id="3">Perguntas sobre liderança</div>
+                <div class="chat-item" data-chat-id="4">Preparação para RH</div>
+                <div class="chat-item" data-chat-id="5">Feedback da última simulação</div>
+            </div>
+        </div>
+
+        <!-- MAIN CHAT -->
+        <div class="chat-main">
+            <!-- HEADER -->
+            <div class="chat-header">
+                <button class="menu-toggle" id="menuToggle" title="Abrir menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="chat-title" id="chatTitle">Simulação de Entrevista - Desenvolvedor</div>
+                <div class="chat-options">
+
+                    </button>
+                </div>
+            </div>
+
+            <main class="main">
+                <section class="stage">
+                    <div class="orb" id="orb"></div>
+
+
+                </section>
+            </main>
+
+            <!-- Controles de Vídeo -->
+            <div class="video-controls">
+                <button class="control-btn" id="toggleAudioBtn" title="Mutar/Desmutar">
+                    <i class="fas fa-microphone"></i>
+                </button>
+
+                
+                
+                <button class="control-btn danger" id="endCallBtn" title="Encerrar entrevista">
+                    <i class="fas fa-phone-slash"></i>
+                </button>
+                <button class="control-btn" id="toggleChatBtn" title="Abrir chat">
+                    <i class="fas fa-comment-dots"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Menu toggle functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+        
+        const closeSidebar = () => {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        };
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        });
+
+        // Close sidebar when clicking on overlay
+        sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // Close sidebar when clicking close button
+        sidebarCloseBtn.addEventListener('click', closeSidebar);
+
+        // Close sidebar when clicking on a chat item
+        document.querySelectorAll('.chat-item').forEach(item => {
+            item.addEventListener('click', closeSidebar);
+        });
+
+        (async () => {
+            const orb = document.getElementById('orb');
+            if (!orb || !navigator.mediaDevices?.getUserMedia) return;
+
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const source = ctx.createMediaStreamSource(stream);
+                const analyser = ctx.createAnalyser();
+                analyser.fftSize = 1024;
+                source.connect(analyser);
+
+                const data = new Uint8Array(analyser.fftSize);
+                const baseShadow = '0 0 40px rgba(64, 140, 255, 0.45), inset 0 0 40px rgba(0,0,0,0.35)';
+                let smooth = 0;
+
+                const tick = () => {
+                    analyser.getByteTimeDomainData(data);
+                    // RMS volume 0..1
+                    let sum = 0;
+                    for (let i = 0; i < data.length; i++) {
+                        const v = (data[i] - 128) / 128;
+                        sum += v * v;
+                    }
+                    const rms = Math.sqrt(sum / data.length);
+                    // Smooth for natural motion
+                    smooth = smooth * 0.8 + rms * 0.2;
+                    const scale = 1 + Math.min(0.5, smooth * 4); // cap scale
+                    const glow = Math.min(0.9, smooth * 6);      // cap glow strength
+                    orb.style.transform = `scale(${scale.toFixed(3)})`;
+                    orb.style.boxShadow = `${baseShadow}, 0 0 ${40 + glow * 60}px rgba(64, 200, 255, ${0.15 + glow * 0.5})`;
+                    requestAnimationFrame(tick);
+                };
+                tick();
+            } catch (err) {
+                console.warn('Mic access denied or failed', err);
+            }
+        })();
+
+        // Voice button speech detection
+        (() => {
+            const voiceBtn = document.getElementById('voiceBtn');
+            const statusEl = document.getElementById('voiceStatus');
+            const transcriptEl = document.getElementById('voiceTranscript');
+            const Speech = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!voiceBtn || !Speech) {
+                if (statusEl) statusEl.textContent = 'Reconhecimento não suportado';
+                return;
+            }
+
+            const rec = new Speech();
+            rec.lang = 'pt-BR';
+            rec.continuous = true;
+            rec.interimResults = true;
+            let active = false;
+
+            const updateUI = (state, text) => {
+                if (statusEl) statusEl.textContent = state;
+                if (text && transcriptEl) transcriptEl.textContent = text;
+            };
+
+            const start = () => {
+                if (active) return;
+                active = true;
+                voiceBtn.classList.add('active');
+                updateUI('Ouvindo...');
+                try { rec.start(); } catch (_) { }
+            };
+
+            const stop = () => {
+                if (!active) return;
+                active = false;
+                voiceBtn.classList.remove('active');
+                updateUI('Parado');
+                try { rec.stop(); } catch (_) { }
+            };
+
+            voiceBtn.addEventListener('click', () => active ? stop() : start());
+
+            rec.onresult = (evt) => {
+                let text = '';
+                for (let i = evt.resultIndex; i < evt.results.length; i++) {
+                    text += evt.results[i][0].transcript;
+                }
+                updateUI('Ouvindo...', text.trim() || '...');
+            };
+
+            rec.onerror = (evt) => {
+                updateUI(`Erro: ${evt.error}`);
+                stop();
+            };
+
+            rec.onend = () => {
+                if (active) start();
+            };
+        })();
+    </script>
+</body>
+
+</html>
