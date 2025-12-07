@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExcelêncIA</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="estilosSecundarios/modal.css">
     <link rel="shortcut icon" type="image/x-icon" href="assets/tema escuro/excelencia texto ia.PNG">
 
 
@@ -252,7 +253,7 @@
         <div class="modal" id="modal-login">
             <div class="fechar" onclick="fecharModal()">✕</div>
             <p class="title">Bem-vindo de volta!</p>
-            <p>Entre e continue sua jornada rumo à excelência.</p>
+            <p class="textomodal">Entre e continue sua jornada rumo à ExcelêncIA.</p>
             <form class="form" onsubmit="event.preventDefault(); alert('Login simulado!');">
                 <div class="input-group">
                     <label for="login-email">E-mail</label>
@@ -353,7 +354,7 @@
                     <span class="preco"><span class="moeda">R$</span>0</span>
                 </div>
 
-                <button class="botao-upgrade">Começar</button>
+                <button class="botao-upgrade" onclick="window.location.href='html/homeLogin.html'">Começar</button>
 
                 <h3 class="titulo-recursos">O que está incluso:</h3>
                 <ul class="lista-recursos">
@@ -389,7 +390,7 @@
                     <span class="preco"><span class="moeda">R$</span>34</span><span class="periodo">/mês</span>
                 </div>
 
-                <button class="botao-upgrade">Assinar</button>
+                <button class="botao-upgrade" onclick="window.location.href='Pagina Pagamentos/Pagamentos.html?plano=premium'">Assinar</button>
 
                 <h3 class="titulo-recursos">O que está incluso:</h3>
                 <ul class="lista-recursos">
@@ -439,7 +440,7 @@
                     <span class="preco"><span class="moeda">R$</span>74</span><span class="periodo">/mês</span>
                 </div>
 
-                <button class="botao-upgrade">Assinar</button>
+                <button class="botao-upgrade" onclick="window.location.href='Pagina Pagamentos/Pagamentos.html?plano=profissional'">Assinar</button>
 
                 <h3 class="titulo-recursos">O que está incluso:</h3>
                 <ul class="lista-recursos">
@@ -523,6 +524,7 @@
 
 
     <script src="js/script.js" defer></script>
+    <script src="estilosSecundarios/modal.js" defer></script>
 
     <script>
         // Menu hambúrguer

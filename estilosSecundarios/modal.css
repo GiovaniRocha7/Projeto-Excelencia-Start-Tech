@@ -1,0 +1,201 @@
+/* =============== MODAL LOGIN =============== */
+.janela_escura {
+    margin-top: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+}
+
+.janela_escura.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background-color: rgba(17, 24, 39, 1);
+    width: 90%;
+    max-width: 450px;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    color: rgba(243, 244, 246, 1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 10px 10px -5px rgba(0, 0, 0, .04);
+    position: relative;
+    display: none;
+}
+
+/* From Uiverse.io by Yaya12085 */ 
+.google {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1rem; /* corrigido */
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  gap: 0.75rem;
+  color: rgb(65, 63, 63);
+  background-color: #fff;
+  cursor: pointer;
+  transition: all .6s ease;
+}
+
+.button svg {
+  height: 24px;
+}
+
+button:hover {
+  transform: scale(1.02);
+}
+
+.janela_escura.ativo .modal {
+    animation: slideIn .3s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #9ca3af;
+    transition: color .2s;
+}
+
+.fechar:hover {
+    color: var(--cor-secundaria);
+}
+
+.modal .title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+    color: white;
+}
+
+.input-group label {
+    display: block;
+    color: rgb(229, 232, 238);
+    margin-bottom: 6px;
+    font-size: 1.01rem;
+}
+
+.input-group input {
+    width: 100%;
+    border-radius: .5rem;
+    border: 1px solid rgba(55, 65, 81, 1);
+    background-color: rgba(31, 41, 55, .5);
+    padding: .75rem 1rem;
+    color: white;
+    font-size: 1rem;
+    transition: border-color .2s, background-color .2s;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: var(--cor-secundaria);
+    background-color: rgba(31, 41, 55, 1);
+}
+
+.forgot {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+.signup {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.signup p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* espaço entre o texto e o link */
+}
+
+.message {
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px; /* espaço entre o texto e o link */
+}
+
+.textomodal {
+    color: #f3f4f6;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.forgot a,
+.signup a {
+    
+    color: whitesmoke;
+    font-size:20px;
+    text-decoration: none;
+    font-weight: 700;
+    
+}
+
+.signup a {
+
+}
+.signup a:hover {
+    text-decoration:underline;
+}
+
+.forgot a:hover {
+    
+    color: #1d5d50;
+    font-size:20px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.sign {
+    width: 100%;
+    background-color: var(--cor-secundaria);
+    padding: .75rem;
+    text-align: center;
+    color: whitesmoke;
+    border: none;
+    border-radius: .5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    transition: transform .2s, background-color .2s;
+}
+
+.sign:hover {
+    transform: translateY(-2px);
+}

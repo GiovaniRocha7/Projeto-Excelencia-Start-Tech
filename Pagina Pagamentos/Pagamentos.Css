@@ -1,0 +1,328 @@
+/* Variáveis de Cores (Mantidas) */
+:root {
+    --primary-color: #011936; 
+    --secondary-color: #1d5d50; 
+    --text-light: #f4f4f9; 
+    --text-dark: #333333; 
+    --card-bg: #ffffff; 
+    --input-border: #cccccc;
+    --success-color: #1d5d50;
+    --info-bg: #f0f8ff; /* Fundo leve para caixas de informação */
+}
+
+/* Reset, Header, Layout Principal (Sem alterações) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-color);
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.back-link {
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: var(--text-light);
+}
+
+.checkout-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.checkout-form-section {
+    flex: 2;
+    padding: 40px;
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+/* --- FORMULÁRIO DE PAGAMENTO (Estilos gerais) --- */
+.payment-form fieldset {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
+
+.payment-form legend {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    padding: 0 10px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(29, 93, 80, 0.2);
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .input-group {
+    flex: 1;
+}
+
+/* --- NOVOS ESTILOS PARA MÉTODOS DE PAGAMENTO --- */
+.method-options {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.payment-option {
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    background-color: #f9f9f9;
+}
+
+.payment-option input[type="radio"] {
+    /* Esconde o rádio padrão, pois o estilo é aplicado na label */
+    display: none; 
+}
+
+/* Estilo para a opção selecionada */
+.payment-option input[type="radio"]:checked + span {
+    border-color: var(--secondary-color);
+    background-color: #e6f7f5;
+    color: var(--secondary-color);
+}
+
+.payment-option:has(input[type="radio"]:checked) {
+    border-color: var(--secondary-color);
+    background-color: #e6f7f5; /* Cor de fundo levemente verde */
+    color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(29, 93, 80, 0.3);
+}
+
+/* Gerenciamento de Conteúdo */
+.payment-content {
+    display: none; /* Esconde todos por padrão */
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.payment-content.active {
+    display: block; /* Mostra o conteúdo ativo */
+}
+
+.sub-fieldset {
+    /* Estilo para o campo de Cartão, mantendo a estrutura de fieldset */
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.info-box {
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border-left: 5px solid var(--secondary-color);
+    background-color: var(--info-bg);
+}
+
+.info-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.pix-info {
+    border-color: #4CAF50; /* Verde Pix */
+}
+
+.boleto-info {
+    border-color: #808080; /* Cinza Boleto */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botão de Pagamento (Mantido) */
+.btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s, opacity 0.3s;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+
+.btn.secondary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.btn.secondary:hover {
+    background-color: #000c1d;
+}
+
+/* --- RESUMO DO PEDIDO (Mantido) --- */
+.order-summary-section {
+    flex: 1;
+    background-color: #f7f7f7;
+    padding: 40px;
+    border-left: 1px solid #eeeeee;
+}
+
+.summary-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.plan-details, .price-details {
+    margin-bottom: 25px;
+}
+
+.plan-item, .price-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 1rem;
+}
+
+.plan-item strong {
+    color: var(--secondary-color);
+}
+
+hr {
+    border: 0;
+    border-top: 1px dashed #cccccc;
+    margin: 20px 0;
+}
+
+.price-item.total {
+    font-size: 1.25rem;
+    padding-top: 15px;
+    border-top: 2px solid var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.security-info {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #e8f5e9;
+    color: var(--secondary-color);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* --- RESPONSIVIDADE (MEDIA QUERIES) --- */
+
+@media (max-width: 992px) {
+    .checkout-container {
+        flex-direction: column;
+        margin: 20px;
+    }
+
+    .order-summary-section {
+        border-left: none;
+        border-top: 1px solid #eeeeee;
+    }
+}
+
+@media (max-width: 600px) {
+    .checkout-container {
+        margin: 10px;
+        border-radius: 0;
+    }
+
+    .checkout-form-section, .order-summary-section {
+        padding: 20px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .header {
+        padding: 10px 5%;
+    }
+    
+    .method-options {
+        flex-direction: column; /* Empilha as opções de pagamento no mobile */
+    }
+}

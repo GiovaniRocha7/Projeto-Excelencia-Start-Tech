@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExcelencIA - Contato</title>
     <link rel="stylesheet" href="/css/contato.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/estilosSecundarios/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/tema escuro/excelencia texto ia.PNG">
+    
     <!-- -------------- FONTE PRINCIPAL ---------------->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,10 +36,8 @@
 </head>
 
 <body>
-
-
     <header>
-
+        <!-- ...existing code... navbar mantido -->
         <a href="/index.html" class="logo"><img src="/assets/tema escuro/logo-excelencia.PNG" alt="Logo excelencia"></a>
 
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
@@ -54,101 +52,289 @@
                 <li><a href="/html/contato.html">Contato</a></li>
                 <li><a id="planoslink" class="botoes-maiores" href="/index.html#planos">PLANOS</a></li>
                 <li><button class="botoes-maiores" id="botaoentrar" onclick="abrirModal('login')">ENTRAR</button></li>
-
-
             </ul>
         </nav>
-
     </header>
 
-    <main class="container">
-        <section class="contact-header">
-            <h1>Entre em <span class="highlight">Contato</span></h1>
-        </section>
+    
+<!-- ================= MODAIS (LOGIN E REGISTRO) ================= -->
+    <div class="janela_escura" id="overlay-modal">
 
-        <section class="contact-form-card">
-            <div class="card-title-icon">
-                <div class="icon-circle">
-                    <i class="fas fa-envelope"></i>
+        <!-- MODAL DE LOGIN -->
+
+        <div class="modal" id="modal-login">
+            <div class="fechar" onclick="fecharModal()">✕</div>
+            <p class="title">Bem-vindo de volta!</p>
+            <p class="textomodal">Entre e continue sua jornada rumo à ExcelêncIA.</p>
+            <form class="form" onsubmit="event.preventDefault(); alert('Login simulado!');">
+                <div class="input-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" required placeholder="seu@email.com">
                 </div>
-                <h2>Nos envie uma mensagem!</h2>
-            </div>
-
-            <form action="#" method="POST" class="contact-form">
-                <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome..." required>
+                <div class="input-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" required placeholder="********">
+                    <div class="forgot">
+                        <a href="#">Esqueceu a senha?</a>
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail..." required>
-                </div>
-
-                <div class="form-group">
-                    <label for="assunto">Assunto:</label>
-                    <input type="text" id="assunto" name="assunto" placeholder="Digite o assunto..." required>
-                </div>
-
-                <div class="form-group">
-                    <label for="mensagem">Mensagem:</label>
-                    <textarea id="mensagem" name="mensagem" rows="6" placeholder="Digite a mensagem..."></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">ENVIAR MENSAGEM</button>
+                <button class="sign">Entrar</button>
             </form>
+            <div class="social-message">
+                <div class="line"></div>
+                <p class="message">Ou entre com</p>
+                <div class="line"></div>
+            </div>
+            <button class="google">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20px" height="20px">
+                    <path fill="#FFC107"
+                        d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" />
+                    <path fill="#FF3D00"
+                        d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z" />
+                    <path fill="#4CAF50"
+                        d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z" />
+                    <path fill="#1976D2"
+                        d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z" />
+                </svg>
+                Google
+            </button>
+            <div class="signup">
+                <p>Não tem uma conta? <a onclick="abrirModal('cadastro')">Inscreva-se</a></p>
+            </div>
+        </div>
+
+        <!-- MODAL DE CADASTRO -->
+        <div class="modal" id="modal-cadastro">
+            <div class="fechar" onclick="fecharModal()">✕</div>
+            <p class="title">Crie sua conta</p>
+            <p>Comece agora sua preparação profissional.</p>
+            <form class="form" onsubmit="event.preventDefault(); alert('Cadastro simulado!');">
+                <div class="input-group">
+                    <label for="cad-nome">Nome Completo</label>
+                    <input type="text" id="cad-nome" required placeholder="Seu nome">
+                </div>
+                <div class="input-group">
+                    <label for="cad-email">E-mail</label>
+                    <input type="email" id="cad-email" required placeholder="seu@email.com">
+                </div>
+                <div class="input-group">
+                    <label for="cad-password">Senha</label>
+                    <input type="password" id="cad-password" required placeholder="Mínimo 6 caracteres">
+                </div>
+                <div class="input-group">
+                    <label for="cad-confirm-password">Confirmar Senha</label>
+                    <input type="password" id="cad-confirm-password" required placeholder="Repita a senha">
+                </div>
+
+                <button class="sign">Cadastrar</button>
+            </form>
+
+            <div class="signup" style="margin-top: 2rem;">
+                <p>Já tem uma conta? <a onclick="abrirModal('login')">Entrar</a></p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Hero Section -->
+    <section class="hero-contact">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Vamos Conversar?</h1>
+            <p class="hero-subtitle">Estamos aqui para transformar suas dúvidas em oportunidades</p>
+        </div>
+    </section>
+
+    <main class="contact-main">
+        <!-- Cards de Contato Rápido -->
+        <section class="quick-contact">
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="card-icon email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>E-mail</h3>
+                    <p>contato.excelencia.ai@gmail.com</p>
+                    <a href="mailto:contato.excelencia.ai@gmail.com" class="card-link">
+                        Enviar e-mail <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="card-icon chat">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Chat Online</h3>
+                    <p>Segunda a Sexta, 9h às 18h</p>
+                    <a href="#form" class="card-link">
+                        Iniciar conversa <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="card-icon support">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Suporte</h3>
+                    <p>Central de ajuda 24/7</p>
+                    <a href="#faq" class="card-link">
+                        Acessar FAQ <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
         </section>
 
-        <section class="container-contato">
-            <div class="bloco-contato">
-                <p class="intro-texto">Somos uma equipe 100% online. Escolha a melhor forma de entrar em contato:</p>
+        <!-- Formulário de Contato -->
+        <section class="contact-form-section" id="form">
+            <div class="form-container">
+                <div class="form-header">
+                    <div class="form-icon-wrapper">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <h2>Envie sua Mensagem</h2>
+                    <p>Responderemos em até 24 horas</p>
+                </div>
 
-                <ul class="lista-contatos">
-                    <li class="item-contato">
-                        <div class="icone-box">
-                            <i class="fas fa-envelope"></i>
+                <form class="modern-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">
+                                <i class="fas fa-user"></i>
+                                Nome Completo
+                            </label>
+                            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
                         </div>
-                        <div class="info-contato">
-                            <span class="titulo-contato">E-mail</span>
-                            <span class="detalhe-contato">contato.excelencia.ai@gmail.com</span>
-                        </div>
-                    </li>
 
-                    <li class="item-contato">
-                        <div class="icone-box">
-                            <i class="fas fa-comment-dots"></i>
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i>
+                                E-mail
+                            </label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
                         </div>
-                        <div class="info-contato">
-                            <span class="titulo-contato">Chat Online</span>
-                            <span class="detalhe-contato">Disponível no site durante horário comercial</span>
-                        </div>
-                    </li>
+                    </div>
 
-                    <li class="item-contato horario">
-                        <div class="icone-box">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="info-contato">
-                            <span class="titulo-contato">Horário de Atendimento</span>
-                            <span class="detalhe-contato">Segunda a Sexta: 9h às 18h (GMT-3)</span>
-                        </div>
-                    </li>
-                </ul>
+                    <div class="form-group">
+                        <label for="assunto">
+                            <i class="fas fa-tag"></i>
+                            Assunto
+                        </label>
+                        <select id="assunto" name="assunto" required>
+                            <option value="">Selecione um assunto</option>
+                            <option value="suporte">Suporte Técnico</option>
+                            <option value="comercial">Comercial</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="parceria">Parcerias</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">
+                            <i class="fas fa-comment-alt"></i>
+                            Mensagem
+                        </label>
+                        <textarea id="mensagem" name="mensagem" rows="6" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                        <span class="char-count">0/500 caracteres</span>
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        <span>Enviar Mensagem</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
             </div>
-            <div class="rodape-contato">
-                <img src="/assets/tema escuro/logo-excelencia.PNG" alt="excelencIA - Inteligência que transforma"
-                    class="logo-rodape">
 
+            <div class="info-sidebar">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>Horário de Atendimento</h4>
+                    <p>Segunda a Sexta<br>9h às 18h (GMT-3)</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4>Localização</h4>
+                    <p>São Paulo, Brasil<br>100% Online</p>
+                </div>
+
+                <div class="info-card social-card">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <h2 class="faq-title">Perguntas Frequentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como funciona a simulação de entrevista?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nossa IA realiza entrevistas personalizadas baseadas na sua área de atuação, analisando suas respostas em tempo real e fornecendo feedback detalhado sobre comunicação, postura e conteúdo.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Qual é o tempo de resposta do suporte?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nosso time responde em até 24 horas durante dias úteis. Para assinantes Premium e Profissional, o suporte prioritário garante resposta em até 4 horas.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Posso testar antes de assinar?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! O plano Free oferece 3 simulações por semana com feedback básico, permitindo que você teste nossa plataforma antes de fazer upgrade.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como cancelo minha assinatura?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Você pode cancelar a qualquer momento através do painel de configurações. Não há multas ou taxas de cancelamento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- ......................... RODAPÉ ......................  -->
+
+
+
+    <!-- Footer mantido igual -->
     <footer>
         <div class="footer-container">
             <div class="footer-brand">
-                <div class="logo"><img src="assets/tema escuro/logo-excelencia.PNG" alt=""></div>
+                <div class="logo"><img src="/assets/tema escuro/logo-excelencia.PNG" alt=""></div>
                 <p class="tagline">Inteligência que transforma<br>entrevistas em oportunidades</p>
             </div>
 
@@ -194,6 +380,7 @@
     </footer>
     <!-- ......................... RODAPÉ ......................  -->
 
+    <script src="/estilosSecundarios/modal.js"></script>
     <script>
         // Menu hambúrguer
         const menuToggle = document.getElementById('menuToggle');
@@ -219,8 +406,47 @@
                 navMenu.classList.remove('active');
             }
         });
-    </script>
 
+        // FAQ Accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Character counter
+        const textarea = document.getElementById('mensagem');
+        const charCount = document.querySelector('.char-count');
+        textarea.addEventListener('input', () => {
+            const count = textarea.value.length;
+            charCount.textContent = `${count}/500 caracteres`;
+            if (count > 500) {
+                textarea.value = textarea.value.substring(0, 500);
+            }
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            e.target.reset();
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+
+
+
+    </script>
 </body>
 
 </html>
