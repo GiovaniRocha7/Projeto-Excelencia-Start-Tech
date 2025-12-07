@@ -63,6 +63,15 @@ header {
     width: auto;
 }
 
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
 .nav-links li {
     list-style: none;
     display: inline-block;
@@ -289,6 +298,48 @@ main {
     border-radius: 999px;
     overflow: hidden;
     border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%);
+    border-radius: 999px;
+    width: var(--progress, 0%);
+    transition: width 0.5s ease;
+}
+
+/* =============== BLOCO LINKS =============== */
+#blocoLinks {
+    margin-bottom: 40px;
+}
+
+.linksOpcoes {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.linksOpcoes li {
+    background: rgba(17, 24, 39, 0.8);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.linksOpcoes li:hover {
+    transform: translateY(-5px);
+    border-color: var(--cor-destaque);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+
+.linksOpcoes a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 35px 25px;
 }
 
 .progress-bar {

@@ -93,6 +93,7 @@
         const sidebar = document.getElementById('sidebar');
         const sidebarOverlay = document.getElementById('sidebarOverlay');
         const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+        const backHomeBtn = document.getElementById('backHomeBtn');
         
         const closeSidebar = () => {
             sidebar.classList.remove('active');
@@ -113,6 +114,11 @@
         // Close sidebar when clicking on a chat item
         document.querySelectorAll('.chat-item').forEach(item => {
             item.addEventListener('click', closeSidebar);
+        });
+
+        // Navigate to home page
+        backHomeBtn.addEventListener('click', () => {
+            window.location.href = '/html/homeLogin.html';
         });
 
         (async () => {

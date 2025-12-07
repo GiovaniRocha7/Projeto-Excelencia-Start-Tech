@@ -11,10 +11,16 @@
 
 <body>
     <div class="chat-container">
+        <!-- OVERLAY -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
         <!-- SIDEBAR -->
-        <div class="sidebar">
+        <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
                <img class="logo-excelencia" src="/assets/tema escuro/logo-excelencia.PNG" alt="ExcelencIA">
+               <button class="sidebar-close-btn" id="sidebarCloseBtn" title="Fechar menu">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
 
             <button class="back-home-btn" id="backHomeBtn" title="Voltar para página inicial">
@@ -40,15 +46,10 @@
         <div class="chat-main">
             <!-- HEADER -->
             <div class="chat-header">
+                <button class="menu-toggle" id="menuToggle" title="Abrir menu">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <div class="chat-title" id="chatTitle">Simulação de Entrevista - Desenvolvedor</div>
-                <div class="chat-options">
-                    <button class="chat-option-btn" id="shareBtn" title="Compartilhar">
-                        <i class="fas fa-share"></i>
-                    </button>
-                    <button class="chat-option-btn" id="moreOptionsBtn" title="Mais opções">
-                        <i class="fas fa-ellipsis-v"></i>
-                    </button>
-                </div>
             </div>
 
             <!-- MESSAGES -->
@@ -90,6 +91,89 @@
         </div>
     </div>
 
+    <script>
+        // Menu toggle functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+        const messagesArea = document.getElementById('messagesArea');
+        const chatForm = document.getElementById('chatForm');
+        const messageInput = document.getElementById('messageInput');
+        
+        const closeSidebar = () => {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        };
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        });
+
+        // Close sidebar when clicking on overlay
+        sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // Close sidebar when clicking close button
+        sidebarCloseBtn.addEventListener('click', closeSidebar);
+
+        // Close sidebar when clicking on a chat item
+        document.querySelectorAll('.chat-item').forEach(item => {
+            item.addEventListener('click', closeSidebar);
+        });
+
+        // Function to add message to chat
+        function addMessage(text, isUser, score = null, feedback = null) {
+            // Remove empty state on first message
+            if (messagesArea.querySelector('.empty-state')) {
+                messagesArea.innerHTML = '';
+            }
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+            
+            let contentHTML = `
+                <div class="message-content">
+                    ${text}
+                    ${score ? `<div class="message-score">Score: ${score} - ${feedback}</div>` : ''}
+                </div>
+                <div class="message-icon">
+                    <i class="fas fa-${isUser ? 'user' : 'robot'}"></i>
+                </div>
+            `;
+
+            if (isUser) {
+                contentHTML = `
+                    <div class="message-content">
+                        ${text}
+                    </div>
+                    <div class="message-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                `;
+            }
+
+            messageDiv.innerHTML = contentHTML;
+            messagesArea.appendChild(messageDiv);
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+        }
+
+        // Handle form submission
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = messageInput.value.trim();
+            
+            if (text) {
+                addMessage(text, true);
+                messageInput.value = '';
+                
+                // Simulate bot response
+                setTimeout(() => {
+                    addMessage('Ótima resposta! Você demonstrou um bom conhecimento. Agora vamos para a próxima pergunta...', false, '8.5/10', 'Excelente explicação técnica');
+                }, 500);
+            }
+        });
+    </script>
     <script src="script-chat.js"></script>
 </body>
 

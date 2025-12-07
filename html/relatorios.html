@@ -42,7 +42,7 @@
                 <li><a href="homeLogin.html">Dashboard</a></li>
                 <li><a href="relatorios.html">Relatórios</a></li>
                 <li><a href="historico.html">Histórico</a></li>
-                
+
                 <!-- USER MENU COMPONENT -->
                 <li class="user-menu">
                     <button id="userAvatarBtn" class="user-avatar-btn" aria-haspopup="true" aria-expanded="false">
@@ -53,7 +53,7 @@
 
                     <div id="userDropdown" class="user-dropdown" role="menu" aria-hidden="true">
                         <a href="#" class="dropdown-item" role="menuitem">Editar Perfil</a>
-                        <a href="#" class="dropdown-item" role="menuitem">Configurações</a>
+                        <a href="/html/configuracoes.html" class="dropdown-item" role="menuitem">Configurações</a>
                         <button class="dropdown-item sign-out" role="menuitem" id="menuSair">Sair</button>
                     </div>
                 </li>
@@ -215,7 +215,7 @@
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
 
-        menuToggle.addEventListener('click', function() {
+        menuToggle.addEventListener('click', function () {
             this.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
@@ -232,8 +232,8 @@
         document.addEventListener('click', (e) => {
             const avatarBtn = document.getElementById('userAvatarBtn');
             const dropdown = document.getElementById('userDropdown');
-            
-            if (!menuToggle.contains(e.target) && !navMenu.contains(e.target) && 
+
+            if (!menuToggle.contains(e.target) && !navMenu.contains(e.target) &&
                 !avatarBtn.contains(e.target) && !dropdown.contains(e.target)) {
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
@@ -241,7 +241,7 @@
         });
 
         // ===== USER MENU DROPDOWN =====
-        (function() {
+        (function () {
             const avatarBtn = document.getElementById('userAvatarBtn');
             const dropdown = document.getElementById('userDropdown');
 
@@ -259,24 +259,24 @@
                 avatarBtn.setAttribute('aria-expanded', 'false');
             }
 
-            avatarBtn.addEventListener('click', function(e) {
+            avatarBtn.addEventListener('click', function (e) {
                 e.stopPropagation();
                 const isOpen = dropdown.classList.contains('open');
                 if (isOpen) closeMenu();
                 else openMenu();
             });
 
-            document.addEventListener('click', function(e) {
+            document.addEventListener('click', function (e) {
                 if (!dropdown.contains(e.target) && !avatarBtn.contains(e.target)) {
                     closeMenu();
                 }
             });
 
-            document.addEventListener('keydown', function(e) {
+            document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape') closeMenu();
             });
 
-            document.getElementById('menuSair')?.addEventListener('click', function(e) {
+            document.getElementById('menuSair')?.addEventListener('click', function (e) {
                 e.preventDefault();
                 closeMenu();
                 alert('Saindo...');

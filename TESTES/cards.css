@@ -17,6 +17,10 @@ body {
     color: #2d3436;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* =============== NAVBAR =============== */
 
 
@@ -41,11 +45,20 @@ header {
     width: 100%;
     z-index: 9999;
     height: 80px;
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    min-width: 0;
 }
 
 .logo img {
-    height: 30px;
+
     width: auto;
+    flex-shrink: 0;
 }
 
 /* nav links */
@@ -53,6 +66,7 @@ header {
     list-style: none;
     display: inline-block;
     padding: 0 14px;
+    font-weight: 350;
 }
 
 .nav-links li a:hover {
@@ -97,7 +111,8 @@ header {
 .container-perfil {
     display: flex;
     min-height: 100vh;
-    margin-top: 80px;
+    margin-top: 0;
+    padding-top: 90px;
 }
 
 /* ====== SIDEBAR ====== */
@@ -107,7 +122,7 @@ header {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     padding: 24px 0;
     position: sticky;
-    top: 80px;
+
     height: calc(100vh - 80px);
     overflow-y: auto;
 }
@@ -160,24 +175,11 @@ header {
 }
 
 .sidebar-footer {
-    padding: 20px;
-    border-top: 1px solid #e8ecf1;
-    margin-top: 20px;
+    display: none;
 }
 
 .logout {
-    color: #d63031;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.logout:hover {
-    color: #a92121;
+    display: none;
 }
 
 /* ====== USER MENU (navbar) ====== */
@@ -204,7 +206,7 @@ header {
 }
 
 .user-avatar-btn:hover {
-    background: rgba(255,255,255,0.04);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .user-avatar {
@@ -218,7 +220,7 @@ header {
     color: whitesmoke;
     font-weight: 700;
     font-size: 14px;
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .user-name {
@@ -241,7 +243,7 @@ header {
     background: #ffffff;
     color: #2d3436;
     border-radius: 10px;
-    box-shadow: 0 8px 28px rgba(2,6,23,0.12);
+    box-shadow: 0 8px 28px rgba(2, 6, 23, 0.12);
     padding: 8px;
     display: none;
     z-index: 10000;
@@ -288,7 +290,7 @@ header {
 }
 
 .profile-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--cor-secundaria);
     padding: 40px;
     border-radius: 12px;
     margin-bottom: 32px;
@@ -344,6 +346,7 @@ header {
     margin-bottom: 24px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     display: none;
+    scroll-margin-top: 90px;
 }
 
 .form-section.active {
@@ -487,6 +490,7 @@ header {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -566,6 +570,9 @@ header {
 @media (max-width: 1024px) {
     .sidebar {
         width: 240px;
+        position: sticky;
+        
+        height: calc(100vh - 80px);
     }
 
     .form-grid {
@@ -580,52 +587,88 @@ header {
 @media (max-width: 768px) {
     .container-perfil {
         flex-direction: column;
+        padding-top: 86px;
+    }
+
+    /* keep header in one row on mobile */
+    header {
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        height: 72px;
+        padding: 14px 16px;
+        flex-wrap: nowrap;
+    }
+
+
+
+    nav {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        min-width: 0;
+    }
+
+    .menu-toggle {
+        flex-shrink: 0;
     }
 
     .sidebar {
         width: 100%;
         height: auto;
-        position: relative;
-        top: 0;
+        position: static;
+        top: auto;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
     }
 
     .sidebar-nav {
         flex-direction: row;
+        gap: 10px;
         overflow-x: auto;
-        padding: 12px 20px;
+        white-space: nowrap;
+        padding: 12px 16px;
+        -webkit-overflow-scrolling: touch;
+        display: inline-flex;
+        min-width: max-content;
+    }
+
+    .sidebar-nav::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb {
+        background: #cbd5e0;
+        border-radius: 999px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-track {
+        background: transparent;
     }
 
     .nav-item {
-        white-space: nowrap;
-        font-size: 12px;
+        flex: 0 0 auto;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+
+    .nav-item.active {
+        border-left: none;
+        border-bottom-color: #4a69bd;
+        background: #f0f4ff;
     }
 
     .main-content {
-        padding: 20px;
+        padding: 18px 16px;
     }
 
-    .form-buttons {
-        flex-direction: column-reverse;
+    .form-grid {
+        grid-template-columns: 1fr;
     }
 
-    header {
-        height: auto;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-links li {
-        display: block;
-        padding: 8px 0;
-    }
-
-    /* === NOVO: mostrar todas as seções para permitir scroll contínuo no mobile === */
     .form-section {
         display: block !important;
         margin-bottom: 20px;
@@ -633,13 +676,17 @@ header {
         padding-right: 18px;
     }
 
-    /* Melhora espaçamento interno do conteúdo principal em mobile */
-    .main-content {
-        padding: 18px;
+    .form-buttons {
+        flex-direction: column-reverse;
     }
 
-    .user-name { display: none; }
-    .user-avatar-btn { padding: 8px; }
+    .user-name {
+        display: none;
+    }
+
+    .user-avatar-btn {
+        padding: 8px;
+    }
 }
 
 @media (max-width: 645px) {
@@ -671,5 +718,111 @@ header {
         padding: 6px 12px;
         font-size: 10px;
         border-radius: 7px;
+    }
+}
+
+@media (max-width: 400px) {
+    .container-perfil {
+        padding-top: 78px;
+    }
+
+    header {
+        height: 68px;
+        padding: 12px 12px;
+        gap: 6px;
+    }
+
+
+
+    .menu-toggle span {
+        width: 26px;
+    }
+
+    .sidebar-nav {
+        gap: 8px;
+        padding: 10px 12px;
+    }
+
+    .nav-item {
+        font-size: 11px;
+        padding: 10px 14px;
+    }
+
+    .main-content {
+        padding: 14px 12px;
+    }
+
+    .form-section {
+        padding: 18px 14px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group label {
+        font-size: 12px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+
+    .btn,
+    .btn-add,
+    .btn-add-skill {
+        font-size: 12px;
+        padding: 10px 14px;
+    }
+}
+
+@media (max-width: 300px) {
+    .container-perfil {
+        padding-top: 72px;
+    }
+
+    header {
+        height: 64px;
+        padding: 10px 10px;
+    }
+
+    .logo img {
+        height: 16px;
+        max-width: 90px;
+    }
+
+    .sidebar-nav {
+        gap: 6px;
+        padding: 8px 10px;
+    }
+
+    .nav-item {
+        font-size: 10px;
+        padding: 8px 12px;
+    }
+
+    .main-content {
+        padding: 12px 10px;
+    }
+
+    .form-section {
+        padding: 16px 12px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 12px;
+        padding: 9px 10px;
+    }
+
+    .btn,
+    .btn-add,
+    .btn-add-skill {
+        font-size: 11px;
+        padding: 9px 12px;
     }
 }
