@@ -48,6 +48,8 @@ const overlay = document.getElementById("overlay-modal");
         }
     });
 
+    // ================= LOGIN E PAGAMENTO =================
+
     // Variável para armazenar o plano selecionado
     let planoSelecionado = null;
 
@@ -122,3 +124,108 @@ const overlay = document.getElementById("overlay-modal");
             }, 300);
         }
     }
+
+    // fim do pagamento 
+
+
+    // ================= MODAL =================
+
+
+
+
+
+// Função para Cadastrar Usuário
+async function cadastrarUsuario(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById("cad-nome").value;
+    const email = document.getElementById("cad-email").value;
+    const senha = document.getElementById("cad-password").value;
+    const confirmarSenha = document.getElementById("cad-confirm-password").value;
+
+    if (senha !== confirmarSenha) {
+        alert("As senhas não coincidem!");
+        return;
+    }
+
+    const dadosUsuario = {
+        nome: nome,
+        email: email,
+        senha: senha
+    };
+
+    try {
+        const response = await fetch("http://localhost:8080/api/usuarios", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(dadosUsuario)
+        });
+
+        if (response.ok) {
+            alert("Usuário cadastrado com sucesso!");
+
+            fecharModal();
+            abrirModal("login");
+
+            // Limpar campos
+            document.getElementById("cad-nome").value = "";
+            document.getElementById("cad-email").value = "";
+            document.getElementById("cad-password").value = "";
+            document.getElementById("cad-confirm-password").value = "";
+
+        } else {
+            const erroData = await response.json().catch(() => ({}));
+            alert(erroData.message || "Erro ao cadastrar usuário.");
+        }
+    } catch (error) {
+        alert("Erro de conexão com o servidor.");
+        console.error(error);
+    }
+}
+
+
+// Função para fazer Login
+async function fazerLogin(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("login-email").value;
+    const senha = document.getElementById("login-password").value;
+
+    const dadosLogin = { email, senha };
+
+    try {
+        const response = await fetch("http://localhost:8080/api/usuarios/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(dadosLogin)
+        });
+
+        if (response.ok) {
+            const usuarioLogado = await response.json();
+            alert("Bem-vindo(a), " + usuarioLogado.nome + "!");
+
+            fecharModal();
+
+            // ============================================
+            // SALVAR O NOME DO USUÁRIO NO NAVEGADOR
+            // ============================================
+            localStorage.setItem("usuarioNome", usuarioLogado.nome);
+            localStorage.setItem("usuarioEmail", usuarioLogado.email);
+            localStorage.setItem("usuarioId", usuarioLogado.id);
+
+            // ========== REDIRECIONAR APÓS LOGIN ==========
+            window.location.href = "/Projeto-Excelencia-Start-Tech/html/homeLogin.html";
+
+        } else {
+            alert("E-mail ou senha incorretos.");
+        }
+    } catch (error) {
+        alert("Erro ao conectar ao servidor.");
+        console.error(error);
+    }
+
+}

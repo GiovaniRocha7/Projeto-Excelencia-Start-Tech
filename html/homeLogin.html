@@ -47,7 +47,7 @@
                 <li class="user-menu">
                     <button id="userAvatarBtn" class="user-avatar-btn" aria-haspopup="true" aria-expanded="false">
                         <span class="user-avatar">AB</span>
-                        <span class="user-name">Ana</span>
+                        <span class="user-name"> (NOME DE USUARIO) </span>
                         <span class="user-arrow">▾</span>
                     </button>
 
@@ -76,7 +76,7 @@
                     <div class="welcome-content">
                         <div class="greeting-container">
                             <div class="welcome-greeting">
-                                <h1 class="greeting-title">Olá, <span id="userName">Maria!</span></h1>
+                                <h1 class="greeting-title">Olá, <span id="userName"></span></h1>
                                 <p class="greeting-subtitle">Você está muito perto de conquistar sua próxima vaga.
                                     Continue com o excelente trabalho!</p>
                             </div>
@@ -392,6 +392,97 @@
 
             
         });
+
+        // LOGIN REDIRECIONADO
+
+
+        //  (function() {
+        //     // Pega valores salvos no localStorage (definidos no login)
+        //     const nome = localStorage.getItem('usuarioNome') || '';
+        //     const email = localStorage.getItem('usuarioEmail') || '';
+
+        //     // Atualiza o nome exibido no dropdown de perfil
+        //     const nomeSpan = document.querySelector('.perfil-dropdown .nome-usuario');
+        //     if (nomeSpan) {
+        //         nomeSpan.textContent = nome ? nome : 'NOME DE USUARIO';
+        //     }
+
+        //     // Atualiza a saudação principal (Olá, NOME...)
+        //     const tituloH1 = document.querySelector('#blocoIncial .tituloPrincipal h1');
+        //     if (tituloH1) {
+        //         if (nome) {
+        //             tituloH1.textContent = `Olá, ${nome}! Pronto para conquistar sua próxima vaga?`;
+        //         }
+        //     }
+
+        //     // (Opcional) você pode usar o email salvo para outras partes da UI
+        //     // Exemplo: armazenar em um atributo data-email do botão de perfil
+        //     const perfilBtn = document.querySelector('.perfil-btn');
+        //     if (perfilBtn && email) {
+        //         perfilBtn.setAttribute('data-email', email);
+        //     }
+        // })();
+
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+        // 1. Recuperar o nome salvo no localStorage
+        const nomeUsuario = localStorage.getItem("usuarioNome");
+
+        // Verificação de segurança: Se não tiver nome, redireciona para o login (Opcional)
+        if (!nomeUsuario) {
+           // window.location.href = "../index.html"; // Descomente se quiser forçar o login
+           console.log("Usuário não logado");
+           return;
+        }
+
+        // 2. Atualizar a saudação principal (Olá, Maria!)
+        const elementoSaudacao = document.getElementById("userName");
+        if (elementoSaudacao) {
+            // Pega apenas o primeiro nome para a saudação
+            const primeiroNome = nomeUsuario.split(" ")[0]; 
+            elementoSaudacao.textContent = primeiroNome + "!";
+        }
+
+        // 3. Atualizar o nome no Menu do Topo (Ana)
+        const elementoMenuNome = document.querySelector(".user-name");
+        if (elementoMenuNome) {
+            elementoMenuNome.textContent = nomeUsuario;
+        }
+
+        // 4. (Bônus) Atualizar as iniciais no Avatar (AB -> JS)
+        const elementoAvatar = document.querySelector(".user-avatar");
+        const elementoAvatarBtn = document.querySelector(".user-avatar-btn .user-avatar"); // O avatar dentro do botão
+        
+        if (elementoAvatar || elementoAvatarBtn) {
+            // Pega as iniciais (Ex: João Silva -> JS)
+            const iniciais = nomeUsuario
+                .split(" ")
+                .map(n => n[0])
+                .slice(0, 2)
+                .join("")
+                .toUpperCase();
+            
+            if (elementoAvatar) elementoAvatar.textContent = iniciais;
+            if (elementoAvatarBtn) elementoAvatarBtn.textContent = iniciais;
+        }
+    });
+
+    // 5. Configurar o botão de SAIR para limpar os dados
+    const btnSair = document.getElementById("menuSair");
+    if (btnSair) {
+        btnSair.addEventListener("click", function(e) {
+            e.preventDefault();
+            // Limpa os dados salvos
+            localStorage.removeItem("usuarioNome");
+            localStorage.removeItem("usuarioEmail");
+            localStorage.removeItem("usuarioId");
+            
+            alert("Você saiu da conta.");
+            window.location.href = "../index.html"; // Volta para a tela inicial
+        });
+    }
+
     </script>
 </body>
 
