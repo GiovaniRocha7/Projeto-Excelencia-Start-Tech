@@ -29,50 +29,35 @@
 </head>
 
 <body>
+
     <header>
-        <nav class="navbar">
-            <div class="nav-left">
-                <button class="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <img src="../assets/tema escuro/logo-excelencia.PNG" alt="Logo ExcelêncIA" class="logo">
-            </div>
+        <a href="homeLogin.html" class="logo"><img src="/assets/tema escuro/logo-excelencia.PNG" alt="Logo excelencia"></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="navMenu">
+            <ul class="nav-links">
+                <li><a href="homeLogin.html">Dashboard</a></li>
+                <li><a href="relatorios.html">Relatórios</a></li>
+                <li><a href="historico.html">Histórico</a></li>
 
-            <div class="nav-right">
-                <div class="nav-links">
-                    <a href="homeLogin.html" class="nav-link">Dashboard</a>
-                    <a href="relatorios.html" class="nav-link">Relatórios</a>
-                    <a href="#" class="nav-link">Histórico</a>
-                </div>
+                <!-- USER MENU COMPONENT -->
+                <li class="user-menu">
+                    <button id="userAvatarBtn" class="user-avatar-btn" aria-haspopup="true" aria-expanded="false">
+                        <span class="user-avatar">AB</span>
+                        <span class="user-name">Ana</span>
+                        <span class="user-arrow">▾</span>
+                    </button>
 
-                
-
-                    <div class="perfil-dropdown">
-                        <button class="perfil-btn">
-                            <img src="../assets/tema escuro/perfil.png" alt="Foto Perfil" class="avatar">
-                            <span class="nome-usuario">Dani</span>
-                            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" />
-                            </svg>
-                        </button>
-
-                        <div class="dropdown-menu">
-                            <a href="editarPerfil.html" class="dropdown-item">
-                                <span>Meu Perfil</span>
-                            </a>
-                            <a href="#" class="dropdown-item">
-                                <span>Configurações</span>
-                            </a>
-                            <hr>
-                            <a href="#" class="dropdown-item text-red">
-                                <span>Sair</span>
-                            </a>
-                        </div>
+                    <div id="userDropdown" class="user-dropdown" role="menu" aria-hidden="true">
+                        <a href="editarPerfil.html" class="dropdown-item" role="menuitem">Editar Perfil</a>
+                        <a href="/html/configuracoes.html" class="dropdown-item" role="menuitem">Configurações</a>
+                        <button class="dropdown-item sign-out" role="menuitem" id="menuSair">Sair</button>
                     </div>
-                </div>
-            </div>
+                </li>
+            </ul>
         </nav>
     </header>
 
@@ -96,26 +81,27 @@
         <section class="bloco2">
             <h2>Desempenho geral:</h2>
 
-            <div class="linha-info"><span>Nota geral:</span>
+            <div id="linha1" class="linha-info"><span>Nota geral:</span>
                 <p id="notaGeral">7.6/10</p>
             </div>
-            <div class="linha-info"><span>Classificação:</span>
+            <div id="linha2" class="linha-info"><span>Classificação:</span>
                 <p>Em progresso</p>
             </div>
-            <div class="linha-info"><span>Última simulação:</span>
+            <div id="linha3" class="linha-info"><span>Última simulação:</span>
                 <p id="ultimaSimulacao">25/05</p>
             </div>
-            <div class="linha-info"><span>Tipo de entrevista analisada:</span>
+            <div id="linha4" class="linha-info"><span>Tipo de entrevista analisada:</span>
                 <p id="tipoEntrevista">Vídeo com IA</p>
             </div>
 
-            <div class="linha-info">
+            <div id="linha5" class="linha-info">
                 <span>Progresso:</span>
                 <div class="barra-externa">
                     <div id="barraProgresso" class="barra-interna"></div>
                 </div>
             </div>
         </section>
+
 
         <section class="graficoEvolucaoContainer">
 
@@ -144,6 +130,8 @@
             </div>
         </section>
 
+
+
         <section class="PalavrasFinaisExcelencIA">
             <div class="PalavrasFinaisContainer">
                 <div class="card" id="card1">
@@ -169,6 +157,7 @@
 
     </main>
 
+    <!-- ......................... RODAPÉ ......................  -->
     <footer>
         <div class="footer-container">
             <div class="footer-brand">
@@ -216,7 +205,84 @@
             <p>&copy; 2025 excelencIA. Todos os direitos reservados.</p>
         </div>
     </footer>
+    <!-- ......................... RODAPÉ ......................  -->
+
     <script src="/js/DesempenhoGeral.js"></script>
     <script src="/js/graficoDesempenhoCategoria.js"></script>
     <script src="/js/graficoEvolucaoUsuario.js"></script>
+    <script>
+        // Menu hambúrguer funcional igual ao index.html
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', function () {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link (exceto o botão de avatar)
+        document.querySelectorAll('.nav-links a').forEach(item => {
+            item.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Fechar menu ao clicar fora (exceto no dropdown)
+        document.addEventListener('click', (e) => {
+            const avatarBtn = document.getElementById('userAvatarBtn');
+            const dropdown = document.getElementById('userDropdown');
+
+            if (!menuToggle.contains(e.target) && !navMenu.contains(e.target) &&
+                !avatarBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // ===== USER MENU DROPDOWN =====
+        (function () {
+            const avatarBtn = document.getElementById('userAvatarBtn');
+            const dropdown = document.getElementById('userDropdown');
+
+            if (!avatarBtn || !dropdown) return;
+
+            function openMenu() {
+                dropdown.classList.add('open');
+                dropdown.setAttribute('aria-hidden', 'false');
+                avatarBtn.setAttribute('aria-expanded', 'true');
+            }
+
+            function closeMenu() {
+                dropdown.classList.remove('open');
+                dropdown.setAttribute('aria-hidden', 'true');
+                avatarBtn.setAttribute('aria-expanded', 'false');
+            }
+
+            avatarBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const isOpen = dropdown.classList.contains('open');
+                if (isOpen) closeMenu();
+                else openMenu();
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!dropdown.contains(e.target) && !avatarBtn.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+
+            document.getElementById('menuSair')?.addEventListener('click', function (e) {
+                e.preventDefault();
+                closeMenu();
+                alert('Saindo...');
+            });
+        })();
+    </script>
 </body>
+
+</html>

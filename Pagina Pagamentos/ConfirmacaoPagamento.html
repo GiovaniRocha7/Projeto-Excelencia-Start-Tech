@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmação de Assinatura - ExcelncIA</title>
+    <title>Confirmação de Assinatura - ExcelêncIA</title>
     <link rel="stylesheet" href="ConfirmacaoPagamento.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
-        <div class="logo">ExcelncIA</div>
+        <div class="logo">ExcelêncIA</div>
     </header>
 
     <main class="confirmation-container">
         <div class="confirmation-box">
             <div class="success-icon">🎉</div>
             <h1 class="main-message">Assinatura Confirmada com Sucesso!</h1>
-            <p class="sub-message">Parabéns! Você está pronto para treinar com o **Plano Profissional**.</p>
+            <p class="sub-message">Parabéns! Você está pronto para treinar com o <strong id="plano-nome">Plano Premium</strong>.</p>
             <p class="note">Um e-mail de confirmação com os detalhes da sua fatura foi enviado para o seu endereço.</p>
 
             <hr>
@@ -25,25 +25,88 @@
                 <h2>Detalhes da Assinatura</h2>
                 <div class="summary-item">
                     <span>Plano:</span>
-                    <strong>Profissional</strong>
+                    <strong id="plano-titulo">Premium</strong>
                 </div>
                 <div class="summary-item">
                     <span>Valor Pago:</span>
-                    <strong>R$ 74,00</strong>
+                    <strong id="plano-valor">R$ 34,00</strong>
                 </div>
                 <div class="summary-item">
                     <span>Início do Ciclo:</span>
-                    <strong>Hoje (30/11/2025)</strong>
+                    <strong id="data-inicio">Hoje</strong>
                 </div>
                 <div class="summary-item">
                     <span>Método de Pagamento:</span>
-                    <strong>Cartão de Crédito</strong>
-                    </div>
+                    <strong id="metodo-pagamento">Cartão de Crédito</strong>
+                </div>
             </div>
 
-            <a href="#" class="btn primary">Acessar Meu Painel</a>
-            <p class="support-link">Precisa de ajuda? <a href="#">Fale com nosso suporte.</a></p>
+            <a href="../html/homeLogin.html" class="btn primary">Acessar Meu Painel</a>
+            <p class="support-link">Precisa de ajuda? <a href="../html/contato.html">Fale com nosso suporte.</a></p>
         </div>
     </main>
+
+    <script>
+        // Função para obter parâmetros da URL
+        function obterParametroURL(parametro) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(parametro);
+        }
+
+        // Função para formatar a data atual
+        function obterDataAtual() {
+            const data = new Date();
+            const dia = String(data.getDate()).padStart(2, '0');
+            const mes = String(data.getMonth() + 1).padStart(2, '0');
+            const ano = data.getFullYear();
+            return `Hoje (${dia}/${mes}/${ano})`;
+        }
+
+        // Configurações dos planos
+        const planosConfig = {
+            'premium': {
+                nome: 'Plano Premium',
+                titulo: 'Premium',
+                valor: 'R$ 34,00'
+            },
+            'profissional': {
+                nome: 'Plano Profissional',
+                titulo: 'Profissional',
+                valor: 'R$ 74,00'
+            }
+        };
+
+        // Função para atualizar a página com os dados do plano
+        function atualizarConfirmacao() {
+            const plano = obterParametroURL('plano') || 'premium';
+            const metodoPagamento = obterParametroURL('metodo') || 'Cartão de Crédito';
+            
+            const planoInfo = planosConfig[plano] || planosConfig['premium'];
+            
+            // Atualizar elementos da página
+            document.getElementById('plano-nome').textContent = planoInfo.nome;
+            document.getElementById('plano-titulo').textContent = planoInfo.titulo;
+            document.getElementById('plano-valor').textContent = planoInfo.valor;
+            document.getElementById('data-inicio').textContent = obterDataAtual();
+            document.getElementById('metodo-pagamento').textContent = formatarMetodoPagamento(metodoPagamento);
+            
+            // Atualizar título da página
+            document.title = `Confirmação de Assinatura ${planoInfo.titulo} - ExcelêncIA`;
+        }
+
+        // Função para formatar o método de pagamento
+        function formatarMetodoPagamento(metodo) {
+            const metodos = {
+                'credito': 'Cartão de Crédito',
+                'debito': 'Cartão de Débito',
+                'pix': 'PIX',
+                'boleto': 'Boleto Bancário'
+            };
+            return metodos[metodo] || 'Cartão de Crédito';
+        }
+
+        // Executar ao carregar a página
+        document.addEventListener('DOMContentLoaded', atualizarConfirmacao);
+    </script>
 </body>
 </html>

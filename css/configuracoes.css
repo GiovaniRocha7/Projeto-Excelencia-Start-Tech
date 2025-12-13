@@ -1,310 +1,473 @@
-:root {
-    --main-bg-color: #0b1a2c; 
-    --accent-color: #00c7a7; 
-    --text-color: #f0f8ff; 
-    --header-bg-color: #081524;
-    --accordion-bg: #13273e; 
-    --danger-color: #ff4d4f; 
-    --radio-checked-border: #8000ff; }
+@charset "UTF-8";
+/* =============== FONTS & RESET =============== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-/* Estilos Globais */
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif; 
+    box-sizing: border-box;
 }
 
 body {
-    background-color: var(--main-bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
+    font-family: 'Montserrat', 'Lexend', sans-serif;
+    background: linear-gradient(135deg, #011936 0%, #0a0e27 100%);
+    color: var(--texto);
+    min-height: 100vh;
+    margin: 0;
 }
 
+:root {
+    --cor-principal: #011936;
+    --cor-secundaria: #1d5d50;
+    --cor-terciaria: #E2E2E2;
+}
+
+/* =============== HEADER/NAVBAR =============== */
+li,
+a,
+button {
+    font-family: 'Josefin sans', sans-serif;
+    font-size: 23px;
+    color: white;
+    text-decoration: none;
+}
 
 header {
-    background-color: var(--header-bg-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
-    border-bottom: 1px solid #1f3956;
+    padding: 20px;
+    background-color: var(--cor-principal);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    height: 80px;
 }
 
-.logo1 img { 
-    width: 200px;
-    height: auto;
-    display: block; 
-    object-fit: contain; 
+.logo img {
+    height: 30px;
+    width: auto;
 }
 
-nav ul {
+.nav-links li {
     list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 20px;
+    display: inline-block;
+    padding: 0 14px;
+    font-weight: 350;
     font-size: 16px;
+}
+
+.nav-links li a:hover {
+    color: var(--cor-secundaria);
+    transition: 0.3s;
+}
+
+/* Menu Hambúrguer */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
     cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.2s;
+    padding: 10px;
+    z-index: 1001;
 }
 
-nav ul li:hover {
-    opacity: 1;
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    border-radius: 3px;
 }
 
-.profile-icon {
-    font-size: 30px;
-    color: var(--text-color);
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media (max-width: 930px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    header nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: #011936;
+        padding: 80px 20px 20px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header nav.active {
+        right: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .nav-links li {
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav-links a,
+    .nav-links button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+    }
+}
+
+/* ====== USER MENU (navbar) ====== */
+.user-menu {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.user-avatar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    color: whitesmoke;
     cursor: pointer;
-}
-
-/* Estilo do Container Principal */
-.settings-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.settings-container h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.settings-container .subtitle {
-    font-size: 16px;
-    font-weight: 300;
-    color: #a0aec0;
-    margin-bottom: 30px;
-}
-
-/* Estilos do Acordeão (Detalhes e Resumo) */
-.accordion-item {
-    background-color: var(--accordion-bg);
+    padding: 8px 10px;
     border-radius: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #1f3956;
+    font-family: inherit;
+    font-size: 15px;
+    transition: background 0.18s ease;
+}
+
+.user-avatar-btn:hover {
+    background: rgba(255,255,255,0.04);
+}
+
+/* ====== USER MENU AVATAR (navbar) ====== */
+.user-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff22;
+    color: whitesmoke;
+    font-weight: 700;
+    font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.user-name {
+    display: inline-block;
+    color: whitesmoke;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.user-arrow {
+    font-size: 12px;
+    color: whitesmoke;
+}
+
+/* Dropdown */
+.user-dropdown {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    min-width: 180px;
+    background: #ffffff;
+    color: #2d3436;
+    border-radius: 10px;
+    box-shadow: 0 8px 28px rgba(2,6,23,0.12);
+    padding: 8px;
+    display: none;
+    z-index: 10000;
+    transform-origin: top right;
+}
+
+.user-dropdown[aria-hidden="false"],
+.user-dropdown.open {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px 12px;
+    color: #2d3436;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: left;
+    background: transparent;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-family: inherit;
+}
+
+.dropdown-item:hover {
+    background: #f5f7ff;
+}
+
+.dropdown-item.sign-out {
+    color: #d63031;
+    font-weight: 700;
+}
+
+.dropdown-item.sign-out:hover {
+    background: #ffecec;
+}
+
+/* MAIN CONTENT */
+main.settings-container {
+    max-width: 900px;
+    margin: 100px auto 0;
+    padding: 40px 24px 0;
+}
+
+.settings-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.settings-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #e0e6e8;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #8b949e;
+    line-height: 1.6;
+}
+
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ACCORDION */
+.accordion-item {
+    background: rgba(29, 93, 80, 0.1);
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    margin-bottom: 12px;
     overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+    border-color: rgba(0, 212, 255, 0.3);
+    background: rgba(29, 93, 80, 0.15);
+}
+
+.accordion-item[open] {
+    background: rgba(29, 93, 80, 0.2);
+    border-color: rgba(0, 212, 255, 0.4);
 }
 
 .accordion-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 18px 24px;
     cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    background-color: var(--accordion-bg);
-    color: var(--accent-color); /* Títulos das seções em ciano */
+    user-select: none;
+    font-weight: 600;
+    color: #e0e6e8;
+}
+
+.accordion-header:hover {
+    background: rgba(0, 212, 255, 0.05);
 }
 
 .icon-text {
     display: flex;
     align-items: center;
+    gap: 12px;
 }
 
-.icon-text .icon-left {
-    margin-right: 10px;
-    color: var(--accent-color);
-    font-size: 20px;
+.icon-left {
+    color: #00d4ff;
+    font-size: 16px;
 }
 
 .arrow-icon {
-    color: var(--accent-color);
+    color: #8b949e;
     transition: transform 0.3s ease;
+    font-size: 14px;
 }
 
-/* Rotação da seta quando o acordeão está aberto */
-.accordion-item[open] > .accordion-header .arrow-icon {
+.accordion-item[open] .arrow-icon {
     transform: rotate(180deg);
 }
 
 .accordion-content {
-    padding: 10px 20px 20px;
-    border-top: 1px solid #1f3956;
+    padding: 0 24px 20px;
+    border-top: 1px solid #30363d;
+    background: rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos de Lista (Conta e Histórico) */
 .accordion-content ul {
     list-style: none;
-    padding: 0;
+    padding: 16px 0;
 }
 
 .accordion-content li {
     padding: 10px 0;
-    border-bottom: 1px solid #1f3956;
-    font-size: 15px;
-    cursor: pointer;
-    transition: color 0.2s;
+    color: #e0e6e8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
 }
 
-.accordion-content li:last-child {
-    border-bottom: none;
+.accordion-content li:hover {
+    color: #00d4ff;
 }
 
-.accordion-content li i.fas {
-    margin-right: 10px;
-    color: var(--accent-color);
+.accordion-content li i {
+    color: #00d4ff;
+    font-size: 14px;
 }
 
 .danger-action {
-    color: var(--danger-color);
-    font-weight: bold;
+    color: #ff4757;
 }
 
-/* Estilos de Personalização (config2.PNG) */
-.accordion-content .description {
-    color: #a0aec0;
-    margin-bottom: 20px;
-    font-style: italic;
+.danger-action:hover {
+    color: #ff6b7a;
 }
 
-.option-group h3, .option-group h4 {
-    color: var(--accent-color);
-    margin-top: 15px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: bold;
+/* FORM OPTIONS */
+.option-group {
+    margin: 20px 0;
 }
 
-.radio-option, .checkbox-option {
+.option-group h3 {
+    color: #00d4ff;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.option-group h4 {
+    color: #e0e6e8;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+.radio-option,
+.checkbox-option {
     display: flex;
     align-items: center;
+    gap: 10px;
     padding: 8px 0;
     cursor: pointer;
-    font-size: 15px;
+    color: #8b949e;
+    transition: color 0.3s ease;
 }
 
-/* Estilo do Radio Button Customizado (Reproduzindo o estilo da imagem) */
-input[type="radio"] {
-    appearance: none;
-    background-color: #fff;
-    margin-right: 10px;
-    font: inherit;
-    color: currentColor;
-    width: 15px;
-    height: 15px;
-    border: 2px solid var(--text-color);
-    border-radius: 50%;
-    transform: translateY(-0.075em);
-    display: grid;
-    place-content: center;
+.radio-option:hover,
+.checkbox-option:hover {
+    color: #e0e6e8;
+}
+
+.radio-option input[type="radio"],
+.checkbox-option input[type="checkbox"] {
+    accent-color: #00d4ff;
     cursor: pointer;
-}
-
-input[type="radio"]::before {
-    content: "";
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    transform: scale(0);
-    transition: transform 0.2s ease-in-out;
-    background-color: var(--radio-checked-border); /* Ponto interno roxo */
-}
-
-input[type="radio"]:checked {
-    border-color: var(--radio-checked-border); /* Borda roxa quando checado */
-}
-
-input[type="radio"]:checked::before {
-    transform: scale(1);
-}
-
-/* Estilo do Checkbox (config4.PNG) */
-input[type="checkbox"] {
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    border: 2px solid var(--text-color);
-    margin-right: 10px;
-    border-radius: 3px;
-    display: inline-block;
-    cursor: pointer;
-}
-
-input[type="checkbox"]:checked {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-}
-
-input[type="checkbox"]:checked::before {
-    content: '\2713'; /* Checkmark */
-    display: block;
-    color: var(--main-bg-color); /* A cor do fundo para o checkmark ficar visível */
-    font-size: 12px;
-    line-height: 1;
-    text-align: center;
-    position: relative;
-    top: -1px;
 }
 
 .privacy-settings {
-    margin-top: 15px;
-    padding-left: 10px; /* Recuo para as opções de privacidade */
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #30363d;
 }
 
-.privacy-settings h4 {
-    margin-top: 0;
-    font-weight: normal;
-}
-
-.privacy-option input[type="checkbox"] {
-    margin: 0 5px;
+.privacy-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    color: #8b949e;
+    cursor: pointer;
 }
 
 .privacy-lock {
     display: flex;
     align-items: center;
-    margin-top: 20px;
-    font-size: 14px;
-    color: #a0aec0;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 12px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 6px;
+    color: #00d4ff;
+    font-size: 13px;
+    font-weight: 500;
 }
 
 .privacy-lock i {
-    margin-right: 8px;
-    color: #a0aec0;
+    font-size: 14px;
+}
+
+.description {
+    color: #8b949e;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .footer-note {
-    font-size: 13px;
-    color: #a0aec0;
-    margin-top: 20px;
-    border-top: 1px solid #1f3956;
-    padding-top: 10px;
-}
-
-/* Media Query para Responsividade */
-@media (max-width: 600px) {
-    .settings-container {
-        margin: 20px auto;
-    }
-
-    .settings-container h1 {
-        font-size: 28px;
-    }
-
-    header {
-        padding: 10px 3%;
-    }
-
-    nav ul {
-        display: none; /* Esconde o menu de navegação em telas pequenas para simplicidade */
-    }
-
-    .accordion-header {
-        font-size: 16px;
-        padding: 12px 15px;
-    }
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #30363d;
+    color: #8b949e;
+    font-size: 12px;
+    font-style: italic;
 }
 
 
 /* =============== RODAPÉ =============== */
 footer {
+    margin-top: 80px;
     width: 100%;
-    background: linear-gradient(135deg, #0a1628 0%, #1a2744 100%);
+    background:#0a0e27;
     padding: 60px 40px 30px;
     position: relative;
     overflow: hidden;
@@ -472,5 +635,49 @@ footer::before {
 
     footer {
         padding: 40px 20px 20px;
+    }
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .navbar-items {
+        gap: 16px;
+        font-size: 12px;
+    }
+
+    .settings-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 640px) {
+    .navbar-container {
+        padding: 12px 16px;
+    }
+
+    .navbar-items {
+        gap: 12px;
+        font-size: 11px;
+    }
+
+    .settings-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .accordion-header {
+        padding: 12px 16px;
+    }
+
+    .accordion-content {
+        padding: 0 16px 16px;
     }
 }

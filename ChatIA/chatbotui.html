@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExcelencIA Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="chat.css">
+</head>
+
+<body>
+    <div class="chat-container">
+        <!-- OVERLAY -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+               <img class="logo-excelencia" src="/assets/tema escuro/logo-excelencia.PNG" alt="ExcelencIA">
+               <button class="sidebar-close-btn" id="sidebarCloseBtn" title="Fechar menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <button class="back-home-btn" id="backHomeBtn" title="Voltar para página inicial">
+                <i class="fas fa-arrow-left"></i>
+                Voltar
+            </button>
+
+            <button class="new-chat-btn" id="newChatBtn">
+                <i class="fas fa-plus"></i>
+                Nova Conversa
+            </button>
+
+            <div class="chat-history" id="chatHistory">
+                <div class="chat-item active" data-chat-id="1">Entrevista de Desenvolvedor</div>
+                <div class="chat-item" data-chat-id="2">Dicas de apresentação</div>
+                <div class="chat-item" data-chat-id="3">Perguntas sobre liderança</div>
+                <div class="chat-item" data-chat-id="4">Preparação para RH</div>
+                <div class="chat-item" data-chat-id="5">Feedback da última simulação</div>
+            </div>
+        </div>
+
+        <!-- MAIN CHAT -->
+        <div class="chat-main">
+            <!-- HEADER -->
+            <div class="chat-header">
+                <button class="menu-toggle" id="menuToggle" title="Abrir menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="chat-title" id="chatTitle">Simulação de Entrevista - Desenvolvedor</div>
+            </div>
+
+            <!-- MESSAGES -->
+            <div class="messages-area" id="messagesArea">
+                <div class="empty-state">
+                    <div class="empty-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="empty-text">Comece uma conversa</div>
+                    <div class="empty-subtext">Digite sua primeira mensagem para iniciar</div>
+                </div>
+            </div>
+
+            <!-- INPUT -->
+            <div class="input-area">
+                <form class="input-form" id="chatForm">
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            class="chat-input" 
+                            id="messageInput"
+                            placeholder="Escreva sua resposta aqui..."
+                            autocomplete="off"
+                        >
+                        <div class="input-actions">
+                            <button type="button" class="action-btn" id="attachBtn" title="Anexar arquivo">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <button type="button" class="action-btn" id="microphoneBtn" title="Microfone">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="send-btn" id="sendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Menu toggle functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+        const messagesArea = document.getElementById('messagesArea');
+        const chatForm = document.getElementById('chatForm');
+        const messageInput = document.getElementById('messageInput');
+        
+        const closeSidebar = () => {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        };
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        });
+
+        // Close sidebar when clicking on overlay
+        sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // Close sidebar when clicking close button
+        sidebarCloseBtn.addEventListener('click', closeSidebar);
+
+        // Close sidebar when clicking on a chat item
+        document.querySelectorAll('.chat-item').forEach(item => {
+            item.addEventListener('click', closeSidebar);
+        });
+
+        // Function to add message to chat
+        function addMessage(text, isUser, score = null, feedback = null) {
+            // Remove empty state on first message
+            if (messagesArea.querySelector('.empty-state')) {
+                messagesArea.innerHTML = '';
+            }
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+            
+            let contentHTML = `
+                <div class="message-content">
+                    ${text}
+                    ${score ? `<div class="message-score">Score: ${score} - ${feedback}</div>` : ''}
+                </div>
+                <div class="message-icon">
+                    <i class="fas fa-${isUser ? 'user' : 'robot'}"></i>
+                </div>
+            `;
+
+            if (isUser) {
+                contentHTML = `
+                    <div class="message-content">
+                        ${text}
+                    </div>
+                    <div class="message-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                `;
+            }
+
+            messageDiv.innerHTML = contentHTML;
+            messagesArea.appendChild(messageDiv);
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+        }
+
+        // Handle form submission
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = messageInput.value.trim();
+            
+            if (text) {
+                addMessage(text, true);
+                messageInput.value = '';
+                
+                // Simulate bot response
+                setTimeout(() => {
+                    addMessage('Ótima resposta! Você demonstrou um bom conhecimento. Agora vamos para a próxima pergunta...', false, '8.5/10', 'Excelente explicação técnica');
+                }, 500);
+            }
+        });
+    </script>
+    <script src="script-chat.js"></script>
+</body>
+
+</html>

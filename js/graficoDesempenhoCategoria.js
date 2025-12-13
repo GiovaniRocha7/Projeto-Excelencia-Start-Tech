@@ -1,32 +1,73 @@
-const categorias = ["Comunicação", "Tempo de Resposta", "Corporal", "Emoções", "Técnico"];
-const valores = [85, 100, 80, 40, 70];
-const feedbacks = [
-    "Você demonstra uma boa capacidade de se expressar, utilizando um vocabulário adequado e respostas coerentes. Em alguns momentos, suas pausas ou repetições podem indicar nervosismo, isso é comum em entrevistas. Tente manter um ritmo mais calmo e respire antes de responder. Sua comunicação é clara e tem potencial para causar uma excelente primeira impressão.Continue aprimorando o equilíbrio entre objetividade e naturalidade",
+const ctx = document.getElementById('categoriaChart');
+const modal = document.getElementById('modalCategoria');
+const fecharModal = document.getElementById('fecharModal');
+const textoFeedback = document.getElementById('textoFeedback');
 
-    "O tempo das suas respostas está adequado na maior parte das vezes. Quando a resposta se entende demais, pode soar dispersa; tente resumir o essencial em 30 a 60 segundos. Por outro lado, se a resposta for muito curta, complemente com um exemplo prático. Você está no caminho certo: a fluidez vem com o treino.",
+const feedbacks = {
+    'Comunicação': 'Sua comunicação verbal está excelente! Você mantém clareza nas respostas e expressa ideias de forma estruturada. Continue praticando para ganhar ainda mais naturalidade.',
+    'Postura': 'Sua postura transmite confiança e profissionalismo. Mantenha a naturalidade e evite movimentos repetitivos. Você está no caminho certo!',
+    'Conteúdo': 'Seu conhecimento técnico é sólido. Aprofunde ainda mais em casos de uso específicos e estude tendências do mercado para se destacar.',
+    'Expressão Facial': 'Sua expressão facial é natural e transmite segurança. Trabalhe na consistência e certifique-se de que sua expressão acompanha sempre o sentimento da resposta.',
+    'Tom de Voz': 'Seu tom de voz é profissional e seguro. Varie um pouco mais a entonação para manter o interesse do entrevistador durante respostas mais longas.'
+};
 
-    "Sua expressão transmite engajamento e interesse, o que é ótimo para criar conexão com o entrevistador. Em alguns momentos, gestos podem parecer um pouco acelerados - tente mantê-los mais suaves, alinhados ao tom da fala. Lembre se: expressar-se é positivo, e pequenas adequações já tornam sua presença mais confiante e profissional.",
-
-    "Sua postura demonstra comprometimentos e respeito, o que transmite credibilidade. Se notar momentos de insegurança, lembre-se de que isso é natural. A prática constante ajuda a transformar ansiedade em autoconfiança. Mantenha o contato visual e finalize suas falas com segurança. Sua evolução é visível: cada simulação torna sua presença mais firme e autêntica.",
-
-    "Suas respostas apresentam boa estrutura e clareza de ideias, demonstrando clareza e reflexão. Em algumas perguntas, faltaram exemplos concretos que poderiam fortalecer seus argumentos. Procure conectar suas experiências com o que a vaga exige - isso mostra segurança e autoconhecimento"
-];
-
-const chart = new Chart(document.getElementById("categoriaChart"), {
-    type: "bar",
+const chart = new Chart(ctx, {
+    type: 'bar',
     data: {
-        labels: categorias,
-        datasets: [{ data: valores, backgroundColor: "#1d5d50" }]
+        labels: ['Comunicação', 'Postura', 'Conteúdo', 'Expressão Facial', 'Tom de Voz'],
+        datasets: [{
+            label: 'Seu Desempenho',
+            data: [8, 7.5, 7, 8.5, 7.2],
+            borderColor: '#1d5d50',
+            borderWidth: 2,
+            backgroundColor: [
+                '#8dd9c4', // Comunicação
+                '#a1e3ba', // Postura
+                '#c3f1c8', // Conteúdo
+                '#9cd4ff', // Expressão Facial
+                '#bca9ff'  // Tom de Voz
+            ]
+        }]
     },
     options: {
-        onClick(event, elements) {
-            if (elements.length > 0) {
-                const i = elements[0].index;
-                document.querySelector("#textoFeedback").innerText = feedbacks[i];
-                document.querySelector("#modalCategoria").style.display = "block";
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#e5e7eb',
+                    font: { size: 13, weight: '600' }
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: { color: '#e5e7eb' }
+            },
+            y: {
+                min: 0,
+                max: 10,
+                ticks: {
+                    color: '#9ca3af',
+                    font: { size: 12 }
+                },
+                grid: { color: 'rgba(255, 255, 255, 0.1)' }
+            }
+        },
+        onClick: (event, activeElements) => {
+            if (activeElements.length > 0) {
+                const index = activeElements[0].index;
+                const categoria = chart.data.labels[index];
+
+                textoFeedback.textContent = feedbacks[categoria];
+                modal.classList.add('show');
             }
         }
     }
 });
 
-document.getElementById("fecharModal").onclick = ()=> modalCategoria.style.display = "none";
+fecharModal.addEventListener('click', () => modal.classList.remove('show'));
+
+modal.addEventListener('click', (event) => {
+    if (event.target === modal) modal.classList.remove('show');
+});

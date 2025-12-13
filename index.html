@@ -37,13 +37,8 @@
 <body>
 
 
-
-
     <header>
-
-        <a href="#titulo-principal" class="logo"><img src="assets/tema escuro/logo-excelencia.PNG"
-                alt="Logo excelencia"></a>
-
+        <a href="/index.html" class="logo"><img src="/assets/tema escuro/logo-excelencia.PNG" alt="Logo excelencia"></a>
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
             <span></span>
             <span></span>
@@ -51,16 +46,13 @@
         </button>
         <nav id="navMenu">
             <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
+                <li><a href="/index.html">Início</a></li>
                 <li><a href="/html/sobre.html">Sobre</a></li>
                 <li><a href="/html/contato.html">Contato</a></li>
-                <li><a id="planoslink" class="botoes-maiores" href="#planos">PLANOS</a></li>
+                <li><a id="planoslink" class="botoes-maiores" href="/index.html#planos">PLANOS</a></li>
                 <li><button class="botoes-maiores" id="botaoentrar" onclick="abrirModal('login')">ENTRAR</button></li>
-
-
             </ul>
         </nav>
-
     </header>
 
     <section id="home" class="hero">
@@ -100,8 +92,7 @@
                     relatórios
                     claros, objetivos e livres de vieses.</p>
 
-                <a href class="botoestexto">Simulação</a>
-                <a href class="botoestexto">Saiba Mais</a>
+                <a href="#videos" class="botoestexto">Saiba Mais</a>
             </div>
 
             <div class="imagem1">
@@ -169,7 +160,7 @@
     <!-----------Fim do teste de icones do site---------->
 
 
-    <div class="container">
+    <div id="videos" class="container">
         <div class="content-section">
             <div class="feature-item active expanded" data-video="artifacts">
                 <div class="feature-header">
@@ -254,7 +245,7 @@
             <div class="fechar" onclick="fecharModal()">✕</div>
             <p class="title">Bem-vindo de volta!</p>
             <p class="textomodal">Entre e continue sua jornada rumo à ExcelêncIA.</p>
-            <form class="form" onsubmit="event.preventDefault(); alert('Login simulado!');">
+            <form class="form" onsubmit="fazerLogin(event)">
                 <div class="input-group">
                     <label for="login-email">E-mail</label>
                     <input type="email" id="login-email" required placeholder="seu@email.com">
@@ -296,7 +287,7 @@
             <div class="fechar" onclick="fecharModal()">✕</div>
             <p class="title">Crie sua conta</p>
             <p>Comece agora sua preparação profissional.</p>
-            <form class="form" onsubmit="event.preventDefault(); alert('Cadastro simulado!');">
+            <form class="form" onsubmit="cadastrarUsuario(event)">
                 <div class="input-group">
                     <label for="cad-nome">Nome Completo</label>
                     <input type="text" id="cad-nome" required placeholder="Seu nome">
@@ -354,7 +345,7 @@
                     <span class="preco"><span class="moeda">R$</span>0</span>
                 </div>
 
-                <button class="botao-upgrade" onclick="window.location.href='html/homeLogin.html'">Começar</button>
+                <button class="botao-upgrade" onclick="verificarLoginEIrParaPagamento('free')">Começar</button>
 
                 <h3 class="titulo-recursos">O que está incluso:</h3>
                 <ul class="lista-recursos">
@@ -387,10 +378,10 @@
                 <p class="descricao-plano">Treine como se fosse uma entrevista real</p>
 
                 <div class="preco-plano">
-                    <span class="preco"><span class="moeda">R$</span>34</span><span class="periodo">/mês</span>
+                    <span class="preco"><span class="moeda">R$</span>14,90</span><span class="periodo">/mês</span>
                 </div>
 
-                <button class="botao-upgrade" onclick="window.location.href='Pagina Pagamentos/Pagamentos.html?plano=premium'">Assinar</button>
+                <button class="botao-upgrade" onclick="verificarLoginEIrParaPagamento('premium')">Assinar</button>
 
                 <h3 class="titulo-recursos">O que está incluso:</h3>
                 <ul class="lista-recursos">
@@ -437,10 +428,10 @@
                 </p>
 
                 <div class="preco-plano">
-                    <span class="preco"><span class="moeda">R$</span>74</span><span class="periodo">/mês</span>
+                    <span class="preco"><span class="moeda">R$</span>29,90</span><span class="periodo">/mês</span>
                 </div>
 
-                <button class="botao-upgrade" onclick="window.location.href='Pagina Pagamentos/Pagamentos.html?plano=profissional'">Assinar</button>
+                <button class="botao-upgrade" onclick="verificarLoginEIrParaPagamento('profissional')">Assinar</button>
 
                 <h3 class="titulo-recursos">O que está incluso:</h3>
                 <ul class="lista-recursos">

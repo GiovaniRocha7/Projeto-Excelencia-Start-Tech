@@ -10,7 +10,7 @@
 :root {
     --cor-principal: #011936;
     --cor-secundaria: #1d5d50;
-    --cor-destaque: #00d4ff;
+    --cor-destaque: #7f94ae;
     --cor-texto: #e0e6e8;
     --cor-fundo: #0a0e27;
 }
@@ -249,6 +249,21 @@ button:hover {
 
 .submit-btn:active {
     transform: scale(0.99);
+}
+
+/* Estilo do select e opções */
+.form-group select {
+    color: white;
+}
+
+.form-group select option {
+    color: white;
+    background-color: #1c2b45;
+}
+
+.form-group select option:hover {
+    background-color: var(--cor-secundaria);
+    color: white;
 }
 
 /* Media Query para garantir que em mobile o card ocupe quase toda a tela */
@@ -902,6 +917,8 @@ footer::before {
     color: var(--cor-texto);
 }
 
+
+
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -909,7 +926,7 @@ footer::before {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 15px;
-    color: #fff;
+    color: rgba(244, 244, 244, 0.4);
     font-family: inherit;
     font-size: 1rem;
     transition: all 0.3s;

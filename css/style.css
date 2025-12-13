@@ -454,13 +454,14 @@ button:hover {
     background-color: var(--cor-secundaria);
     color: whitesmoke;
     border-radius: 10px;
+    transition: background-color 0.3s, transform 0.1s;
     font-weight: 500;
 }
 
 .botoestexto:hover {
-    background-color: var(--cor-secundaria);
-    color: var(--cor-principal);
+    background-color: #164a40;
     transition: 0.6s;
+    transform: translateY(-2px);
 }
 
 /* .................. VIDEO CARD ......................  */
@@ -1201,37 +1202,7 @@ footer::before {
     }
 }
 
-@media screen and (max-width: 645px) {
-    .logo img {
-        height: 20px;
-    }
 
-    li,
-    a,
-    button {
-        font-size: 14px;
-    }
-
-    .nav-links li {
-        padding: 0 3px;
-    }
-
-    #botaoentrar,
-    .botoes-maiores {
-        font-size: 13px;
-    }
-
-    #botaoentrar {
-        padding: 6px 12px;
-        border-radius: 7px;
-    }
-
-    #planoslink {
-        padding: 6px 12px;
-        font-size: 10px;
-        border-radius: 7px;
-    }
-}
 
 @media screen and (max-width: 640px) {
     .plans {
@@ -1267,84 +1238,8 @@ footer::before {
     }
 }
 
-/* Menu Hambúrguer - Estilos Responsivos */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1001;
-}
 
-.menu-toggle span {
-    width: 30px;
-    height: 3px;
-    background-color: #fff;
-    transition: all 0.3s ease;
-    border-radius: 3px;
-}
 
-.menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
-
-@media (max-width: 850px) {
-    .menu-toggle {
-        display: flex;
-    }
-
-    header nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        max-width: 300px;
-        height: 100vh;
-        background: #011936;
-        padding: 80px 20px 20px;
-        transition: right 0.3s ease;
-        z-index: 1000;
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
-    }
-
-    header nav.active {
-        right: 0;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 20px;
-        align-items: stretch;
-    }
-
-    .nav-links li {
-        width: 100%;
-    }
-
-    .nav-links a,
-    .nav-links button {
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding: 15px;
-    }
-
-    .botoes-maiores {
-        margin-top: 10px;
-        width: 100% !important;
-    }
-}
 
 /* Responsividade para steps-section */
 @media (max-width: 768px) {
@@ -1572,5 +1467,85 @@ footer::before {
 
     .item-recurso {
         font-size: 0.8rem;
+    }
+}
+
+/* Menu Hambúrguer - Estilos Responsivos */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ALTERADO: breakpoint de 850px para 930px */
+@media (max-width: 930px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    header nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: #011936;
+        padding: 80px 20px 20px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header nav.active {
+        right: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a,
+    .nav-links button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .botoes-maiores {
+        margin-top: 10px;
+        width: 100% !important;
     }
 }

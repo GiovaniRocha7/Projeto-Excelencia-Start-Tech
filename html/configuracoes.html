@@ -1,204 +1,247 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configurações - ExcelenciA</title>
+    <link rel="stylesheet" href="../css/homeLogin.css">
     <link rel="stylesheet" href="/css/configuracoes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- -------------- FONTE PRINCIPAL ---------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <!-- -------------- FIM FONTE PRINCIPAL ---------------->
+
+    <!-- ................ FONTE LEXEND ....................  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <!-- ................ FONTE LEXEND ....................  -->
+
+    <!-- ....................... FONTE COMFORTAA .....................  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <!-- ....................... FONTE COMFORTAA .....................  -->
+
 </head>
+
 <body>
+    <!-- NAVBAR -->
     <header>
-        <div class="logo1">
-            <img src="/Projeto-Excelencia-Start-Tech-main/assets/tema escuro/logo-excelencia.PNG" alt="Logo ExcelencIA">
-        </div>
-        <nav>
-            <ul>
-                <li>Início</li>
-                <li>Simulação</li>
-                <li>Resultados</li>
-                <li>Sobre</li>
+        <a href="homeLogin.html" class="logo"><img src="/assets/tema escuro/logo-excelencia.PNG" alt="Logo excelencia"></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="navMenu">
+            <ul class="nav-links">
+                <li><a href="homeLogin.html">Dashboard</a></li>
+                <li><a href="relatorios.html">Relatórios</a></li>
+                <li><a href="historico.html">Histórico</a></li>
+
+                <!-- USER MENU COMPONENT -->
+                <li class="user-menu">
+                    <button id="userAvatarBtn" class="user-avatar-btn" aria-haspopup="true" aria-expanded="false">
+                        <span class="user-avatar">AB</span>
+                        <span class="user-name">Ana</span>
+                        <span class="user-arrow">▾</span>
+                    </button>
+
+                    <div id="userDropdown" class="user-dropdown" role="menu" aria-hidden="true">
+                        <a href="editarPerfil.html" class="dropdown-item" role="menuitem">Editar Perfil</a>
+                        <a href="#" class="dropdown-item" role="menuitem">Configurações</a>
+                        <button class="dropdown-item sign-out" role="menuitem" id="menuSair">Sair</button>
+                    </div>
+                </li>
             </ul>
         </nav>
-        <div class="profile-icon">
-            <i class="fas fa-user-circle"></i>
-        </div>
     </header>
 
     <main class="settings-container">
-        <h1>Ajuste sua experiência</h1>
-        <p class="subtitle">Controle suas preferências, atualize seus dados e torne o ExcelenciA ainda mais personalizado para você.</p>
+        <div class="settings-header">
+            <h1>Ajuste sua experiência</h1>
+            <p class="subtitle">Controle suas preferências, atualize seus dados e torne o ExcelenciA ainda mais
+                personalizado para você.</p>
+        </div>
 
-        <details class="accordion-item" open>
-            <summary class="accordion-header">
-                <div class="icon-text">
-                    <i class="fas fa-lock icon-left"></i>
-                    <i class="fas fa-key icon-left"></i>
-                    <span>CONTA E SEGURANÇA</span>
-                </div>
-                <i class="fas fa-chevron-down arrow-icon"></i>
-            </summary>
-            <div class="accordion-content">
-                <ul>
-                    <li>• Editar nome e e-mail</li>
-                    <li>• Alterar senha</li>
-                    <li>• Ativar autenticação em dois fatores (2FA)</li>
-                    <li>• Baixar meus dados (exportar histórico e relatórios)</li>
-                    <li class="danger-action">• Excluir conta (Essa ação é permanente!)</li>
-                </ul>
-            </div>
-        </details>
-
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <div class="icon-text">
-                    <i class="fas fa-cog icon-left"></i>
-                    <span>PERSONALIZAÇÃO DA EXPERIÊNCIA</span>
-                </div>
-                <i class="fas fa-chevron-down arrow-icon"></i>
-            </summary>
-            <div class="accordion-content">
-                <p class="description">Ajuste como você deseja que a IA se comunique e conduza suas entrevistas.</p>
-
-                <div class="option-group">
-                    <h3>OPÇÕES:</h3>
-                    <h4>TOM DA IA</h4>
-                    <form>
-                        <label class="radio-option">
-                            <input type="radio" name="tom_ia" checked> Formal e profissional
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="tom_ia"> Leve e motivador
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="tom_ia"> Desafiador e direto
-                        </label>
-                    </form>
-                </div>
-
-                <div class="option-group">
-                    <h4>VOZ (PARA FUTURAS ATUALIZAÇÕES COM ÁUDIOS)</h4>
-                    <form>
-                        <label class="radio-option">
-                            <input type="radio" name="voz_ia"> Neutra
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="voz_ia"> Feminina
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="voz_ia" checked> Masculina
-                        </label>
-                    </form>
-                </div>
-
-                <div class="option-group">
-                    <h4>TEMA VISUAL</h4>
-                    <form>
-                        <label class="radio-option">
-                            <input type="radio" name="tema_visual"> Modo claro
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="tema_visual" checked> Modo escuro (Padrão)
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="tema_visual"> Automático (Baseado no sistema)
-                        </label>
-                    </form>
-                </div>
-
-                <div class="option-group">
-                    <h4>FEEDBACKS</h4>
-                    <form>
-                        <label class="radio-option">
-                            <input type="radio" name="feedbacks"> Mais detalhados e técnicos
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="feedbacks"> Mais curtos e diretos
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="feedbacks" checked> Equilibrados
-                        </label>
-                    </form>
-                </div>
-
-                <p class="footer-note">Essas preferências ajudam a IA a se adaptar ao seu estilo de aprendizado.</p>
-            </div>
-        </details>
-
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <div class="icon-text">
-                    <i class="fas fa-clipboard-list icon-left"></i>
-                    <span>HISTÓRICO E DESEMPENHO</span>
-                </div>
-                <i class="fas fa-chevron-down arrow-icon"></i>
-            </summary>
-            <div class="accordion-content">
-                <ul>
-                    <li>
-                        <i class="fas fa-folder-open"></i>
-                        VER HISTÓRICOS COMPLETOS DE SIMULAÇÕES
-                    </li>
-                    <li>
-                        <i class="fas fa-trash-alt"></i>
-                        LIMPAR HISTÓRICO (**COM CONFIRMAÇÃO**)
-                    </li>
-                    <li>
-                        <i class="fas fa-chart-line"></i>
-                        COMPARAR EVOLUÇÃO ENTRE PERÍODOS
-                    </li>
-                    <li>
-                        <i class="fas fa-file-export"></i>
-                        EXPORTAR RELATÓRIOS EM PDF
-                    </li>
-                </ul>
-            </div>
-        </details>
-
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <div class="icon-text">
-                    <i class="fas fa-bell icon-left"></i>
-                    <span>NOTIFICAÇÕES E PRIVACIDADE</span>
-                </div>
-                <i class="fas fa-chevron-down arrow-icon"></i>
-            </summary>
-            <div class="accordion-content">
-                <h3>OPÇÕES:</h3>
-                <form>
-                    <label class="checkbox-option">
-                        <input type="checkbox" checked> Receber lembretes para treinar
-                    </label>
-                    <label class="checkbox-option">
-                        <input type="checkbox"> Receber dicas semanais de novas funções da IA
-                    </label>
-                    <label class="checkbox-option">
-                        <input type="checkbox" checked> Receber dicas semanais de entrevistas
-                    </label>
-                    <div class="privacy-settings">
-                        <h4>Configurações de privacidade:</h4>
-                        <label class="privacy-option">
-                             <input type="checkbox"> A definir
-                        </label>
-                        <label class="privacy-option">
-                            <input type="checkbox">  A definir
-                        </label>
+        <div class="settings-content">
+            <details class="accordion-item" open>
+                <summary class="accordion-header">
+                    <div class="icon-text">
+                        <i class="fas fa-lock icon-left"></i>
+                        <i class="fas fa-key icon-left"></i>
+                        <span>CONTA E SEGURANÇA</span>
                     </div>
-                </form>
-                <div class="privacy-lock">
-                    <i class="fas fa-lock"></i>
-                    Você tem controle total sobre seus dados
+                    <i class="fas fa-chevron-down arrow-icon"></i>
+                </summary>
+                <div class="accordion-content">
+                    <ul>
+                        <li>• Editar nome e e-mail</li>
+                        <li>• Alterar senha</li>
+                        <li>• Ativar autenticação em dois fatores (2FA)</li>
+                        <li>• Baixar meus dados (exportar histórico e relatórios)</li>
+                        <li class="danger-action">• Excluir conta (Essa ação é permanente!)</li>
+                    </ul>
                 </div>
-            </div>
-        </details>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">
+                    <div class="icon-text">
+                        <i class="fas fa-cog icon-left"></i>
+                        <span>PERSONALIZAÇÃO DA EXPERIÊNCIA</span>
+                    </div>
+                    <i class="fas fa-chevron-down arrow-icon"></i>
+                </summary>
+                <div class="accordion-content">
+                    <p class="description">Ajuste como você deseja que a IA se comunique e conduza suas entrevistas.</p>
+
+                    <div class="option-group">
+                        <h3>OPÇÕES:</h3>
+                        <h4>TOM DA IA</h4>
+                        <form>
+                            <label class="radio-option">
+                                <input type="radio" name="tom_ia" checked> Formal e profissional
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="tom_ia"> Leve e motivador
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="tom_ia"> Desafiador e direto
+                            </label>
+                        </form>
+                    </div>
+
+                    <div class="option-group">
+                        <h4>VOZ (PARA FUTURAS ATUALIZAÇÕES COM ÁUDIOS)</h4>
+                        <form>
+                            <label class="radio-option">
+                                <input type="radio" name="voz_ia"> Neutra
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="voz_ia"> Feminina
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="voz_ia" checked> Masculina
+                            </label>
+                        </form>
+                    </div>
+
+                    <div class="option-group">
+                        <h4>TEMA VISUAL</h4>
+                        <form>
+                            <label class="radio-option">
+                                <input type="radio" name="tema_visual"> Modo claro
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="tema_visual" checked> Modo escuro (Padrão)
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="tema_visual"> Automático (Baseado no sistema)
+                            </label>
+                        </form>
+                    </div>
+
+                    <div class="option-group">
+                        <h4>FEEDBACKS</h4>
+                        <form>
+                            <label class="radio-option">
+                                <input type="radio" name="feedbacks"> Mais detalhados e técnicos
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="feedbacks"> Mais curtos e diretos
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="feedbacks" checked> Equilibrados
+                            </label>
+                        </form>
+                    </div>
+
+                    <p class="footer-note">Essas preferências ajudam a IA a se adaptar ao seu estilo de aprendizado.</p>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">
+                    <div class="icon-text">
+                        <i class="fas fa-clipboard-list icon-left"></i>
+                        <span>HISTÓRICO E DESEMPENHO</span>
+                    </div>
+                    <i class="fas fa-chevron-down arrow-icon"></i>
+                </summary>
+                <div class="accordion-content">
+                    <ul>
+                        <li>
+                            <i class="fas fa-folder-open"></i>
+                            VER HISTÓRICOS COMPLETOS DE SIMULAÇÕES
+                        </li>
+                        <li>
+                            <i class="fas fa-trash-alt"></i>
+                            LIMPAR HISTÓRICO (**COM CONFIRMAÇÃO**)
+                        </li>
+                        <li>
+                            <i class="fas fa-chart-line"></i>
+                            COMPARAR EVOLUÇÃO ENTRE PERÍODOS
+                        </li>
+                        <li>
+                            <i class="fas fa-file-export"></i>
+                            EXPORTAR RELATÓRIOS EM PDF
+                        </li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">
+                    <div class="icon-text">
+                        <i class="fas fa-bell icon-left"></i>
+                        <span>NOTIFICAÇÕES E PRIVACIDADE</span>
+                    </div>
+                    <i class="fas fa-chevron-down arrow-icon"></i>
+                </summary>
+                <div class="accordion-content">
+                    <h3>OPÇÕES:</h3>
+                    <form>
+                        <label class="checkbox-option">
+                            <input type="checkbox" checked> Receber lembretes para treinar
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox"> Receber dicas semanais de novas funções da IA
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" checked> Receber dicas semanais de entrevistas
+                        </label>
+                        <div class="privacy-settings">
+                            <h4>Configurações de privacidade:</h4>
+                            <label class="privacy-option">
+                                <input type="checkbox"> A definir
+                            </label>
+                            <label class="privacy-option">
+                                <input type="checkbox"> A definir
+                            </label>
+                        </div>
+                    </form>
+                    <div class="privacy-lock">
+                        <i class="fas fa-lock"></i>
+                        Você tem controle total sobre seus dados
+                    </div>
+                </div>
+            </details>
+        </div>
     </main>
 
-
-     <!-- ......................... RODAPÉ ......................  -->
-     <footer>
+    <!-- ......................... RODAPÉ ......................  -->
+    <footer>
         <div class="footer-container">
             <div class="footer-brand">
-                <div class="logo"><img src="assets/tema escuro/logo-excelencia.PNG" alt=""></div>
+                <div class="logo"><img class="logofooter" src="/assets/tema escuro/logo-excelencia.PNG" alt="">
+                </div>
                 <p class="tagline">Inteligência que transforma<br>entrevistas em oportunidades</p>
             </div>
 
@@ -243,5 +286,79 @@
         </div>
     </footer>
     <!-- ......................... RODAPÉ ......................  -->
+
+    <script>
+        // Menu hambúrguer funcional igual ao homeLogin.html
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', function () {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link (exceto o botão de avatar)
+        document.querySelectorAll('.nav-links a').forEach(item => {
+            item.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Fechar menu ao clicar fora (exceto no dropdown)
+        document.addEventListener('click', (e) => {
+            const avatarBtn = document.getElementById('userAvatarBtn');
+            const dropdown = document.getElementById('userDropdown');
+            if (!menuToggle.contains(e.target) && !navMenu.contains(e.target) &&
+                !avatarBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // ===== USER MENU DROPDOWN =====
+        (function () {
+            const avatarBtn = document.getElementById('userAvatarBtn');
+            const dropdown = document.getElementById('userDropdown');
+
+            if (!avatarBtn || !dropdown) return;
+
+            function openMenu() {
+                dropdown.classList.add('open');
+                dropdown.setAttribute('aria-hidden', 'false');
+                avatarBtn.setAttribute('aria-expanded', 'true');
+            }
+
+            function closeMenu() {
+                dropdown.classList.remove('open');
+                dropdown.setAttribute('aria-hidden', 'true');
+                avatarBtn.setAttribute('aria-expanded', 'false');
+            }
+
+            avatarBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const isOpen = dropdown.classList.contains('open');
+                if (isOpen) closeMenu();
+                else openMenu();
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!dropdown.contains(e.target) && !avatarBtn.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+
+            document.getElementById('menuSair')?.addEventListener('click', function (e) {
+                e.preventDefault();
+                closeMenu();
+                alert('Saindo...');
+            });
+        })();
+    </script>
 </body>
+
 </html>

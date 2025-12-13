@@ -11,10 +11,16 @@
 
 <body>
     <div class="interview-container">
+        <!-- OVERLAY -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
         <!-- SIDEBAR - HISTÓRICO -->
-        <div class="sidebar">
+        <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
                <img class="logo-excelencia" src="/assets/tema escuro/logo-excelencia.PNG" alt="ExcelencIA">
+               <button class="sidebar-close-btn" id="sidebarCloseBtn" title="Fechar menu">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
 
             <button class="back-home-btn" id="backHomeBtn" title="Voltar para página inicial">
@@ -52,7 +58,13 @@
             <!-- SETUP MODAL -->
             <div class="setup-modal" id="setupModal">
                 <div class="setup-content">
-                    <h1>SIMULAÇÃO DE ENTREVISTA</h1>
+                    <div class="setup-header">
+                        <button class="menu-toggle" id="menuToggle" title="Abrir menu">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <h1>SIMULAÇÃO DE ENTREVISTA</h1>
+                        <div style="width: 40px;"></div>
+                    </div>
                     <p class="setup-subtitle">Tipo de entrevista:</p>
 
                     <div class="setup-form">
@@ -121,8 +133,10 @@
                 <!-- Overlay com informações -->
                 <div class="video-overlay">
                     <div class="interview-info">
+                        <button class="menu-toggle-video" id="menuToggleVideo" title="Abrir menu">
+                            <i class="fas fa-bars"></i>
+                        </button>
                         <h2 id="interviewTitle">Simulação de Entrevista</h2>
-                        <p id="interviewStatus">Câmera conectada</p>
                     </div>
                     
                     <!-- Timer -->
@@ -131,21 +145,6 @@
                     </div>
                 </div>
 
-                <!-- Análise de Expressão Facial -->
-                <div class="facial-analysis" id="facialAnalysis">
-                    <div class="analysis-item">
-                        <span class="analysis-label">Confiança</span>
-                        <div class="analysis-bar">
-                            <div class="analysis-fill" id="confidenceBar" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                    <div class="analysis-item">
-                        <span class="analysis-label">Clareza</span>
-                        <div class="analysis-bar">
-                            <div class="analysis-fill" id="clarityBar" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Controles de Vídeo -->
                 <div class="video-controls">
@@ -174,54 +173,48 @@
                     </div>
                 </div>
             </div>
-
-            <!-- CHAT LATERAL - TRANSCRIÇÃO -->
-            <div class="chat-panel" id="chatPanel">
-                <div class="chat-header">
-                    <h3>Transcrição</h3>
-                    <button class="close-chat-btn" id="closeChatBtn">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-
-                <div class="transcript-area" id="transcriptArea">
-                    <div class="transcript-item ai">
-                        <div class="transcript-speaker">ExcelencIA</div>
-                        <div class="transcript-text">
-                            Olá! Bem-vindo à simulação de entrevista. Meu nome é ExcelencIA. Vou fazer algumas perguntas para avaliar suas habilidades e conhecimentos.
-                        </div>
-                        <div class="transcript-time">14:30</div>
-                    </div>
-
-                    <div class="transcript-item user">
-                        <div class="transcript-speaker">Você</div>
-                        <div class="transcript-text">
-                            Olá! Obrigado pela oportunidade. Tenho 5 anos de experiência como desenvolvedor.
-                        </div>
-                        <div class="transcript-time">14:31</div>
-                    </div>
-                </div>
-
-                <!-- Chat Input -->
-                <div class="chat-input-area">
-                    <form class="chat-input-form" id="chatInputForm">
-                        <input 
-                            type="text" 
-                            class="chat-input-field" 
-                            id="chatInput"
-                            placeholder="Fazer pergunta adicional..."
-                            disabled
-                        >
-                        <button type="submit" class="chat-submit-btn" disabled>
-                            <i class="fas fa-send"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
 
     <script src="scriptfacial.js"></script>
+    <script>
+        // Menu toggle functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const menuToggleVideo = document.getElementById('menuToggleVideo');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+        
+        const closeSidebar = () => {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            if (menuToggle) menuToggle.style.display = 'flex';
+        };
+
+        const toggleSidebar = () => {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+            
+            if (sidebar.classList.contains('active')) {
+                if (menuToggle) menuToggle.style.display = 'none';
+            } else {
+                if (menuToggle) menuToggle.style.display = 'flex';
+            }
+        };
+
+        if (menuToggle) menuToggle.addEventListener('click', toggleSidebar);
+        if (menuToggleVideo) menuToggleVideo.addEventListener('click', toggleSidebar);
+
+        sidebarOverlay.addEventListener('click', closeSidebar);
+        sidebarCloseBtn.addEventListener('click', closeSidebar);
+
+        document.querySelectorAll('.simulation-item').forEach(item => {
+            item.addEventListener('click', closeSidebar);
+        });
+
+        document.getElementById('backHomeBtn').addEventListener('click', closeSidebar);
+        document.getElementById('newSimulationBtn').addEventListener('click', closeSidebar);
+    </script>
 </body>
 
 </html>

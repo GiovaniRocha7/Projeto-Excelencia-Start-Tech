@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Perfil - ExcelencIA</title>
-    <link rel="stylesheet" href="cards.css">
+    <link rel="stylesheet" href="/css/editarPerfil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/homeLogin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
@@ -13,24 +14,26 @@
 <body>
     <!-- NAVBAR -->
     <header>
-        <a href="../index.html" class="logo"><img src="../assets/tema escuro/logo-excelencia.PNG" alt="Logo excelencia"></a>
-        <nav>
+        <a href="homeLogin.html" class="logo"><img src="/assets/tema escuro/logo-excelencia.PNG" alt="Logo excelencia"></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="navMenu">
             <ul class="nav-links">
-                <li><a href="../index.html">Dashboard</a></li>
-                <li><a href="../html/sobre.html">Relatórios</a></li>
-                <li><a href="../index.html#about">Contato</a></li>
-
-                <!-- USER MENU COMPONENT -->
+                <li><a href="../html/homeLogin.html">Dashboard</a></li>
+                <li><a href="../html/relatorios.html">Relatórios</a></li>
+                <li><a href="../html/historico.html">Histórico</a></li>
                 <li class="user-menu">
                     <button id="userAvatarBtn" class="user-avatar-btn" aria-haspopup="true" aria-expanded="false">
-                        <span class="user-avatar" aria-hidden="true">AB</span>
-                        <span class="user-name">Ana Beatriz</span>
-                        <span class="user-arrow" aria-hidden="true">▾</span>
+                        <span class="user-avatar">AB</span>
+                        <span class="user-name">Ana</span>
+                        <span class="user-arrow">▾</span>
                     </button>
-
                     <div id="userDropdown" class="user-dropdown" role="menu" aria-hidden="true">
-                        <a href="#" class="dropdown-item" role="menuitem" id="menuPerfil">Meu Perfil</a>
-                        <a href="#" class="dropdown-item" role="menuitem" id="menuConfiguracoes">Configurações</a>
+                        <a href="#" class="dropdown-item" role="menuitem">Editar Perfil</a>
+                        <a href="../html/configuracoes.html" class="dropdown-item" role="menuitem">Configurações</a>
                         <button class="dropdown-item sign-out" role="menuitem" id="menuSair">Sair</button>
                     </div>
                 </li>
@@ -70,11 +73,6 @@
                     <i class="fas fa-globe"></i> Idiomas
                 </a>
             </nav>
-            <div class="sidebar-footer">
-                <a href="#" class="logout">
-                    <i class="fas fa-sign-out-alt"></i> Sair
-                </a>
-            </div>
         </aside>
 
         <!-- MAIN CONTENT -->
@@ -369,6 +367,86 @@
         </main>
     </div>
 
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle?.addEventListener('click', function () {
+            this.classList.toggle('active');
+            navMenu?.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(item => {
+            item.addEventListener('click', () => {
+                menuToggle?.classList.remove('active');
+                navMenu?.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            const avatarBtn = document.getElementById('userAvatarBtn');
+            const dropdown = document.getElementById('userDropdown');
+            if (!menuToggle?.contains(e.target) && !navMenu?.contains(e.target) &&
+                !avatarBtn?.contains(e.target) && !dropdown?.contains(e.target)) {
+                menuToggle?.classList.remove('active');
+                navMenu?.classList.remove('active');
+            }
+        });
+
+        (function () {
+            const avatarBtn = document.getElementById('userAvatarBtn');
+            const dropdown = document.getElementById('userDropdown');
+            if (!avatarBtn || !dropdown) return;
+
+            function openMenu() {
+                dropdown.classList.add('open');
+                dropdown.setAttribute('aria-hidden', 'false');
+                avatarBtn.setAttribute('aria-expanded', 'true');
+            }
+            function closeMenu() {
+                dropdown.classList.remove('open');
+                dropdown.setAttribute('aria-hidden', 'true');
+                avatarBtn.setAttribute('aria-expanded', 'false');
+            }
+
+            avatarBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                dropdown.classList.contains('open') ? closeMenu() : openMenu();
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!dropdown.contains(e.target) && !avatarBtn.contains(e.target)) closeMenu();
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+
+            document.getElementById('menuSair')?.addEventListener('click', function (e) {
+                e.preventDefault();
+                closeMenu();
+                alert('Saindo...');
+            });
+        })();
+
+        // Sidebar nav -> show selected section and scroll
+        const sidebarLinks = document.querySelectorAll('.sidebar-nav .nav-item');
+        const formSections = document.querySelectorAll('.form-section');
+
+        function setSection(id) {
+            sidebarLinks.forEach(l => l.classList.toggle('active', l.dataset.section === id));
+            formSections.forEach(s => s.classList.toggle('active', s.id === id));
+            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const id = link.dataset.section;
+                if (id) setSection(id);
+            });
+        });
+    </script>
     <script src="cards.js"></script>
 </body>
 </html>

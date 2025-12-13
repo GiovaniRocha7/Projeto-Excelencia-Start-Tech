@@ -215,6 +215,27 @@
             }
         }
 
+        // Adicione esta função para processar o pagamento e redirecionar
+        function processarPagamento(event) {
+            event.preventDefault();
+            
+            // Obter o plano da URL atual
+            const urlParams = new URLSearchParams(window.location.search);
+            const plano = urlParams.get('plano') || 'premium';
+            
+            // Obter o método de pagamento selecionado
+            const metodoPagamento = document.querySelector('input[name="payment-method"]:checked')?.value || 'credito';
+            
+            // Simular processamento do pagamento
+            // Aqui você faria a integração real com a API de pagamento
+            
+            // Redirecionar para página de confirmação com os parâmetros
+            window.location.href = `ConfirmacaoPagamento.html?plano=${plano}&metodo=${metodoPagamento}`;
+        }
+
+        // Adicione o evento ao formulário de pagamento
+        document.querySelector('form')?.addEventListener('submit', processarPagamento);
+
         // Inicialização
         document.addEventListener('DOMContentLoaded', () => {
             carregarPlano();
