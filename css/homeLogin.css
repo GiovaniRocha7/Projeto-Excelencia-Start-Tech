@@ -316,7 +316,7 @@ main {
 .linksOpcoes {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -358,7 +358,7 @@ main {
 .linksOpcoes {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -510,20 +510,26 @@ main {
     align-items: flex-start;
 }
 
-.dicasIA img {
-    width: 40px;
-    height: 40px;
+.dica-svg {
+    width: 32px;
+    height: 32px;
     flex-shrink: 0;
-    filter: brightness(0) invert(1);
+    margin-top: 2px;
+}
+
+.dica-content {
+    flex: 1;
+    text-align: left;
 }
 
 .dicasIA h3 {
-    color: var(--cor-destaque);
-    font-size: 0.9rem;
+    color: whitesmoke;
+    font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin: 0 0 8px 0;
 }
 
 .dicasIA p {
@@ -545,10 +551,6 @@ main {
     letter-spacing: 0.5px;
     transition: opacity 0.3s ease;
     margin-top: 10px;
-}
-
-.dicasIA a:hover {
-    opacity: 0.9;
 }
 
 /* =============== RODAPÉ =============== */

@@ -21,11 +21,11 @@ const chart = new Chart(ctx, {
             borderColor: '#1d5d50',
             borderWidth: 2,
             backgroundColor: [
-                '#8dd9c4', // Comunicação
-                '#a1e3ba', // Postura
-                '#c3f1c8', // Conteúdo
-                '#9cd4ff', // Expressão Facial
-                '#bca9ff'  // Tom de Voz
+                '#8dd9c4',
+                '#a1e3ba',
+                '#c3f1c8',
+                '#9cd4ff',
+                '#bca9ff'
             ]
         }]
     },
@@ -36,20 +36,30 @@ const chart = new Chart(ctx, {
             legend: {
                 labels: {
                     color: '#e5e7eb',
-                    font: { size: 13, weight: '600' }
+                    font: {
+                        size: 18,      // 👈 legenda maior
+                        weight: '600'
+                    }
                 }
             }
         },
         scales: {
             x: {
-                ticks: { color: '#e5e7eb' }
+                ticks: {
+                    color: '#e5e7eb',
+                    font: {
+                        size: 16     // 👈 textos do eixo X
+                    }
+                }
             },
             y: {
                 min: 0,
                 max: 10,
                 ticks: {
                     color: '#9ca3af',
-                    font: { size: 12 }
+                    font: {
+                        size: 16     // 👈 números do eixo Y
+                    }
                 },
                 grid: { color: 'rgba(255, 255, 255, 0.1)' }
             }

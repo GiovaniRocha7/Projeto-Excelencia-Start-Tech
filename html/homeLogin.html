@@ -31,7 +31,8 @@
 <body>
     <!-- SUBSTITUA O HEADER PELO HEADER DO INDEX.HTML -->
     <header>
-        <a href="homeLogin.html" class="logo"><img src="/assets/tema escuro/logo-excelencia.PNG" alt="Logo excelencia"></a>
+        <a href="homeLogin.html" class="logo"><img src="/assets/tema escuro/logo-excelencia.PNG"
+                alt="Logo excelencia"></a>
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
             <span></span>
             <span></span>
@@ -42,7 +43,7 @@
                 <li><a href="homeLogin.html">Dashboard</a></li>
                 <li><a href="relatorios.html">Relatórios</a></li>
                 <li><a href="historico.html">Histórico</a></li>
-                
+
                 <!-- USER MENU COMPONENT -->
                 <li class="user-menu">
                     <button id="userAvatarBtn" class="user-avatar-btn" aria-haspopup="true" aria-expanded="false">
@@ -148,7 +149,7 @@
             <div id="modalSimulacao" class="modal-simulacao">
                 <div class="modal-simulacao-content">
                     <button class="modal-simulacao-close" onclick="fecharModalSimulacao()">&times;</button>
-                    
+
                     <div class="modal-simulacao-header">
                         <h2>Escolha o Tipo de Simulação</h2>
                         <p>Selecione como você deseja treinar sua entrevista</p>
@@ -160,7 +161,8 @@
                                 <i class="fas fa-comments"></i>
                             </div>
                             <h3>Chat com IA</h3>
-                            <p>Converse em tempo real com nossa IA. Responda perguntas de entrevista e receba feedback instantâneo sobre suas respostas.</p>
+                            <p>Converse em tempo real com nossa IA. Responda perguntas de entrevista e receba feedback
+                                instantâneo sobre suas respostas.</p>
                             <button class="simulacao-btn" onclick="iniciarChat()">Iniciar Chat</button>
                         </div>
 
@@ -169,7 +171,8 @@
                                 <i class="fas fa-video"></i>
                             </div>
                             <h3>Simulação por Vídeo</h3>
-                            <p>Grave sua entrevista em vídeo. Nossa IA analisa sua expressão facial, postura e linguagem corporal em tempo real.</p>
+                            <p>Grave sua entrevista em vídeo. Nossa IA analisa sua expressão facial, postura e linguagem
+                                corporal em tempo real.</p>
                             <button class="simulacao-btn" onclick="iniciarVideo()">Iniciar Vídeo</button>
                         </div>
 
@@ -178,7 +181,8 @@
                                 <i class="fas fa-microphone"></i>
                             </div>
                             <h3>Simulação por Voz</h3>
-                            <p>Pratique apenas com áudio. Nossa IA analisa sua clareza, entonação e confiança na fala durante a entrevista.</p>
+                            <p>Pratique apenas com áudio. Nossa IA analisa sua clareza, entonação e confiança na fala
+                                durante a entrevista.</p>
                             <button class="simulacao-btn" onclick="iniciarVoz()">Iniciar Voz</button>
                         </div>
                     </div>
@@ -210,14 +214,26 @@
                 <img src="/assets/tema escuro/logo-excelencia.PNG" alt="Logo ExcelencIA" class="logo-excelencia">
                 <ul class="dicasIA">
                     <li>
-                        <img src="/assets/tema escuro/elementosHome/dialogo.png" alt="ícone de diálogo">
-                        <h3>DICA DE HOJE:</h3>
-                        <p>Sorrir levemente ao responder demonstra confiança.</p>
+                        <svg class="dica-svg" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            <path fill="#ffffff"
+                                d="M320 544C461.4 544 576 436.5 576 304C576 171.5 461.4 64 320 64C178.6 64 64 171.5 64 304C64 358.3 83.2 408.3 115.6 448.5L66.8 540.8C62 549.8 63.5 560.8 70.4 568.3C77.3 575.8 88.2 578.1 97.5 574.1L215.9 523.4C247.7 536.6 282.9 544 320 544zM192 272C209.7 272 224 286.3 224 304C224 321.7 209.7 336 192 336C174.3 336 160 321.7 160 304C160 286.3 174.3 272 192 272zM320 272C337.7 272 352 286.3 352 304C352 321.7 337.7 336 320 336C302.3 336 288 321.7 288 304C288 286.3 302.3 272 320 272zM416 304C416 286.3 430.3 272 448 272C465.7 272 480 286.3 480 304C480 321.7 465.7 336 448 336C430.3 336 416 321.7 416 304z" />
+                        </svg>
+                        <div class="dica-content">
+                            <h3>DICA DE HOJE:</h3>
+                            <p>Sorrir levemente ao responder demonstra confiança.</p>
+                        </div>
                     </li>
                     <li>
-                        <img src="/assets/tema escuro/elementosHome/dialogo.png" alt="ícone de diálogo">
-                        <h3>DICA DE HOJE:</h3>
-                        <p>Conte um breve história sobre sua experiência.</p>
+                        <svg class="dica-svg" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            <path fill="#ffffff"
+                                d="M320 544C461.4 544 576 436.5 576 304C576 171.5 461.4 64 320 64C178.6 64 64 171.5 64 304C64 358.3 83.2 408.3 115.6 448.5L66.8 540.8C62 549.8 63.5 560.8 70.4 568.3C77.3 575.8 88.2 578.1 97.5 574.1L215.9 523.4C247.7 536.6 282.9 544 320 544zM192 272C209.7 272 224 286.3 224 304C224 321.7 209.7 336 192 336C174.3 336 160 321.7 160 304C160 286.3 174.3 272 192 272zM320 272C337.7 272 352 286.3 352 304C352 321.7 337.7 336 320 336C302.3 336 288 321.7 288 304C288 286.3 302.3 272 320 272zM416 304C416 286.3 430.3 272 448 272C465.7 272 480 286.3 480 304C480 321.7 465.7 336 448 336C430.3 336 416 321.7 416 304z" />
+                        </svg>
+                        <div class="dica-content">
+                            <h3>DICA DE HOJE:</h3>
+                            <p>Conte um breve história sobre sua experiência.</p>
+                        </div>
                     </li>
                     <li><a href="#">VER MAIS DICAS DE COMUNICAÇÃO</a></li>
                 </ul>
@@ -276,214 +292,214 @@
 
             <!-- REMOVA ou comente esta linha se o arquivo não existe ou está vazio -->
             <!-- <script src="/js/inicial.js"></script> -->
-    <script>
-        // Menu hambúrguer funcional igual ao index.html
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
+            <script>
+                // Menu hambúrguer funcional igual ao index.html
+                const menuToggle = document.getElementById('menuToggle');
+                const navMenu = document.getElementById('navMenu');
 
-        menuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+                menuToggle.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
 
-        // Fechar menu ao clicar em um link (exceto o botão de avatar)
-        document.querySelectorAll('.nav-links a').forEach(item => {
-            item.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
+                // Fechar menu ao clicar em um link (exceto o botão de avatar)
+                document.querySelectorAll('.nav-links a').forEach(item => {
+                    item.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
 
-        // Fechar menu ao clicar fora (exceto no dropdown)
-        document.addEventListener('click', (e) => {
-            const avatarBtn = document.getElementById('userAvatarBtn');
-            const dropdown = document.getElementById('userDropdown');
-            
-            if (!menuToggle.contains(e.target) && !navMenu.contains(e.target) && 
-                !avatarBtn.contains(e.target) && !dropdown.contains(e.target)) {
-                menuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
+                // Fechar menu ao clicar fora (exceto no dropdown)
+                document.addEventListener('click', (e) => {
+                    const avatarBtn = document.getElementById('userAvatarBtn');
+                    const dropdown = document.getElementById('userDropdown');
 
-        // ===== USER MENU DROPDOWN =====
-        (function() {
-            const avatarBtn = document.getElementById('userAvatarBtn');
-            const dropdown = document.getElementById('userDropdown');
+                    if (!menuToggle.contains(e.target) && !navMenu.contains(e.target) &&
+                        !avatarBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                });
 
-            if (!avatarBtn || !dropdown) return;
+                // ===== USER MENU DROPDOWN =====
+                (function () {
+                    const avatarBtn = document.getElementById('userAvatarBtn');
+                    const dropdown = document.getElementById('userDropdown');
 
-            function openMenu() {
-                dropdown.classList.add('open');
-                dropdown.setAttribute('aria-hidden', 'false');
-                avatarBtn.setAttribute('aria-expanded', 'true');
-            }
+                    if (!avatarBtn || !dropdown) return;
 
-            function closeMenu() {
-                dropdown.classList.remove('open');
-                dropdown.setAttribute('aria-hidden', 'true');
-                avatarBtn.setAttribute('aria-expanded', 'false');
-            }
+                    function openMenu() {
+                        dropdown.classList.add('open');
+                        dropdown.setAttribute('aria-hidden', 'false');
+                        avatarBtn.setAttribute('aria-expanded', 'true');
+                    }
 
-            avatarBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const isOpen = dropdown.classList.contains('open');
-                if (isOpen) closeMenu();
-                else openMenu();
-            });
+                    function closeMenu() {
+                        dropdown.classList.remove('open');
+                        dropdown.setAttribute('aria-hidden', 'true');
+                        avatarBtn.setAttribute('aria-expanded', 'false');
+                    }
 
-            document.addEventListener('click', function(e) {
-                if (!dropdown.contains(e.target) && !avatarBtn.contains(e.target)) {
-                    closeMenu();
+                    avatarBtn.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        const isOpen = dropdown.classList.contains('open');
+                        if (isOpen) closeMenu();
+                        else openMenu();
+                    });
+
+                    document.addEventListener('click', function (e) {
+                        if (!dropdown.contains(e.target) && !avatarBtn.contains(e.target)) {
+                            closeMenu();
+                        }
+                    });
+
+                    document.addEventListener('keydown', function (e) {
+                        if (e.key === 'Escape') closeMenu();
+                    });
+
+                    document.getElementById('menuSair')?.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        closeMenu();
+                        alert('Saindo...');
+                    });
+                })();
+
+                // MODAL SIMULAÇÃO FUNCTIONS
+                function abrirModalSimulacao(event) {
+                    event.preventDefault();
+                    document.getElementById('modalSimulacao').classList.add('active');
+                    document.body.style.overflow = 'hidden';
                 }
-            });
 
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') closeMenu();
-            });
+                function fecharModalSimulacao() {
+                    document.getElementById('modalSimulacao').classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
 
-            document.getElementById('menuSair')?.addEventListener('click', function(e) {
-                e.preventDefault();
-                closeMenu();
-                alert('Saindo...');
-            });
-        })();
+                function iniciarChat() {
+                    fecharModalSimulacao();
+                    window.location.href = '/ChatIA/chatbotui.html';
+                }
 
-        // MODAL SIMULAÇÃO FUNCTIONS
-        function abrirModalSimulacao(event) {
-            event.preventDefault();
-            document.getElementById('modalSimulacao').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+                function iniciarVideo() {
+                    fecharModalSimulacao();
+                    window.location.href = '/ChatIA/chatfacial.html';
+                }
 
-        function fecharModalSimulacao() {
-            document.getElementById('modalSimulacao').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+                function iniciarVoz() {
+                    fecharModalSimulacao();
+                    window.location.href = '/ChatIA/chatVoz.html';
+                }
 
-        function iniciarChat() {
-            fecharModalSimulacao();
-            window.location.href = '/ChatIA/chatbotui.html';
-        }
+                // Fechar modal ao clicar fora
+                document.getElementById('modalSimulacao')?.addEventListener('click', function (e) {
+                    if (e.target === this) {
+                        fecharModalSimulacao();
+                    }
+                });
 
-        function iniciarVideo() {
-            fecharModalSimulacao();
-            window.location.href = '/ChatIA/chatfacial.html';
-        }
-
-        function iniciarVoz() {
-            fecharModalSimulacao();
-            window.location.href = '/ChatIA/chatVoz.html';
-        }
-
-        // Fechar modal ao clicar fora
-        document.getElementById('modalSimulacao')?.addEventListener('click', function(e) {
-            if (e.target === this) {
-                fecharModalSimulacao();
-            }
-        });
-
-        // Fechar modal com ESC
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                fecharModalSimulacao();
-            }
-
-
-            
-        });
-
-        // LOGIN REDIRECIONADO
-
-
-        //  (function() {
-        //     // Pega valores salvos no localStorage (definidos no login)
-        //     const nome = localStorage.getItem('usuarioNome') || '';
-        //     const email = localStorage.getItem('usuarioEmail') || '';
-
-        //     // Atualiza o nome exibido no dropdown de perfil
-        //     const nomeSpan = document.querySelector('.perfil-dropdown .nome-usuario');
-        //     if (nomeSpan) {
-        //         nomeSpan.textContent = nome ? nome : 'NOME DE USUARIO';
-        //     }
-
-        //     // Atualiza a saudação principal (Olá, NOME...)
-        //     const tituloH1 = document.querySelector('#blocoIncial .tituloPrincipal h1');
-        //     if (tituloH1) {
-        //         if (nome) {
-        //             tituloH1.textContent = `Olá, ${nome}! Pronto para conquistar sua próxima vaga?`;
-        //         }
-        //     }
-
-        //     // (Opcional) você pode usar o email salvo para outras partes da UI
-        //     // Exemplo: armazenar em um atributo data-email do botão de perfil
-        //     const perfilBtn = document.querySelector('.perfil-btn');
-        //     if (perfilBtn && email) {
-        //         perfilBtn.setAttribute('data-email', email);
-        //     }
-        // })();
+                // Fechar modal com ESC
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') {
+                        fecharModalSimulacao();
+                    }
 
 
 
-        document.addEventListener("DOMContentLoaded", function() {
-        // 1. Recuperar o nome salvo no localStorage
-        const nomeUsuario = localStorage.getItem("usuarioNome");
+                });
 
-        // Verificação de segurança: Se não tiver nome, redireciona para o login (Opcional)
-        if (!nomeUsuario) {
-           // window.location.href = "../index.html"; // Descomente se quiser forçar o login
-           console.log("Usuário não logado");
-           return;
-        }
+                // LOGIN REDIRECIONADO
 
-        // 2. Atualizar a saudação principal (Olá, Maria!)
-        const elementoSaudacao = document.getElementById("userName");
-        if (elementoSaudacao) {
-            // Pega apenas o primeiro nome para a saudação
-            const primeiroNome = nomeUsuario.split(" ")[0]; 
-            elementoSaudacao.textContent = primeiroNome + "!";
-        }
 
-        // 3. Atualizar o nome no Menu do Topo (Ana)
-        const elementoMenuNome = document.querySelector(".user-name");
-        if (elementoMenuNome) {
-            elementoMenuNome.textContent = nomeUsuario;
-        }
+                //  (function() {
+                //     // Pega valores salvos no localStorage (definidos no login)
+                //     const nome = localStorage.getItem('usuarioNome') || '';
+                //     const email = localStorage.getItem('usuarioEmail') || '';
 
-        // 4. (Bônus) Atualizar as iniciais no Avatar (AB -> JS)
-        const elementoAvatar = document.querySelector(".user-avatar");
-        const elementoAvatarBtn = document.querySelector(".user-avatar-btn .user-avatar"); // O avatar dentro do botão
-        
-        if (elementoAvatar || elementoAvatarBtn) {
-            // Pega as iniciais (Ex: João Silva -> JS)
-            const iniciais = nomeUsuario
-                .split(" ")
-                .map(n => n[0])
-                .slice(0, 2)
-                .join("")
-                .toUpperCase();
-            
-            if (elementoAvatar) elementoAvatar.textContent = iniciais;
-            if (elementoAvatarBtn) elementoAvatarBtn.textContent = iniciais;
-        }
-    });
+                //     // Atualiza o nome exibido no dropdown de perfil
+                //     const nomeSpan = document.querySelector('.perfil-dropdown .nome-usuario');
+                //     if (nomeSpan) {
+                //         nomeSpan.textContent = nome ? nome : 'NOME DE USUARIO';
+                //     }
 
-    // 5. Configurar o botão de SAIR para limpar os dados
-    const btnSair = document.getElementById("menuSair");
-    if (btnSair) {
-        btnSair.addEventListener("click", function(e) {
-            e.preventDefault();
-            // Limpa os dados salvos
-            localStorage.removeItem("usuarioNome");
-            localStorage.removeItem("usuarioEmail");
-            localStorage.removeItem("usuarioId");
-            
-            alert("Você saiu da conta.");
-            window.location.href = "../index.html"; // Volta para a tela inicial
-        });
-    }
+                //     // Atualiza a saudação principal (Olá, NOME...)
+                //     const tituloH1 = document.querySelector('#blocoIncial .tituloPrincipal h1');
+                //     if (tituloH1) {
+                //         if (nome) {
+                //             tituloH1.textContent = `Olá, ${nome}! Pronto para conquistar sua próxima vaga?`;
+                //         }
+                //     }
 
-    </script>
+                //     // (Opcional) você pode usar o email salvo para outras partes da UI
+                //     // Exemplo: armazenar em um atributo data-email do botão de perfil
+                //     const perfilBtn = document.querySelector('.perfil-btn');
+                //     if (perfilBtn && email) {
+                //         perfilBtn.setAttribute('data-email', email);
+                //     }
+                // })();
+
+
+
+                document.addEventListener("DOMContentLoaded", function () {
+                    // 1. Recuperar o nome salvo no localStorage
+                    const nomeUsuario = localStorage.getItem("usuarioNome");
+
+                    // Verificação de segurança: Se não tiver nome, redireciona para o login (Opcional)
+                    if (!nomeUsuario) {
+                        // window.location.href = "../index.html"; // Descomente se quiser forçar o login
+                        console.log("Usuário não logado");
+                        return;
+                    }
+
+                    // 2. Atualizar a saudação principal (Olá, Maria!)
+                    const elementoSaudacao = document.getElementById("userName");
+                    if (elementoSaudacao) {
+                        // Pega apenas o primeiro nome para a saudação
+                        const primeiroNome = nomeUsuario.split(" ")[0];
+                        elementoSaudacao.textContent = primeiroNome + "!";
+                    }
+
+                    // 3. Atualizar o nome no Menu do Topo (Ana)
+                    const elementoMenuNome = document.querySelector(".user-name");
+                    if (elementoMenuNome) {
+                        elementoMenuNome.textContent = nomeUsuario;
+                    }
+
+                    // 4. (Bônus) Atualizar as iniciais no Avatar (AB -> JS)
+                    const elementoAvatar = document.querySelector(".user-avatar");
+                    const elementoAvatarBtn = document.querySelector(".user-avatar-btn .user-avatar"); // O avatar dentro do botão
+
+                    if (elementoAvatar || elementoAvatarBtn) {
+                        // Pega as iniciais (Ex: João Silva -> JS)
+                        const iniciais = nomeUsuario
+                            .split(" ")
+                            .map(n => n[0])
+                            .slice(0, 2)
+                            .join("")
+                            .toUpperCase();
+
+                        if (elementoAvatar) elementoAvatar.textContent = iniciais;
+                        if (elementoAvatarBtn) elementoAvatarBtn.textContent = iniciais;
+                    }
+                });
+
+                // 5. Configurar o botão de SAIR para limpar os dados
+                const btnSair = document.getElementById("menuSair");
+                if (btnSair) {
+                    btnSair.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        // Limpa os dados salvos
+                        localStorage.removeItem("usuarioNome");
+                        localStorage.removeItem("usuarioEmail");
+                        localStorage.removeItem("usuarioId");
+
+                        alert("Você saiu da conta.");
+                        window.location.href = "../index.html"; // Volta para a tela inicial
+                    });
+                }
+
+            </script>
 </body>
 
 </html>

@@ -458,7 +458,7 @@ main {
 
 #card2 {
     grid-column: 2;
-    background: rgba(167, 139, 250, 0.15);
+    background: rgba(29, 93, 80, 0.2);
 }
 
 .card p {
@@ -469,10 +469,20 @@ main {
     font-weight: 500;
 }
 
+.PalavrasFinaisExcelencIA h1 {
+    padding: 20px;
+    text-align: center;
+}
+
 .botoes {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;  /* colunas no tamanho dos botões */
     gap: 15px;
+
+    place-items: center;                /* itens centrados */
+    place-content: center;              /* grid centrado no container */
+    width: max-content;                 /* encolhe ao conteúdo */
+    margin: 0 auto;                     /* centraliza horizontalmente */
 }
 
 .btn {
