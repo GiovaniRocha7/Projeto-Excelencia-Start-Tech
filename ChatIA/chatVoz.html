@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/tema escuro/excelencia texto ia.PNG">
 
 </head>
 
@@ -148,10 +149,10 @@
                     const rms = Math.sqrt(sum / data.length);
                     // Smooth for natural motion
                     smooth = smooth * 0.8 + rms * 0.2;
-                    const scale = 1 + Math.min(0.5, smooth * 4); // cap scale
-                    const glow = Math.min(0.9, smooth * 6);      // cap glow strength
+                    const scale = 1 + Math.min(0.08, smooth * 0.8);
+                    const glow = Math.min(0.4, smooth * 2);
                     orb.style.transform = `scale(${scale.toFixed(3)})`;
-                    orb.style.boxShadow = `${baseShadow}, 0 0 ${40 + glow * 60}px rgba(64, 200, 255, ${0.15 + glow * 0.5})`;
+                    orb.style.boxShadow = `${baseShadow}, 0 0 ${40 + glow * 40}px rgba(64, 200, 255, ${0.15 + glow * 0.3})`;
                     requestAnimationFrame(tick);
                 };
                 tick();
