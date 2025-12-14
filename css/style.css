@@ -836,7 +836,7 @@ button:hover {
 /* =============== RODAPÉ =============== */
 footer {
     width: 100%;
-    background:#0a0e27;
+    background: #0a0e27;
     padding: 60px 40px 30px;
     position: relative;
     overflow: hidden;
@@ -1264,7 +1264,7 @@ footer::before {
     }
 
     .step .icon img {
-     width: 100px;
+        width: 100px;
     }
 
     .step p {
@@ -1280,11 +1280,11 @@ footer::before {
         margin-bottom: 2px;
     }
 
-        .step .icon img {
-     width: 80px;
+    .step .icon img {
+        width: 80px;
     }
 
-        .step p {
+    .step p {
         font-size: 1rem;
         line-height: 1.4;
         padding: 5px;
@@ -1302,7 +1302,7 @@ footer::before {
         margin-bottom: 15px;
     }
 
-    .secao-planos > p {
+    .secao-planos>p {
         font-size: 1rem;
         margin-bottom: 40px;
     }
@@ -1345,7 +1345,7 @@ footer::before {
         margin-bottom: 12px;
     }
 
-    .secao-planos > p {
+    .secao-planos>p {
         font-size: 0.9rem;
         margin-bottom: 35px;
         padding: 0 10px;
@@ -1436,7 +1436,7 @@ footer::before {
         font-size: 1.6rem;
     }
 
-    .secao-planos > p {
+    .secao-planos>p {
         font-size: 0.85rem;
     }
 
@@ -1549,3 +1549,92 @@ footer::before {
         width: 100% !important;
     }
 }
+
+
+/* .................BOTAO TTS........................ */
+/* Estilo do botão flutuante */
+#toggleReader {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0080ff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+#toggleReader.ativo {
+    background-color: #00c853;
+    /* verde quando ativo */
+}
+
+.tts {
+    width: 94px;
+    height: 24px;
+}
+
+/* Estilo do alerta visual */
+.tts-alerta {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background-color: #323232;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.tts-alerta.visivel {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Destaque nos textos clicáveis */
+.texto-tts:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: text-decoration 0.3s ease;
+}
+
+#toggleReader svg {
+    width: 32px;
+    /* adjust as needed */
+    height: 32px;
+    /* keeps aspect ratio with viewBox */
+}
+
+#toggleReader {
+    /* ensure the button doesn’t clip the SVG */
+    padding: 8px;
+    width: auto;
+    height: auto;
+}
+
+/* .................BOTAO TTS........................ */
+
+/* ............BOTAO DE RECURSOS DE ACESSIBILIDADE ELFSIGHT.............  */
+.elfsight-app-2f82fd5e-01d9-4a2c-8a3b-3eef8d8a7bbe {
+    position: fixed !important;
+    bottom: 20px; /* distância do rodapé */
+    right: 20px;  /* distância da lateral */
+    z-index: 9999; /* garante que fique acima do conteúdo */
+    min-height: auto !important;
+    width: auto !important;
+}
+/* ............FIM - BOTAO DE RECURSOS DE ACESSIBILIDADE ELFSIGHT.............  */
