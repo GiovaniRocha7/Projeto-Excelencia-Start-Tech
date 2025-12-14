@@ -7,7 +7,7 @@
     <title>Simulação de Entrevista com Vídeo - ExcelencIA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="chatfacial.css">
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/tema escuro/excelencia texto ia.PNG">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/tema escuro/excelencia texto ia.PNG">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         <!-- SIDEBAR - HISTÓRICO -->
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
-               <img class="logo-excelencia" src="/assets/tema escuro/logo-excelencia.PNG" alt="ExcelencIA">
+               <img class="logo-excelencia" src="../assets/tema escuro/logo-excelencia.PNG" alt="ExcelencIA">
                <button class="sidebar-close-btn" id="sidebarCloseBtn" title="Fechar menu">
                     <i class="fas fa-times"></i>
                 </button>
@@ -185,6 +185,7 @@
         const sidebar = document.getElementById('sidebar');
         const sidebarOverlay = document.getElementById('sidebarOverlay');
         const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+        const backHomeBtn = document.getElementById('backHomeBtn');
         
         const closeSidebar = () => {
             sidebar.classList.remove('active');
@@ -213,9 +214,25 @@
             item.addEventListener('click', closeSidebar);
         });
 
-        document.getElementById('backHomeBtn').addEventListener('click', closeSidebar);
-        document.getElementById('newSimulationBtn').addEventListener('click', closeSidebar);
-    </script>
-</body>
+        // Redirecionar para homeLogin.html (ÚNICO LISTENER PARA O BOTÃO)
+        if (backHomeBtn) {
+            backHomeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Redirecionando para homeLogin.html...');
+                // Voltar para o diretório pai e depois para html/homeLogin.html
+                window.location.href = 'file:///C:/Users/znowf/Documents/Web Coding/Projeto-Excelencia-Start-Tech/html/homeLogin.html'; const currentPath = window.location.pathname;
+            });       const projectPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
+        }                window.location.href = projectPath + '/../html/homeLogin.html';
+
+        // Nova simulação
+        document.getElementById('newSimulationBtn')?.addEventListener('click', () => {
+            closeSidebar();
+            // Aqui você pode adicionar lógica para nova simulaçãoument.getElementById('newSimulationBtn')?.addEventListener('click', () => {
+        });loseSidebar();
+    </script>     // Aqui você pode adicionar lógica para nova simulação
+</body>        });
+cript>
+</html></body>
+
 
 </html>
