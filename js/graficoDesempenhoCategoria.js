@@ -48,7 +48,7 @@ const chart = new Chart(ctx, {
                 ticks: {
                     color: '#e5e7eb',
                     font: {
-                        size: 16     // 👈 textos do eixo X
+                        size: 18   // 👈 textos do eixo X
                     }
                 }
             },
@@ -58,7 +58,7 @@ const chart = new Chart(ctx, {
                 ticks: {
                     color: '#9ca3af',
                     font: {
-                        size: 16     // 👈 números do eixo Y
+                        size: 19    // 👈 números do eixo Y
                     }
                 },
                 grid: { color: 'rgba(255, 255, 255, 0.1)' }
