@@ -149,10 +149,10 @@
                     const rms = Math.sqrt(sum / data.length);
                     // Smooth for natural motion
                     smooth = smooth * 0.8 + rms * 0.2;
-                    const scale = 1 + Math.min(0.08, smooth * 0.8);
-                    const glow = Math.min(0.4, smooth * 2);
+                    const scale = 1 + Math.min(0.2, smooth * 2); // reduzido de 0.5 e 4 para 0.2 e 2
+                    const glow = Math.min(0.6, smooth * 4);      // reduzido de 0.9 e 6 para 0.6 e 4
                     orb.style.transform = `scale(${scale.toFixed(3)})`;
-                    orb.style.boxShadow = `${baseShadow}, 0 0 ${40 + glow * 40}px rgba(64, 200, 255, ${0.15 + glow * 0.3})`;
+                    orb.style.boxShadow = `${baseShadow}, 0 0 ${40 + glow * 60}px rgba(64, 200, 255, ${0.15 + glow * 0.5})`;
                     requestAnimationFrame(tick);
                 };
                 tick();
