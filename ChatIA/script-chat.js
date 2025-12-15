@@ -151,6 +151,127 @@ async function sendMessageToAPI(message) {
     }
 }
 
+/* =============================================== */
+/* ========== MODAL DE SETUP - INÍCIO ========== */
+/* =============================================== */
+
+// ========== SETUP MODAL ==========
+function showSetupModal() {
+    setupModal.style.display = 'flex';
+}
+
+async function handleStartInterview() {
+    // Validar seleções
+    if (!professionalAreaSelect.value) {
+        alert('Por favor, selecione uma área profissional');
+        return;
+    }
+
+    // Armazenar configurações
+    currentSettings = {
+        area: professionalAreaSelect.value,
+        difficulty: difficultySelect.value,
+        duration: parseInt(durationSelect.value),
+        evaluationType: evaluationTypeSelect.value
+    };
+
+    try {
+        // Se estiver em modo de teste, pular acesso à câmera
+        if (API_CONFIG.TEST_MODE) {
+            console.log('Modo de teste ativado - câmera simulada');
+            // Criar um canvas como substituto para a câmera
+            const canvas = document.createElement('canvas');
+            canvas.width = 1280;
+            canvas.height = 720;
+            const ctx = canvas.getContext('2d');
+            
+            // Preencher com cor escura
+            ctx.fillStyle = '#1a1a1a';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Adicionar texto
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 48px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Modo de Teste - Câmera Simulada', canvas.width / 2, canvas.height / 2);
+            
+            // Converter para stream
+            const stream = canvas.captureStream(30);
+            mediaStream = stream;
+            localVideo.srcObject = stream;
+        } else {
+            // Solicitar acesso à câmera e microfone normalmente
+            mediaStream = await navigator.mediaDevices.getUserMedia({
+                video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 720 } },
+                audio: true
+            });
+
+            // Configurar vídeo
+            localVideo.srcObject = mediaStream;
+        }
+
+        // Configurar áudio
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        mediaRecorder = new MediaRecorder(mediaStream);
+        setupMediaRecorder();
+
+        // Esconder modal e mostrar vídeo
+        setupModal.style.display = 'none';
+        videoContainer.style.display = 'flex';
+
+        // Iniciar entrevista
+        await startInterview();
+
+    } catch (error) {
+        console.error('Erro ao acessar câmera/microfone:', error);
+        console.log('Tentando modo de teste como fallback...');
+        
+        // Fallback: usar modo de teste mesmo assim
+        API_CONFIG.TEST_MODE = true;
+        try {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1280;
+            canvas.height = 720;
+            const ctx = canvas.getContext('2d');
+            
+            ctx.fillStyle = '#1a1a1a';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#ff6b6b';
+            ctx.font = 'bold 36px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('⚠️ Modo de Teste', canvas.width / 2, canvas.height / 2 - 50);
+            
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '20px Arial';
+            ctx.fillText('Câmera não disponível - Continuando em modo teste', canvas.width / 2, canvas.height / 2 + 50);
+            
+            const stream = canvas.captureStream(30);
+            mediaStream = stream;
+            localVideo.srcObject = stream;
+
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            mediaRecorder = new MediaRecorder(mediaStream);
+            setupMediaRecorder();
+
+            setupModal.style.display = 'none';
+            videoContainer.style.display = 'flex';
+
+            await startInterview();
+        } catch (fallbackError) {
+            console.error('Erro no fallback de teste:', fallbackError);
+        }
+    }
+}
+
+/* =============================================== */
+/* ========== MODAL DE SETUP - FIM ============= */
+/* =============================================== */
+
+
+
+
+
 // ========== FUNÇÕES DE DOM ==========
 function addMessageToDOM(text, sender, analysis = null) {
     const messageDiv = document.createElement('div');

@@ -54,17 +54,12 @@
             </div>
         </div>
 
-        <!-- MAIN INTERVIEW AREA -->
-        <div class="interview-main">
-            <!-- SETUP MODAL -->
+        <!-- MODAL DE SETUP (Aparece primeiro) -->
+        <div class="setup-overlay" id="setupOverlay">
             <div class="setup-modal" id="setupModal">
                 <div class="setup-content">
                     <div class="setup-header">
-                        <button class="menu-toggle" id="menuToggle" title="Abrir menu">
-                            <i class="fas fa-bars"></i>
-                        </button>
                         <h1>SIMULAÇÃO DE ENTREVISTA</h1>
-                        <div style="width: 40px;"></div>
                     </div>
                     <p class="setup-subtitle">Tipo de entrevista:</p>
 
@@ -125,9 +120,12 @@
                     </div>
                 </div>
             </div>
+        </div>
 
+        <!-- MAIN INTERVIEW AREA (Escondida inicialmente) -->
+        <div class="interview-main" id="interviewMain" style="display: none;">
             <!-- VIDEO AREA -->
-            <div class="video-container" id="videoContainer" style="display: none;">
+            <div class="video-container" id="videoContainer">
                 <!-- Vídeo da câmera -->
                 <video id="localVideo" autoplay muted playsinline class="local-video"></video>
                 
@@ -180,7 +178,6 @@
     <script src="scriptfacial.js"></script>
     <script>
         // Menu toggle functionality
-        const menuToggle = document.getElementById('menuToggle');
         const menuToggleVideo = document.getElementById('menuToggleVideo');
         const sidebar = document.getElementById('sidebar');
         const sidebarOverlay = document.getElementById('sidebarOverlay');
@@ -190,21 +187,13 @@
         const closeSidebar = () => {
             sidebar.classList.remove('active');
             sidebarOverlay.classList.remove('active');
-            if (menuToggle) menuToggle.style.display = 'flex';
         };
 
         const toggleSidebar = () => {
             sidebar.classList.toggle('active');
             sidebarOverlay.classList.toggle('active');
-            
-            if (sidebar.classList.contains('active')) {
-                if (menuToggle) menuToggle.style.display = 'none';
-            } else {
-                if (menuToggle) menuToggle.style.display = 'flex';
-            }
         };
 
-        if (menuToggle) menuToggle.addEventListener('click', toggleSidebar);
         if (menuToggleVideo) menuToggleVideo.addEventListener('click', toggleSidebar);
 
         sidebarOverlay.addEventListener('click', closeSidebar);
@@ -214,25 +203,24 @@
             item.addEventListener('click', closeSidebar);
         });
 
-        // Redirecionar para homeLogin.html (ÚNICO LISTENER PARA O BOTÃO)
+        // Redirecionar para homeLogin.html
         if (backHomeBtn) {
             backHomeBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 console.log('Redirecionando para homeLogin.html...');
-                // Voltar para o diretório pai e depois para html/homeLogin.html
-                window.location.href = 'file:///C:/Users/znowf/Documents/Web Coding/Projeto-Excelencia-Start-Tech/html/homeLogin.html'; const currentPath = window.location.pathname;
-            });       const projectPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
-        }                window.location.href = projectPath + '/../html/homeLogin.html';
+                const currentPath = window.location.pathname;
+                const projectPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
+                window.location.href = projectPath + '/../html/homeLogin.html';
+            });
+        }
 
         // Nova simulação
         document.getElementById('newSimulationBtn')?.addEventListener('click', () => {
             closeSidebar();
-            // Aqui você pode adicionar lógica para nova simulaçãoument.getElementById('newSimulationBtn')?.addEventListener('click', () => {
-        });loseSidebar();
-    </script>     // Aqui você pode adicionar lógica para nova simulação
-</body>        });
-cript>
-</html></body>
-
-
+            // Mostrar o modal de setup novamente
+            document.getElementById('setupOverlay').style.display = 'flex';
+            document.getElementById('interviewMain').style.display = 'none';
+        });
+    </script>
+</body>
 </html>

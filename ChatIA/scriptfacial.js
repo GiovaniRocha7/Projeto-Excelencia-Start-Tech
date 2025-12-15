@@ -11,7 +11,9 @@ const API_CONFIG = {
 };
 
 // ========== ELEMENTOS DO DOM ==========
+const setupOverlay = document.getElementById('setupOverlay');
 const setupModal = document.getElementById('setupModal');
+const interviewMain = document.getElementById('interviewMain');
 const videoContainer = document.getElementById('videoContainer');
 const localVideo = document.getElementById('localVideo');
 const startInterviewBtn = document.getElementById('startInterviewBtn');
@@ -59,10 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function setupEventListeners() {
-    newSimulationBtn.addEventListener('click', showSetupModal);
-    backHomeBtn.addEventListener('click', goBackHome);
     startInterviewBtn.addEventListener('click', handleStartInterview);
-    toggleChatBtn.addEventListener('click', toggleChat);
+    newSimulationBtn.addEventListener('click', showSetupModal);
+    backHomeBtn?.addEventListener('click', goBackHome);
+    toggleChatBtn?.addEventListener('click', toggleChat);
     closeChatBtn.addEventListener('click', closeChat);
     endCallBtn.addEventListener('click', endInterview);
     toggleAudioBtn.addEventListener('click', toggleAudio);
@@ -71,9 +73,14 @@ function setupEventListeners() {
     chatInputForm.addEventListener('submit', sendTranscriptMessage);
 }
 
+/* =============================================== */
+/* ========== MODAL DE SETUP - INÍCIO ========== */
+/* =============================================== */
+
 // ========== SETUP MODAL ==========
 function showSetupModal() {
-    setupModal.style.display = 'flex';
+    setupOverlay.style.display = 'flex';
+    interviewMain.style.display = 'none';
 }
 
 async function handleStartInterview() {
@@ -132,7 +139,8 @@ async function handleStartInterview() {
         setupMediaRecorder();
 
         // Esconder modal e mostrar vídeo
-        setupModal.style.display = 'none';
+        setupOverlay.style.display = 'none';
+        interviewMain.style.display = 'flex';
         videoContainer.style.display = 'flex';
 
         // Iniciar entrevista
@@ -170,7 +178,8 @@ async function handleStartInterview() {
             mediaRecorder = new MediaRecorder(mediaStream);
             setupMediaRecorder();
 
-            setupModal.style.display = 'none';
+            setupOverlay.style.display = 'none';
+            interviewMain.style.display = 'flex';
             videoContainer.style.display = 'flex';
 
             await startInterview();
@@ -179,6 +188,10 @@ async function handleStartInterview() {
         }
     }
 }
+
+/* =============================================== */
+/* ========== MODAL DE SETUP - FIM ============= */
+/* =============================================== */
 
 // ========== ENTREVISTA ==========
 async function startInterview() {

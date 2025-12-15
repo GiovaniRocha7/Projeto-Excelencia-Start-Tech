@@ -43,29 +43,20 @@
             </div>
         </div>
 
-        <!-- MAIN CHAT -->
-        <div class="chat-main">
-            <!-- HEADER -->
-            <div class="chat-header">
-                <button class="menu-toggle" id="menuToggle" title="Abrir menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="chat-title" id="chatTitle">Simulação de Entrevista - Desenvolvedor</div>
-            </div>
-
-            <!-- SETUP MODAL -->
-            <div class="setup-modal" id="chatSetupModal" style="display: none;">
+        <!-- MODAL DE SETUP (Aparece primeiro) -->
+        <div class="setup-overlay" id="setupOverlay">
+            <div class="setup-modal" id="setupModal">
                 <div class="setup-content">
                     <div class="setup-header">
                         <h1>SIMULAÇÃO DE ENTREVISTA</h1>
-                        <div style="width: 40px;"></div>
                     </div>
-                    <p class="setup-subtitle">Preencha os dados para iniciar a simulação:</p>
+                    <p class="setup-subtitle">Tipo de entrevista:</p>
 
                     <div class="setup-form">
+                        <!-- Área Profissional -->
                         <div class="form-group">
-                            <label for="chatProfessionalArea">Área profissional:</label>
-                            <select id="chatProfessionalArea" class="form-select">
+                            <label for="professionalArea">Área profissional:</label>
+                            <select id="professionalArea" class="form-select">
                                 <option value="">Selecione uma área</option>
                                 <option value="desenvolvimento">Desenvolvedor de Software</option>
                                 <option value="marketing">Supervisor de Marketing</option>
@@ -78,19 +69,21 @@
                             </select>
                         </div>
 
+                        <!-- Nível de Dificuldade -->
                         <div class="form-group">
-                            <label for="chatDifficulty">Nível de dificuldade:</label>
-                            <select id="chatDifficulty" class="form-select">
+                            <label for="difficulty">Nível de dificuldade:</label>
+                            <select id="difficulty" class="form-select">
                                 <option value="facil">Fácil</option>
-                                <option value="medio" selected>Médio</option>
+                                <option value="medio">Médio</option>
                                 <option value="dificil">Difícil</option>
                                 <option value="expert">Expert</option>
                             </select>
                         </div>
 
+                        <!-- Tempo Estimado -->
                         <div class="form-group">
-                            <label for="chatDuration">Tempo estimado:</label>
-                            <select id="chatDuration" class="form-select">
+                            <label for="duration">Tempo estimado:</label>
+                            <select id="duration" class="form-select">
                                 <option value="15">15 min</option>
                                 <option value="30" selected>30 min</option>
                                 <option value="45">45 min</option>
@@ -98,21 +91,34 @@
                             </select>
                         </div>
 
+                        <!-- Tipo de Avaliação -->
                         <div class="form-group">
-                            <label for="chatEvaluationType">Tipo de Avaliação:</label>
-                            <select id="chatEvaluationType" class="form-select">
+                            <label for="evaluationType">Tipo de Avaliação:</label>
+                            <select id="evaluationType" class="form-select">
                                 <option value="tecnica">Técnica</option>
                                 <option value="comportamental">Comportamental</option>
-                                <option value="mista" selected>Mista</option>
+                                <option value="mista">Mista</option>
                             </select>
                         </div>
 
-                        <button type="button" class="btn-start" id="startChatInterviewBtn">
+                        <!-- Botão Iniciar -->
+                        <button type="button" class="btn-start" id="startInterviewBtn">
                             <i class="fas fa-play"></i>
                             Iniciar Simulação
                         </button>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- MAIN CHAT (Escondido inicialmente) -->
+        <div class="chat-main" id="chatMain" style="display: none;">
+            <!-- HEADER -->
+            <div class="chat-header">
+                <button class="menu-toggle" id="menuToggle" title="Abrir menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="chat-title" id="chatTitle">Simulação de Entrevista</div>
             </div>
 
             <!-- MESSAGES -->
@@ -150,15 +156,60 @@
     </div>
 
     <script>
-        function iniciarChat() {
-            fecharModalSimulacao();
-            mostrarLoader("Preparando entrevista com IA…");
-
+        /* =============================================== */
+        /* ========== MODAL DE SETUP - INÍCIO ========== */
+        /* =============================================== */
+        
+        // Elementos do modal de setup
+        const setupOverlay = document.getElementById('setupOverlay');
+        const setupModal = document.getElementById('setupModal');
+        const chatMain = document.getElementById('chatMain');
+        const startInterviewBtn = document.getElementById('startInterviewBtn');
+        const professionalAreaSelect = document.getElementById('professionalArea');
+        const difficultySelect = document.getElementById('difficulty');
+        const durationSelect = document.getElementById('duration');
+        const evaluationTypeSelect = document.getElementById('evaluationType');
+        const chatTitleElement = document.getElementById('chatTitle');
+        
+        // Função para iniciar a entrevista
+        startInterviewBtn.addEventListener('click', () => {
+            // Validar se uma área foi selecionada
+            if (!professionalAreaSelect.value) {
+                alert('Por favor, selecione uma área profissional antes de continuar.');
+                return;
+            }
+            
+            // Coletar dados da simulação
+            const simulationData = {
+                area: professionalAreaSelect.options[professionalAreaSelect.selectedIndex].text,
+                difficulty: difficultySelect.options[difficultySelect.selectedIndex].text,
+                duration: durationSelect.value,
+                evaluationType: evaluationTypeSelect.options[evaluationTypeSelect.selectedIndex].text
+            };
+            
+            // Atualizar título do chat
+            chatTitleElement.textContent = `Simulação de Entrevista - ${simulationData.area}`;
+            
+            // Esconder modal e mostrar chat
+            setupOverlay.style.display = 'none';
+            chatMain.style.display = 'flex';
+            
+            // Adicionar mensagem inicial da IA
             setTimeout(() => {
-                window.location.href = "chatbotui.html?mode=chat";
-            }, 800);
-        }
-
+                addMessage(
+                    `Olá! Bem-vindo à simulação de entrevista para ${simulationData.area}. ` +
+                    `Esta é uma entrevista ${simulationData.evaluationType} de nível ${simulationData.difficulty}. ` +
+                    `Vamos começar! Conte-me um pouco sobre você e sua experiência.`,
+                    false
+                );
+            }, 500);
+            
+            console.log('Iniciando simulação com:', simulationData);
+        });
+        
+        /* =============================================== */
+        /* ========== MODAL DE SETUP - FIM ============= */
+        /* =============================================== */
 
         // Menu toggle functionality
         const menuToggle = document.getElementById('menuToggle');

@@ -23,6 +23,145 @@ body {
     background: #0a0e27;
 }
 
+/* =============================================== */
+/* ========== MODAL DE SETUP - INÍCIO ========== */
+/* =============================================== */
+
+/* Overlay que cobre toda a tela */
+.setup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0e27 0%, #11213a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 24px;
+}
+
+/* ========== SETUP MODAL ========== */
+.setup-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.setup-content {
+    background: rgba(13, 17, 23, 0.9);
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 32px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.setup-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.setup-header h1 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #e0e6e8;
+    text-align: center;
+    flex: 1;
+}
+
+.setup-subtitle {
+    font-size: 1rem;
+    color: #8b949e;
+    margin: 16px 0;
+    text-align: center;
+}
+
+.setup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e0e6e8;
+}
+
+.form-select {
+    padding: 10px 12px;
+    background: rgba(29, 93, 80, 0.2);
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    color: #e0e6e8;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-select:hover {
+    border-color: rgba(0, 212, 255, 0.5);
+    background: rgba(29, 93, 80, 0.3);
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: #00d4ff;
+    background: rgba(29, 93, 80, 0.3);
+}
+
+.form-select option {
+    background: #0d1117;
+    color: #e0e6e8;
+}
+
+.btn-start {
+    padding: 12px 24px;
+    background: var(--cor-secundaria);
+    border: 1px solid #30363d;
+    color: #e0e6e8;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+}
+
+.btn-start:hover {
+    background: rgba(29, 93, 80, 0.8);
+    transform: scale(1.02);
+}
+
+.btn-start:active {
+    transform: scale(0.98);
+}
+
+/* =============================================== */
+/* ========== MODAL DE SETUP - FIM ============= */
+/* =============================================== */
+
 /* SIDEBAR */
 .sidebar {
     width: 260px;
