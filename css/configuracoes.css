@@ -694,8 +694,9 @@ footer::before {
 /* Estilo do botão flutuante */
 #toggleReader {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
     background-color: #0080ff;
     color: white;
     border: none;
@@ -725,8 +726,9 @@ footer::before {
 /* Estilo do alerta visual */
 .tts-alerta {
     position: fixed;
-    bottom: 90px;
-    right: 20px;
+    top: 50%;
+    left: 90px;
+    transform: translateY(-50%);
     background-color: #323232;
     color: white;
     padding: 12px 18px;
