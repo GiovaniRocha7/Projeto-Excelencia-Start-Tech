@@ -1,184 +1,228 @@
-# [![excelencia-logo-1-1.png](https://i.postimg.cc/Bb9J7BPk/excelencia-logo-1-1.png)](https://postimg.cc/47PCmt5Q)
 
-## 📋 Índice
+<p align="center">
+  <img 
+    src="assets/tema escuro/logo-excelencia.PNG"
+    alt="Logo da ExcelencIA"
+    width="300"
+  >
+</p>
 
-- [Visão Geral](#-visão-geral)
-- [Funcionalidades](#-funcionalidades)
-- [Tecnologias](#-tecnologias)
-- [Instalação](#-instalação)
-- [Configuração](#-configuração)
-- [Uso](#-uso)
-- [API](#-api)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Scripts](#-scripts)
-- [Contribuição](#-contribuição)
 
-## 🎯 Visão Geral
+# 🎯 ExcelencIA – Plataforma Inteligente de Simulação de Entrevistas
 
-ExcelencIA é uma plataforma desenvolvida para ajudar pessoas a se prepararem para o mercado de trabalho utilizando o poder da Inteligência Artificial.
+## 📑 Índice
 
-A proposta é simples e poderosa: oferecer um ambiente seguro e realista para que candidatos possam simular entrevistas de emprego, receber feedbacks assertivos e desenvolver autoconfiança para se destacar em processos seletivos reais.
+1. [Sobre o Projeto](#-sobre-o-projeto)
+2. [Missão, Visão e Valores](#-missão-visão-e-valores)
+3. [Características Principais](#-características-principais)
+4. [Stack Tecnológica](#-stack-tecnológica)
+5. [Funcionalidades](#-funcionalidades)
+6. [Estrutura do Projeto](#-estrutura-do-projeto)
+7. [Quick Start](#-quick-start)
+8. [Testes e Limitações](#-testes-e-limitações)
+9. [Roadmap](#-roadmap)
+10. [Equipe ExcelencIA](#-equipe-excelencia)
+11. [Licença](#-licença)
 
-### ✨ Principais Características
+---
 
-As funcionalidades desse projeto são:
+# 🎯 ExcelencIA – Plataforma Inteligente de Simulação de Entrevistas
 
-- 🧠 Simulação de entrevistas reais com IA no papel de recrutador
+> **Projeto de finalização da Imersão Start Tech – edição Back-End**
 
-- 🗣️ Perguntas baseadas em diferentes cargos e níveis de experiência
+O **ExcelencIA** é uma plataforma web desenvolvida para auxiliar pessoas a superarem a insegurança em entrevistas de emprego por meio de simulações com Inteligência Artificial, oferecendo feedback estruturado com foco em comunicação e evolução profissional.
 
-- 📊 Feedbacks inteligentes e personalizados
+---
 
-- 📈 Identificação de pontos fortes e oportunidades de melhoria
+## 📋 Sobre o Projeto
 
-- 💬 Desenvolvimento de comunicação, postura e autoconfiança
+A ideia do ExcelencIA nasceu a partir de experiências reais vividas pela equipe, que identificou a falta de um ambiente simples, seguro e acessível para treinar entrevistas. Muitos candidatos possuem conhecimento técnico, mas enfrentam dificuldades na comunicação, postura e controle da ansiedade durante processos seletivos.
+
+O projeto propõe uma solução prática: **simular entrevistas de emprego com IA no papel de recrutador**, analisar o desempenho do usuário e fornecer feedback claro e objetivo, permitindo evolução contínua.
+
+---
+
+## 🌟 Missão, Visão e Valores
+
+**Missão**
+Tornar a preparação para entrevistas mais acessível, ajudando as pessoas a perderem o medo das entrevistas.
+
+**Visão**
+Ser referência no desenvolvimento profissional, utilizando IA de forma acolhedora e inclusiva.
+
+**Valores**
+Empatia • Clareza • Evolução Contínua • Inovação
+
+---
+
+## 🎯 Características Principais
+
+* 🤖 Simulação de entrevistas com IA atuando como recrutador
+* 🗣️ Análise de comunicação verbal baseada em CA e CNV
+* 📑 Feedback automático e estruturado
+* 📊 Relatórios claros focados na evolução do usuário
+* 🔐 Sistema de autenticação e planos de uso
+* 📱 Interface responsiva (mobile-first)
+
+---
+
+## 🛠️ Stack Tecnológica
+
+### Frontend
+
+* HTML5
+* CSS3
+* JavaScript (ES6+)
+
+### Backend
+
+* Node.js
+* API REST
+
+### Banco de Dados e Serviços
+
+* PostgreSQL
+* Serviços de LLM (Large Language Models)
+* Engenharia de Prompt
+
+---
 
 ## 🚀 Funcionalidades
 
-### 👨‍💼 Para Funcionários
+### 🏠 Página Inicial
 
-#### Dashboard
-- ✅ Estatísticas gerais do sistema
-- ✅ Contratos expirando em 30 dias
-- ✅ Gráficos de performance
-- ✅ Acesso rápido às principais funcionalidades
+* Apresentação da plataforma
+* Acesso ao cadastro e login
 
-----------------------  **Restante das funcionalidades**
+### 🔐 Autenticação de Usuários
 
+* Cadastro e login
+* Controle de sessão
+* Área do usuário com histórico de simulações
 
-## 🛠️ Tecnologias
+### 🎙️ Simulação de Entrevistas
 
-### Backend
-- **Node.js** - Runtime JavaScript
-- **Postgres** - Banco de dados relacional
+* Perguntas dinâmicas baseadas em cargo e nível
+* IA no papel de recrutador
+* Captura de áudio (em fase de testes)
+* Análise verbal e comportamental simulada
 
-### Frontend
-- **HTML5** - Estrutura semântica
-- **CSS3** - Estilização moderna com variáveis CSS
-- **JavaScript ES6+** - Lógica da interface
-- **Responsive Design** - Mobile-first
+### 📑 Feedback Inteligente
 
-## 📦 Instalação
+* Avaliação de critérios como:
 
-### Pré-requisitos
-- Node.js 18+ 
-- PostgreSQL 17.7+
+  * Comunicação
+  * Postura
+  * Conteúdo
+  * Expressão facial (em evolução)
+  * Tom de voz (em evolução)
 
-### 1. Clone o repositório
-```bash
-git clone <url-do-repositorio>
-cd Projeto-Excelencia-Start-Tech
-```
+### 💼 Planos de Uso
 
-### 2. Instale as dependências
-```bash
-```
+* Gratuito
+* Premium
+* Profissional (em desenvolvimento)
 
-### 3. Configure o banco de dados
-```bash
-# Configure a variável DATABASE_URL no arquivo .env
-# Exemplo: DATABASE_URL="mysql://usuario:senha@localhost:3306/dg_contracts"
-```
-
-## ⚙️ Configuração
-
-### Configuração do Banco de Dados
-
-O sistema utiliza PostgresSQL como Banco de dados. Segue abaixo a estrutura criada:
-
-```sql
-model Employee {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-```
-
-## 🎮 Uso
-
-### Login como Funcionário
-1. Acesse a interface web
-2. Selecione "Funcionário" no tipo de usuário
-3. Use as credenciais de um funcionário cadastrado
-4. Após o login, será redirecionado automaticamente para o dashboard
-
-## 🔌 API
-
-### Autenticação
-```http
-POST /auth/employee/login
-POST /auth/client/login
-POST /auth/employee/register
-```
-
---------- Restante dos endpoints da API
+---
 
 ## 📁 Estrutura do Projeto
 
-### Frontend
-
 ```
-Projeto-Excelencia-Start-Tech/
-│
-├── index.html                # Página inicial da aplicação
-│
-├── html/                     # Páginas HTML secundárias do sistema
-│   ├── login.html            # Tela de login do usuário
-│   ├── cadastro.html         # Tela de cadastro
-│   ├── entrevista.html       # Simulação de entrevista
-│   └── pagamento.html        # Página de pagamento
-│
-├── css/                      # Estilos principais da aplicação
-│   └── style.css
-│
-├── estilosSecundarios/       # Estilos específicos por página/componente
-│
-├── js/                       # Lógica e interatividade em JavaScript
-│   ├── scripts.js            # Scripts gerais
-│   └── validacoes.js         # Validações de formulários
-│
-├── ChatIA/                   # Protótipo ou simulação do chat com IA
-│
-├── Pagina Pagamentos/        # Estrutura visual do fluxo de pagamentos
-│
-├── assets/                   # Recursos estáticos (imagens, ícones, mídias)
-│
-├── Font/                     # Fontes customizadas do projeto
-│
-├── TESTES/                   # Testes e protótipos de funcionalidades
-│
-├── .vscode/                  # Configurações do VS Code
-│
-└── README.md                 # Documentação do projeto
-
+PROJETO-EXCELENCIA-START-TECH/
+├── .vscode/                 # Configurações do ambiente de desenvolvimento
+├── assets/                  # Recursos visuais e temas
+│   ├── elementosForms/      # Elementos reutilizáveis de formulários
+│   ├── tema claro/          # Estilos do tema claro
+│   ├── tema escuro/         # Estilos do tema escuro
+│   └── ChatIA/              # Assets relacionados ao chat com IA
+├── css/                     # Estilos principais da aplicação
+├── estilosSecundarios/      # Estilos complementares
+├── Font/                    # Fontes customizadas
+├── html/                    # Páginas HTML do sistema
+├── js/                      # Scripts JavaScript e lógica da aplicação
+├── Pagina Pagamentos/       # Telas e lógica de planos e pagamentos
+├── TESTES/                  # Testes e validações internas
+├── index.html               # Página inicial da aplicação
+└── readme.md                # Documentação do projeto
 ```
 
-### Backend
----- Colocar estrutura da pasta
+---
 
+## ⚡ Quick Start
 
+### Pré-requisitos
 
-## 🤝 Contribuição
+* Node.js 18+
+* PostgreSQL
+* Git
 
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
+### 🔧 Instalação
 
-### Padrões de Código
-- **Comentários**: Sempre em português
-- **Funções**: Documentação JSDoc completa
-- **Variáveis**: Nomes descritivos em português
-- **Estrutura**: Organização por funcionalidade
+1. Clone o repositório
 
-## 🆘 Suporte
+```bash
+git clone https://github.com/seu-usuario/excelencia.git
+cd PROJETO-EXCELENCIA-START-TECH
+```
 
-Para suporte e dúvidas:
-- Abra uma issue no repositório
-- Consulte a documentação da API
-- Verifique os logs da aplicação
+2. Execute o projeto
+
+```bash
+# Projeto frontend estático
+Abra o arquivo index.html em um navegador
+```
+
+> A integração completa com backend e banco de dados está prevista para iterações futuras.
+
+---
+
+## 🧪 Testes e Limitações
+
+O ExcelencIA foi desenvolvido como um **Produto Mínimo Viável (MVP)** em aproximadamente um mês e meio. Algumas funcionalidades avançadas, como análise facial aprofundada, tom de voz e painel completo de evolução, estão planejadas para versões futuras.
+
+Os testes realizados focaram na validação qualitativa dos feedbacks gerados pela IA, garantindo clareza, coerência e utilidade prática.
+
+---
+
+## 🚀 Roadmap
+
+* 🎭 Avatares 3D para maior imersão
+* 📱 Aplicativo mobile
+* 🧠 Aprimoramento da análise facial e tom de voz
+
+---
+
+## 👨‍💻 Equipe ExcelencIA
+
+* Ana – Desenvolvedora Back-End
+* Daniela – Designer e Desenvolvedora Front-End
+* Giovani – Desenvolvedor Back-End
+* Maria – Desenvolvedora Back-End e IA
+* Tainá – Desenvolvedora Full-Stack
+
+## 👨‍💻 Autores
+
+**Daniela Alves** - *UX & UI, Desenvolvedora Front-End*
+- GitHub: [@dani3llla](https://github.com/dani3llla)
+- Projeto: [Projeto-Excelencia-Start-Tech](https://github.com/dani3llla/Projeto-Excelencia-Start-Tech)
+
+**Ana Pinheiro** - *Desenvolvimento Fullstack*
+- GitHub: [@anapinheiiro](https://github.com/anapinheiiro)
+
+**Giovani Rocha** - *Desenvolvimento Fullstack*
+- GitHub: [@giovanirocha-grv](https://github.com/giovanirocha-grv)
+
+**Maria F. Dias** - *Arquiteto de Cloud*
+- GitHub: [@maria0fernanda0](https://github.com/maria0fernanda0)
+
+**Tainá Leitão** - *UX Designer*
+- GitHub: [@Taigasi](https://github.com/Taigasi)
+---
+
+## 📄 Licença
+
+Este projeto foi desenvolvido como **Projeto Final da Imersão Start-Tech – edição Back-End**.
+
+---
+
+✨ **ExcelencIA** — Transformando insegurança em preparo para entrevistas de emprego.
