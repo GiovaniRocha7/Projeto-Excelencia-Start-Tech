@@ -192,30 +192,22 @@ Os testes realizados focaram na validação qualitativa dos feedbacks gerados pe
 
 ---
 
-## 👨‍💻 Equipe ExcelencIA
-
-* Ana – Desenvolvedora Back-End
-* Daniela – Designer e Desenvolvedora Front-End
-* Giovani – Desenvolvedor Back-End
-* Maria – Desenvolvedora Back-End e IA
-* Tainá – Desenvolvedora Full-Stack
-
 ## 👨‍💻 Autores
 
-**Daniela Alves** - *UX & UI, Desenvolvedora Front-End*
+**Daniela Alves** - *UX & UI, Desenvolvimento Front-End*
 - GitHub: [@dani3llla](https://github.com/dani3llla)
 - Projeto: [Projeto-Excelencia-Start-Tech](https://github.com/dani3llla/Projeto-Excelencia-Start-Tech)
 
-**Ana Pinheiro** - *Desenvolvimento Fullstack*
+**Ana Pinheiro** - *Desenvolvimento Back-End*
 - GitHub: [@anapinheiiro](https://github.com/anapinheiiro)
 
-**Giovani Rocha** - *Desenvolvimento Fullstack*
+**Giovani Rocha** - *Desenvolvimento Back-End*
 - GitHub: [@giovanirocha-grv](https://github.com/giovanirocha-grv)
 
-**Maria F. Dias** - *Arquiteto de Cloud*
+**Maria F. Dias** - *Desenvolvimento Back-End & IA*
 - GitHub: [@maria0fernanda0](https://github.com/maria0fernanda0)
 
-**Tainá Leitão** - *UX Designer*
+**Tainá Leitão** - *Desenvolvimento Full-Stack*
 - GitHub: [@Taigasi](https://github.com/Taigasi)
 ---
 
