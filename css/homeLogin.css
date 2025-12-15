@@ -18,7 +18,7 @@
 
 body {
     font-family: 'Montserrat', 'Lexend', sans-serif;
-    background: linear-gradient(135deg, #011936 0%, #0a0e27 100%);
+    background: var(--cor-fundo);
     color: var(--texto);
     min-height: 100vh;
     margin: 0;
@@ -31,7 +31,7 @@ button {
     cursor: pointer;
 }
 
-/* =============== HEADER/NAVBAR =============== */
+/* =============== HEADER/NAVBAR (INÍCIO) =============== */
 .botoes-maiores {
     font-size: 18px;
 }
@@ -194,6 +194,8 @@ button:hover {
         width: 100% !important;
     }
 }
+
+/* =============== HEADER/NAVBAR (FIM) =============== */
 
 /* =============== MAIN CONTENT =============== */
 main {
@@ -1185,13 +1187,13 @@ footer::before {
 /* .............. LOADER HOME LOGIN ...............  */
 
 
-
 /* .................BOTAO TTS........................ */
 /* Estilo do botão flutuante */
 #toggleReader {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
     background-color: #0080ff;
     color: white;
     border: none;
@@ -1221,8 +1223,9 @@ footer::before {
 /* Estilo do alerta visual */
 .tts-alerta {
     position: fixed;
-    bottom: 90px;
-    right: 20px;
+    top: 50%;
+    left: 90px;
+    transform: translateY(-50%);
     background-color: #323232;
     color: white;
     padding: 12px 18px;
@@ -1266,14 +1269,10 @@ footer::before {
 /* ............BOTAO DE RECURSOS DE ACESSIBILIDADE ELFSIGHT.............  */
 .elfsight-app-2f82fd5e-01d9-4a2c-8a3b-3eef8d8a7bbe {
     position: fixed !important;
-    bottom: 20px;
-    /* distância do rodapé */
-    right: 20px;
-    /* distância da lateral */
-    z-index: 9999;
-    /* garante que fique acima do conteúdo */
+    bottom: 20px; /* distância do rodapé */
+    right: 20px;  /* distância da lateral */
+    z-index: 9999; /* garante que fique acima do conteúdo */
     min-height: auto !important;
     width: auto !important;
 }
-
 /* ............FIM - BOTAO DE RECURSOS DE ACESSIBILIDADE ELFSIGHT.............  */

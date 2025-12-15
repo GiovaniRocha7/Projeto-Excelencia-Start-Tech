@@ -53,6 +53,68 @@
                 <div class="chat-title" id="chatTitle">Simulação de Entrevista - Desenvolvedor</div>
             </div>
 
+            <!-- SETUP MODAL -->
+            <div class="setup-modal" id="chatSetupModal" style="display: none;">
+                <div class="setup-content">
+                    <div class="setup-header">
+                        <h1>SIMULAÇÃO DE ENTREVISTA</h1>
+                        <div style="width: 40px;"></div>
+                    </div>
+                    <p class="setup-subtitle">Preencha os dados para iniciar a simulação:</p>
+
+                    <div class="setup-form">
+                        <div class="form-group">
+                            <label for="chatProfessionalArea">Área profissional:</label>
+                            <select id="chatProfessionalArea" class="form-select">
+                                <option value="">Selecione uma área</option>
+                                <option value="desenvolvimento">Desenvolvedor de Software</option>
+                                <option value="marketing">Supervisor de Marketing</option>
+                                <option value="vendas">Gerente de Vendas</option>
+                                <option value="rh">Analista de RH</option>
+                                <option value="design">Designer UX/UI</option>
+                                <option value="dados">Analista de Dados</option>
+                                <option value="produto">Product Manager</option>
+                                <option value="financeiro">Analista Financeiro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="chatDifficulty">Nível de dificuldade:</label>
+                            <select id="chatDifficulty" class="form-select">
+                                <option value="facil">Fácil</option>
+                                <option value="medio" selected>Médio</option>
+                                <option value="dificil">Difícil</option>
+                                <option value="expert">Expert</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="chatDuration">Tempo estimado:</label>
+                            <select id="chatDuration" class="form-select">
+                                <option value="15">15 min</option>
+                                <option value="30" selected>30 min</option>
+                                <option value="45">45 min</option>
+                                <option value="60">60 min</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="chatEvaluationType">Tipo de Avaliação:</label>
+                            <select id="chatEvaluationType" class="form-select">
+                                <option value="tecnica">Técnica</option>
+                                <option value="comportamental">Comportamental</option>
+                                <option value="mista" selected>Mista</option>
+                            </select>
+                        </div>
+
+                        <button type="button" class="btn-start" id="startChatInterviewBtn">
+                            <i class="fas fa-play"></i>
+                            Iniciar Simulação
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <!-- MESSAGES -->
             <div class="messages-area" id="messagesArea">
                 <div class="empty-state">
