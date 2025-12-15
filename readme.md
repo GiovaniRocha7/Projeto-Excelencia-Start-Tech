@@ -133,8 +133,8 @@ PROJETO-EXCELENCIA-START-TECH/
 ├── assets/                  # Recursos visuais e temas
 │   ├── elementosForms/      # Elementos reutilizáveis de formulários
 │   ├── tema claro/          # Estilos do tema claro
-│   ├── tema escuro/         # Estilos do tema escuro
-│   └── ChatIA/              # Assets relacionados ao chat com IA
+│   └── tema escuro/         # Estilos do tema escuro
+├── ChatIA/              # Assets relacionados ao chat com IA
 ├── css/                     # Estilos principais da aplicação
 ├── estilosSecundarios/      # Estilos complementares
 ├── Font/                    # Fontes customizadas
